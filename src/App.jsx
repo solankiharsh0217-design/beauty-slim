@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
-import Footer from './components/Footer'
+import Footer from './components/Footer.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 import Home from './pages/Home'
 import Servizi from './pages/Servizi'
 import ChiSiamo from './pages/ChiSiamo'
@@ -8,11 +9,11 @@ import Tecnologie from './pages/Tecnologie'
 import Contatti from './pages/Contatti'
 import Gallery from './pages/Gallery'
 
-
 function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
+        <ScrollToTop />
         <Navbar />
         <main className="flex-1">
           <Routes>

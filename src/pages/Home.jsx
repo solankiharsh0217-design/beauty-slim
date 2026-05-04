@@ -337,6 +337,58 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── HOW IT WORKS ─────────────────────────────────────── */}
+      <section className="py-28 bg-secondary overflow-hidden">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-8 bg-primary" />
+              <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Come Funziona</span>
+              <div className="h-px w-8 bg-primary" />
+            </div>
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white">
+              Da zero al tuo <span className="text-primary italic">risultato</span>
+            </h2>
+            <p className="text-white/60 mt-4 max-w-xl mx-auto text-sm leading-relaxed">
+              Un processo semplice, trasparente e pensato per metterti sempre a tuo agio.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            {/* Connector line - desktop only */}
+            <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-primary/30" />
+            {[
+              { step: '01', title: 'Prenota', desc: 'Compila il form o scrivici su WhatsApp. La consulenza iniziale è sempre gratuita.' },
+              { step: '02', title: 'Consulenza', desc: 'Incontriamoci: ti ascoltiamo, valutiamo le tue esigenze e costruiamo un piano su misura.' },
+              { step: '03', title: 'Trattamento', desc: 'Iniziamo il tuo percorso con tecnologie selezionate e un team sempre presente.' },
+              { step: '04', title: 'Risultati', desc: 'Vedi i risultati nel tempo con un approccio progressivo, realistico e duraturo.' },
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                className="text-center relative z-10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.12 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-20 h-20 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center mx-auto mb-5 relative">
+                  <span className="font-playfair text-2xl font-bold text-primary">{item.step}</span>
+                </div>
+                <h3 className="font-playfair text-xl font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-white/55 text-sm leading-relaxed max-w-[200px] mx-auto">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center mt-14">
+            <Link
+              to="/contatti"
+              className="inline-flex items-center gap-2 px-9 py-4 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/30"
+            >
+              Inizia Ora — È Gratuito <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── TESTIMONIALS ─────────────────────────────────────── */}
       <section className="py-28 bg-[#faf8f6]">
         <div className="max-w-7xl mx-auto px-5">

@@ -45,73 +45,64 @@ export default function Home() {
         {/* Background */}
         <div className="absolute inset-0">
           <img src={IMAGES.hero} alt="Beauty Slim" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
         </div>
 
-        {/* Decorative line */}
-        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-primary to-transparent opacity-60" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 w-full">
-          <div className="max-w-2xl">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex items-center min-h-screen">
+          <div className="max-w-xl pt-24 pb-16">
             {/* Label */}
             <motion.div
-              className="flex items-center gap-3 mb-6"
+              className="flex items-center gap-3 mb-5"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="h-px w-10 bg-primary" />
-              <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase">
+              <div className="h-px w-8 bg-primary" />
+              <span className="text-primary font-medium tracking-[0.2em] text-[11px] uppercase">
                 Beauty Slim · Alessandria
               </span>
             </motion.div>
 
             {/* Headline */}
             <motion.h1
-              className="font-playfair text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-white mb-6"
+              className="font-playfair text-4xl md:text-5xl font-bold leading-[1.15] text-white mb-5"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
             >
-              Bellezza che{' '}
-              <span className="italic text-primary">trasforma,</span>
+              Bellezza che <span className="italic text-primary">trasforma.</span>
               <br />
-              cura che{' '}
-              <span className="relative inline-block">
-                <span className="relative z-10">dura.</span>
-                <span className="absolute bottom-1 left-0 right-0 h-2 bg-primary/30 -skew-x-2" />
-              </span>
+              Cura che <span className="italic text-primary">dura.</span>
             </motion.h1>
 
             {/* Subtitle */}
             <motion.p
-              className="text-white/75 text-lg md:text-xl leading-relaxed mb-10 max-w-lg"
+              className="text-white/70 text-base leading-relaxed mb-8 max-w-md"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
             >
-              Trattamenti per viso, corpo ed epilazione laser in un centro pensato per
-              offrirti <strong className="text-white font-medium">consulenza, precisione e benessere</strong> in ogni seduta.
+              Trattamenti viso, corpo ed epilazione laser in un centro elegante ad Alessandria. Consulenza gratuita, percorsi su misura.
             </motion.p>
 
             {/* CTAs */}
             <motion.div
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-3 mb-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <Link
                 to="/contatti"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-full font-semibold text-sm tracking-wide hover:bg-primary-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/30"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/30"
               >
                 Prenota Consulenza Gratuita
-                <ArrowRight size={16} />
+                <ArrowRight size={15} />
               </Link>
               <Link
                 to="/servizi"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-white/50 text-white rounded-full font-medium text-sm hover:bg-white/10 hover:border-white transition-all duration-300 backdrop-blur-sm"
+                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/40 text-white rounded-full font-medium text-sm hover:bg-white/10 hover:border-white transition-all duration-300"
               >
                 Scopri i Servizi
               </Link>
@@ -119,7 +110,7 @@ export default function Home() {
 
             {/* Trust micro-badges */}
             <motion.div
-              className="flex flex-wrap gap-6 mt-10 pt-10 border-t border-white/20"
+              className="flex flex-wrap gap-5 pt-8 border-t border-white/15"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -129,8 +120,8 @@ export default function Home() {
                 { icon: Star, text: '500+ clienti soddisfatte' },
                 { icon: MapPin, text: 'Via Trotti 69, Alessandria' },
               ].map((b) => (
-                <div key={b.text} className="flex items-center gap-2 text-white/70 text-sm">
-                  <b.icon size={15} className="text-primary shrink-0" />
+                <div key={b.text} className="flex items-center gap-2 text-white/60 text-xs">
+                  <b.icon size={13} className="text-primary shrink-0" />
                   <span>{b.text}</span>
                 </div>
               ))}
@@ -138,14 +129,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 text-xs tracking-widest">
-          <motion.div
-            className="w-px h-10 bg-gradient-to-b from-white/40 to-transparent"
-            animate={{ scaleY: [1, 0.5, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
-        </div>
+
       </section>
 
       {/* ── STATS BAND ───────────────────────────────────────── */}

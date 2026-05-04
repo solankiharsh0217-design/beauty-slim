@@ -75,6 +75,22 @@ export default function HeroSlider() {
         </motion.div>
       </AnimatePresence>
 
+      {/* Rotating circle artifacts */}
+      <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
+        {/* Large slow outer ring */}
+        <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full border border-primary/15 animate-[spin_30s_linear_infinite]" />
+        {/* Medium ring */}
+        <div className="absolute -top-16 -right-16 w-[400px] h-[400px] rounded-full border border-primary/20 animate-[spin_20s_linear_infinite_reverse]" />
+        {/* Small inner ring with dashes */}
+        <div className="absolute top-0 right-0 w-[250px] h-[250px] rounded-full border-2 border-dashed border-primary/25 animate-[spin_12s_linear_infinite]" />
+        {/* Glowing orb */}
+        <div className="absolute top-10 right-10 w-40 h-40 rounded-full bg-primary/5 blur-2xl animate-[spin_8s_linear_infinite_reverse]" />
+
+        {/* Bottom-left decorative rings */}
+        <div className="absolute -bottom-20 -left-20 w-[350px] h-[350px] rounded-full border border-primary/10 animate-[spin_25s_linear_infinite]" />
+        <div className="absolute -bottom-8 -left-8 w-[200px] h-[200px] rounded-full border border-dashed border-primary/15 animate-[spin_15s_linear_infinite_reverse]" />
+      </div>
+
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <div className="max-w-xl pt-24 pb-16">

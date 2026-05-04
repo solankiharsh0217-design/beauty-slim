@@ -16,8 +16,8 @@ function App() {
     <Router>
       <div className="min-h-screen flex flex-col">
         <ScrollToTop />
-        <PromosBanner />
         <Navbar />
+        <PromosBanner />
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />

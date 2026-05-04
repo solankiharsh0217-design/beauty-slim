@@ -12,18 +12,20 @@ import Gallery from './pages/Gallery'
 function App() {
   return (
     <Router>
-      <div className="app">
+      <div className="min-h-screen flex flex-col">
         <Navbar />
-        <AnimatePresence mode="wait">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/servizi" element={<Servizi />} />
-            <Route path="/chi-siamo" element={<ChiSiamo />} />
-            <Route path="/tecnologie" element={<Tecnologie />} />
-            <Route path="/contatti" element={<Contatti />} />
-            <Route path="/gallery" element={<Gallery />} />
-          </Routes>
-        </AnimatePresence>
+        <main className="flex-1">
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/servizi" element={<Servizi />} />
+              <Route path="/chi-siamo" element={<ChiSiamo />} />
+              <Route path="/tecnologie" element={<Tecnologie />} />
+              <Route path="/contatti" element={<Contatti />} />
+              <Route path="/gallery" element={<Gallery />} />
+            </Routes>
+          </AnimatePresence>
+        </main>
         <Footer />
       </div>
     </Router>

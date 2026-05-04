@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import './Navbar.css'
 
 const navLinks = [
   { path: '/', label: 'Home' },
@@ -28,18 +27,22 @@ export default function Navbar() {
   }, [location])
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
-          Beauty <span>Slim</span>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
+      <div className="max-w-7xl mx-auto px-5 flex items-center justify-between">
+        <Link to="/" className="font-playfair text-2xl font-bold text-secondary">
+          Beauty <span className="text-primary">Slim</span>
         </Link>
 
-        <ul className="navbar-links">
+        <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.path}>
-              <Link 
-                to={link.path} 
-                className={location.pathname === link.path ? 'active' : ''}
+              <Link
+                to={link.path}
+                className={`font-poppins text-sm font-medium transition-colors duration-200 relative pb-1 ${
+                  location.pathname === link.path
+                    ? 'text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
+                    : 'text-secondary hover:text-primary'
+                }`}
               >
                 {link.label}
               </Link>
@@ -47,41 +50,49 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <Link to="/contatti" className="navbar-cta btn">
+        <Link
+          to="/contatti"
+          className="hidden md:inline-flex items-center px-6 py-3 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary-dark transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+        >
           Prenota Ora
         </Link>
 
-        <button 
-          className="navbar-toggle"
+        <button
+          className="md:hidden p-2 text-secondary"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.div 
-              className="navbar-mobile"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-            >
-              {navLinks.map((link) => (
-                <Link 
-                  key={link.path}
-                  to={link.path}
-                  className={location.pathname === link.path ? 'active' : ''}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Link to="/contatti" className="btn">
-                Prenota Ora
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg py-6 px-5 flex flex-col gap-4"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-base font-medium py-2 border-b border-gray-100 ${
+                  location.pathname === link.path ? 'text-primary' : 'text-secondary'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              to="/contatti"
+              className="mt-2 inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full text-sm font-medium"
+            >
+              Prenota Ora
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }

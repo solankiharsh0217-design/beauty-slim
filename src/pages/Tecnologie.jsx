@@ -1,118 +1,88 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Thermometer, Zap, Scan, Droplets, CheckCircle, ArrowRight } from 'lucide-react'
-import './Tecnologie.css'
-import bodySculpting from '../assets/generated/body-sculpting-treatment.png'
-import laserTreatment from '../assets/generated/laser-hair-removal-treatment.png'
-import facialTreatment from '../assets/generated/facial-skincare-treatment.png'
-import clinicInterior from '../assets/generated/clinic-interior-reception.png'
+
+const IMAGES = {
+  body: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80',
+  clinic: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80',
+  laser: 'https://images.unsplash.com/photo-1598524374912-f5fd5e6b6d55?w=600&q=80',
+  facial: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80',
+}
 
 const technologies = [
   {
-    icon: Thermometer,
-    title: 'QQN System',
-    subtitle: 'Percorsi corpo con supporto tecnologico',
+    icon: Thermometer, title: 'QQN System', subtitle: 'Percorsi corpo con supporto tecnologico', image: IMAGES.body,
     description: 'Una tecnologia pensata per accompagnare i percorsi di rimodellamento con maggiore continuita, comfort e metodo.',
-    image: bodySculpting,
-    features: [
-      'Approccio progressivo al trattamento',
-      'Supporto nei percorsi corpo',
-      'Comfort durante la seduta',
-      'Lavoro su obiettivi mirati',
-      'Esperienza ordinata e guidata',
-      'Integrazione con altri protocolli'
-    ]
+    features: ['Approccio progressivo al trattamento','Supporto nei percorsi corpo','Comfort durante la seduta','Lavoro su obiettivi mirati','Esperienza ordinata e guidata','Integrazione con altri protocolli'],
   },
   {
-    icon: Zap,
-    title: 'Infrabaldan 3.0',
-    subtitle: 'Tecnologia avanzata per il corpo',
+    icon: Zap, title: 'Infrabaldan 3.0', subtitle: 'Tecnologia avanzata per il corpo', image: IMAGES.clinic,
     description: 'Uno strumento orientato al lavoro su silhouette, tonicita e definizione, inserito in percorsi costruiti su misura.',
-    image: clinicInterior,
-    features: [
-      'Ridefinizione di aree mirate',
-      'Percorsi personalizzati',
-      'Supporto alla tonicita',
-      'Integrazione con trattamenti corpo',
-      'Metodo calibrato sulle esigenze',
-      'Continuita nel tempo'
-    ]
+    features: ['Ridefinizione di aree mirate','Percorsi personalizzati','Supporto alla tonicita','Integrazione con trattamenti corpo','Metodo calibrato sulle esigenze','Continuita nel tempo'],
   },
   {
-    icon: Scan,
-    title: 'Laser Diodo',
-    subtitle: 'Epilazione progressiva e professionale',
+    icon: Scan, title: 'Laser Diodo', subtitle: 'Epilazione progressiva e professionale', image: IMAGES.laser,
     description: 'Un servizio laser pensato per offrirti precisione, continuita e maggiore serenita durante tutto il percorso.',
-    image: laserTreatment,
-    features: [
-      'Protocollo per viso e corpo',
-      'Valutazione iniziale accurata',
-      'Indicazioni chiare tra una seduta e l’altra',
-      'Maggiore uniformita della pelle',
-      'Comfort durante il trattamento',
-      'Percorso organizzato e progressivo'
-    ]
+    features: ['Protocollo per viso e corpo','Valutazione iniziale accurata','Indicazioni chiare tra una seduta e l\'altra','Maggiore uniformita della pelle','Comfort durante il trattamento','Percorso organizzato e progressivo'],
   },
   {
-    icon: Droplets,
-    title: 'Slim Press',
-    subtitle: 'Benessere e drenaggio',
+    icon: Droplets, title: 'Slim Press', subtitle: 'Benessere e drenaggio', image: IMAGES.facial,
     description: 'Un trattamento pensato per alleggerire, riequilibrare e accompagnare i percorsi corpo con una sensazione di comfort diffuso.',
-    image: facialTreatment,
-    features: [
-      'Sensazione di leggerezza',
-      'Supporto ai percorsi corpo',
-      'Momento di rilassamento guidato',
-      'Integrazione con altri protocolli',
-      'Trattamento non invasivo',
-      'Esperienza ordinata e confortevole'
-    ]
-  }
+    features: ['Sensazione di leggerezza','Supporto ai percorsi corpo','Momento di rilassamento guidato','Integrazione con altri protocolli','Trattamento non invasivo','Esperienza ordinata e confortevole'],
+  },
+]
+
+const benefits = [
+  { title: 'Sicurezza e chiarezza', desc: 'Tecnologie selezionate e spiegate con un linguaggio semplice, prima di iniziare ogni percorso.' },
+  { title: 'Comfort durante la seduta', desc: 'Ogni trattamento e pensato per farti sentire accompagnata, mai spaesata o sotto pressione.' },
+  { title: 'Integrazione tra servizi', desc: 'Le tecnologie non vivono da sole: vengono inserite in un percorso coerente con i tuoi obiettivi reali.' },
+  { title: 'Personalizzazione', desc: 'Ogni seduta viene calibrata sul tuo punto di partenza, sui tempi e sul risultato che desideri ottenere.' },
 ]
 
 export default function Tecnologie() {
   return (
-    <div className="tecnologie page">
-      <section className="page-hero">
-        <div className="container">
+    <div className="font-poppins">
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-[#fbf8f3] to-[#f3ece3] pt-40 pb-20 text-center relative overflow-hidden">
+        <div className="relative max-w-3xl mx-auto px-5">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="section-subtitle">Le Nostre Tecnologie</p>
-            <h1>Attrezzature di ultima generazione</h1>
-            <p>
-              Utilizziamo tecnologie selezionate per rendere ogni percorso piu preciso,
-              piu confortevole e piu coerente con gli obiettivi di chi si affida a noi.
+            <p className="text-primary font-medium tracking-widest text-sm uppercase mb-3">Le Nostre Tecnologie</p>
+            <h1 className="font-playfair text-4xl md:text-5xl font-bold text-secondary mb-5">Attrezzature di ultima generazione</h1>
+            <p className="text-gray-500 text-lg leading-relaxed">
+              Utilizziamo tecnologie selezionate per rendere ogni percorso piu preciso, piu confortevole e piu coerente con gli obiettivi di chi si affida a noi.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="tech-section">
-        <div className="container">
-          <div className="tech-grid">
+      {/* Tech Cards */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {technologies.map((tech, index) => (
               <motion.div
                 key={tech.title}
-                className="tech-card"
+                className="bg-light rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
                 viewport={{ once: true }}
               >
-                <div className="tech-image">
-                  <img src={tech.image} alt={tech.title} />
+                <div className="h-56 overflow-hidden">
+                  <img src={tech.image} alt={tech.title} className="w-full h-full object-cover" />
                 </div>
-                <div className="tech-content">
-                  <div className="tech-icon">
-                    <tech.icon size={32} />
+                <div className="p-8">
+                  <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-4 shadow-sm">
+                    <tech.icon size={28} className="text-primary" />
                   </div>
-                  <p className="tech-subtitle">{tech.subtitle}</p>
-                  <h2>{tech.title}</h2>
-                  <p className="tech-description">{tech.description}</p>
-                  <ul className="tech-features">
-                    {tech.features.map((feature) => (
-                      <li key={feature}>
-                        <CheckCircle size={16} />
-                        <span>{feature}</span>
+                  <p className="text-primary text-xs uppercase tracking-widest font-medium mb-1">{tech.subtitle}</p>
+                  <h2 className="font-playfair text-2xl font-bold text-secondary mb-3">{tech.title}</h2>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6">{tech.description}</p>
+                  <ul className="grid grid-cols-1 gap-2">
+                    {tech.features.map(f => (
+                      <li key={f} className="flex items-center gap-2 text-sm text-secondary">
+                        <CheckCircle size={15} className="text-primary shrink-0" />
+                        <span>{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -123,51 +93,44 @@ export default function Tecnologie() {
         </div>
       </section>
 
-      <section className="benefits-section">
-        <div className="container">
-          <div className="section-header">
-            <p className="section-subtitle">I Vantaggi</p>
-            <h2>Perche scegliere il nostro approccio</h2>
+      {/* Benefits */}
+      <section className="py-24 bg-light">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="text-center mb-14">
+            <p className="text-primary font-medium tracking-widest text-sm uppercase mb-3">I Vantaggi</p>
+            <h2 className="font-playfair text-4xl font-bold text-secondary">Perche scegliere il nostro approccio</h2>
           </div>
-          <div className="benefits-grid">
-            <motion.div className="benefit-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h3>Sicurezza e chiarezza</h3>
-              <p>Tecnologie selezionate e spiegate con un linguaggio semplice, prima di iniziare ogni percorso.</p>
-            </motion.div>
-            <motion.div className="benefit-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} viewport={{ once: true }}>
-              <h3>Comfort durante la seduta</h3>
-              <p>Ogni trattamento e pensato per farti sentire accompagnata, mai spaesata o sotto pressione.</p>
-            </motion.div>
-            <motion.div className="benefit-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} viewport={{ once: true }}>
-              <h3>Integrazione tra servizi</h3>
-              <p>Le tecnologie non vivono da sole: vengono inserite in un percorso coerente con i tuoi obiettivi reali.</p>
-            </motion.div>
-            <motion.div className="benefit-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} viewport={{ once: true }}>
-              <h3>Personalizzazione</h3>
-              <p>Ogni seduta viene calibrata sul tuo punto di partenza, sui tempi e sul risultato che desideri ottenere.</p>
-            </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((b, i) => (
+              <motion.div
+                key={b.title}
+                className="bg-white p-8 rounded-2xl text-center shadow-sm"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="font-playfair text-xl font-bold text-secondary mb-3">{b.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{b.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="cta-section">
-        <div className="container">
-          <motion.div
-            className="cta-content"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2>Vuoi capire quale tecnologia fa per te?</h2>
-            <p>
-              Prenota una consulenza gratuita: ti spiegheremo con chiarezza quale percorso
-              puo adattarsi meglio alle tue esigenze e ai tuoi obiettivi.
+      {/* CTA */}
+      <section className="py-24 bg-secondary text-white text-center">
+        <div className="max-w-2xl mx-auto px-5">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="font-playfair text-4xl font-bold mb-4">Vuoi capire quale tecnologia fa per te?</h2>
+            <p className="text-white/70 leading-relaxed mb-8">
+              Prenota una consulenza gratuita: ti spiegheremo con chiarezza quale percorso puo adattarsi meglio alle tue esigenze e ai tuoi obiettivi.
             </p>
-            <div className="cta-buttons">
-              <Link to="/contatti" className="btn">
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link to="/contatti" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-primary-dark transition-all">
                 Prenota Consulenza <ArrowRight size={18} />
               </Link>
-              <Link to="/servizi" className="btn btn-outline">
+              <Link to="/servizi" className="inline-flex items-center px-8 py-4 border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-secondary transition-all">
                 Visualizza Servizi
               </Link>
             </div>

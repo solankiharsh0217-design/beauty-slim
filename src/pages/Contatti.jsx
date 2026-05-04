@@ -1,62 +1,43 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, MessageCircle } from 'lucide-react'
-import './Contatti.css'
+
+const contactInfo = [
+  { icon: MapPin, title: 'Indirizzo', details: ['Via Trotti, 69', '15121 Alessandria'] },
+  { icon: Phone, title: 'Telefono', details: ['0131 234173', '348 6243991'] },
+  { icon: Mail, title: 'Email', details: ['info@beautyslim.it'] },
+  { icon: Clock, title: 'Orari', details: ['Lun-Ven: 10:00 - 20:00', 'Sab: 10:00 - 14:00'] },
+]
+
+const faqs = [
+  { q: 'Quanto dura la prima consulenza?', a: 'Circa 30-45 minuti: il tempo necessario per ascoltare le tue esigenze e costruire un primo orientamento.' },
+  { q: 'I trattamenti sono dolorosi?', a: 'La maggior parte dei trattamenti e delicata. Nel laser si percepisce solo una lieve sensazione di calore.' },
+  { q: 'Quando si iniziano a vedere i risultati?', a: 'Dipende dal trattamento e dal punto di partenza: alcuni effetti si notano presto, altri richiedono maggiore continuita.' },
+  { q: 'Offrite pagamenti rateali?', a: "Si, proponiamo diverse soluzioni per agevolare l'accesso ai percorsi piu completi." },
+]
 
 export default function Contatti() {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    service: '',
-    message: ''
-  })
-
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', service: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value })
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const message = `Ciao! Mi chiamo ${formData.name}. Sono interessata al servizio: ${formData.service}. Il mio numero e ${formData.phone}. ${formData.message}`
-    const whatsappUrl = `https://wa.me/393486243991?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, '_blank')
+    window.open(`https://wa.me/393486243991?text=${encodeURIComponent(message)}`, '_blank')
     setSubmitted(true)
   }
 
-  const contactInfo = [
-    {
-      icon: MapPin,
-      title: 'Indirizzo',
-      details: ['Via Trotti, 69', '15121 Alessandria']
-    },
-    {
-      icon: Phone,
-      title: 'Telefono',
-      details: ['0131 234173', '348 6243991']
-    },
-    {
-      icon: Mail,
-      title: 'Email',
-      details: ['info@beautyslim.it']
-    },
-    {
-      icon: Clock,
-      title: 'Orari',
-      details: ['Lun-Ven: 10:00 - 20:00', 'Sab: 10:00 - 14:00']
-    }
-  ]
-
   return (
-    <div className="contatti page">
-      <section className="page-hero">
-        <div className="container">
+    <div className="font-poppins">
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-[#fbf8f3] to-[#f3ece3] pt-40 pb-20 text-center">
+        <div className="max-w-3xl mx-auto px-5">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="section-subtitle">Contatti</p>
-            <h1>Prenota la tua prima seduta</h1>
-            <p>
+            <p className="text-primary font-medium tracking-widest text-sm uppercase mb-3">Contatti</p>
+            <h1 className="font-playfair text-4xl md:text-5xl font-bold text-secondary mb-5">Prenota la tua prima seduta</h1>
+            <p className="text-gray-500 text-lg leading-relaxed">
               Siamo qui per ascoltare le tue esigenze e aiutarti a capire da dove iniziare.
               Puoi compilare il form oppure contattarci direttamente su WhatsApp.
             </p>
@@ -64,44 +45,36 @@ export default function Contatti() {
         </div>
       </section>
 
-      <section className="contact-section">
-        <div className="container">
-          <div className="contact-grid">
-            <motion.div
-              className="contact-info"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2>Parliamo di te</h2>
-              <p>
-                Raccontaci cosa vorresti trattare. Ti ricontatteremo per confermare
-                l&apos;appuntamento e orientarti verso il percorso piu adatto.
+      {/* Contact Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Info */}
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <h2 className="font-playfair text-3xl font-bold text-secondary mb-4">Parliamo di te</h2>
+              <p className="text-gray-500 leading-relaxed mb-8">
+                Raccontaci cosa vorresti trattare. Ti ricontatteremo per confermare l&apos;appuntamento e orientarti verso il percorso piu adatto.
               </p>
-
-              <div className="contact-items">
-                {contactInfo.map((item) => (
-                  <div key={item.title} className="contact-item">
-                    <div className="contact-icon">
-                      <item.icon size={22} />
+              <div className="space-y-6 mb-10">
+                {contactInfo.map(item => (
+                  <div key={item.title} className="flex items-start gap-4">
+                    <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                      <item.icon size={20} className="text-primary" />
                     </div>
                     <div>
-                      <h4>{item.title}</h4>
-                      {item.details.map((detail) => (
-                        <p key={detail}>{detail}</p>
-                      ))}
+                      <h4 className="font-semibold text-secondary mb-1">{item.title}</h4>
+                      {item.details.map(d => <p key={d} className="text-gray-500 text-sm">{d}</p>)}
                     </div>
                   </div>
                 ))}
               </div>
-
-              <div className="contact-cta">
-                <p>Preferisci un contatto diretto?</p>
+              <div className="bg-light p-6 rounded-2xl">
+                <p className="text-secondary font-medium mb-4">Preferisci un contatto diretto?</p>
                 <a
                   href="https://wa.me/393486243991"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="whatsapp-btn"
+                  className="inline-flex items-center gap-3 px-6 py-3 bg-green-500 text-white rounded-full font-medium hover:bg-green-600 transition-all"
                 >
                   <MessageCircle size={20} />
                   Scrivici su WhatsApp
@@ -109,73 +82,52 @@ export default function Contatti() {
               </div>
             </motion.div>
 
-            <motion.div
-              className="contact-form-wrapper"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
+            {/* Form */}
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               {submitted ? (
-                <div className="form-success">
-                  <CheckCircle size={60} />
-                  <h3>Grazie per la tua richiesta!</h3>
-                  <p>
-                    Ti abbiamo reindirizzato su WhatsApp per completare l&apos;invio.
-                    Il nostro team ti rispondera al piu presto.
+                <div className="bg-light rounded-2xl p-12 text-center">
+                  <CheckCircle size={60} className="text-green-500 mx-auto mb-4" />
+                  <h3 className="font-playfair text-2xl font-bold text-secondary mb-3">Grazie per la tua richiesta!</h3>
+                  <p className="text-gray-500 mb-6">
+                    Ti abbiamo reindirizzato su WhatsApp per completare l&apos;invio. Il nostro team ti rispondera al piu presto.
                   </p>
-                  <button onClick={() => setSubmitted(false)} className="btn">
+                  <button onClick={() => setSubmitted(false)} className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary-dark transition-all">
                     Invia un&apos;altra richiesta
                   </button>
                 </div>
               ) : (
-                <form className="contact-form" onSubmit={handleSubmit}>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="name">Nome Completo *</label>
+                <form onSubmit={handleSubmit} className="bg-light rounded-2xl p-8 space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm font-medium text-secondary mb-2">Nome Completo *</label>
                       <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
+                        type="text" name="name" value={formData.name} onChange={handleChange} required
                         placeholder="Il tuo nome"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-primary text-sm"
                       />
                     </div>
-                    <div className="form-group">
-                      <label htmlFor="phone">Telefono *</label>
+                    <div>
+                      <label className="block text-sm font-medium text-secondary mb-2">Telefono *</label>
                       <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
+                        type="tel" name="phone" value={formData.phone} onChange={handleChange} required
                         placeholder="Il tuo numero"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-primary text-sm"
                       />
                     </div>
                   </div>
-
-                  <div className="form-group">
-                    <label htmlFor="email">Email</label>
+                  <div>
+                    <label className="block text-sm font-medium text-secondary mb-2">Email</label>
                     <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
+                      type="email" name="email" value={formData.email} onChange={handleChange}
                       placeholder="La tua email (opzionale)"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-primary text-sm"
                     />
                   </div>
-
-                  <div className="form-group">
-                    <label htmlFor="service">Servizio di Interesse *</label>
+                  <div>
+                    <label className="block text-sm font-medium text-secondary mb-2">Servizio di Interesse *</label>
                     <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      required
+                      name="service" value={formData.service} onChange={handleChange} required
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-primary text-sm"
                     >
                       <option value="">Seleziona un servizio</option>
                       <option value="dimagrimento">Dimagrimento & Rimodellamento</option>
@@ -187,20 +139,15 @@ export default function Contatti() {
                       <option value="altro">Altro / Non so</option>
                     </select>
                   </div>
-
-                  <div className="form-group">
-                    <label htmlFor="message">Raccontaci cosa vorresti trattare</label>
+                  <div>
+                    <label className="block text-sm font-medium text-secondary mb-2">Raccontaci cosa vorresti trattare</label>
                     <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows="4"
+                      name="message" value={formData.message} onChange={handleChange} rows="4"
                       placeholder="Descrivi brevemente cosa vorresti affrontare..."
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-primary text-sm resize-none"
                     />
                   </div>
-
-                  <button type="submit" className="btn btn-submit">
+                  <button type="submit" className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-primary-dark transition-all">
                     <Send size={18} />
                     Invia Messaggio
                   </button>
@@ -211,41 +158,32 @@ export default function Contatti() {
         </div>
       </section>
 
-      <section className="faq-section">
-        <div className="container">
-          <div className="section-header">
-            <p className="section-subtitle">Domande Frequenti</p>
-            <h2>Dubbi comuni prima di iniziare</h2>
+      {/* FAQ */}
+      <section className="py-24 bg-light">
+        <div className="max-w-4xl mx-auto px-5">
+          <div className="text-center mb-14">
+            <p className="text-primary font-medium tracking-widest text-sm uppercase mb-3">Domande Frequenti</p>
+            <h2 className="font-playfair text-4xl font-bold text-secondary">Dubbi comuni prima di iniziare</h2>
           </div>
-          <div className="faq-grid">
-            <div className="faq-item">
-              <h4>Quanto dura la prima consulenza?</h4>
-              <p>Circa 30-45 minuti: il tempo necessario per ascoltare le tue esigenze e costruire un primo orientamento.</p>
-            </div>
-            <div className="faq-item">
-              <h4>I trattamenti sono dolorosi?</h4>
-              <p>La maggior parte dei trattamenti e delicata. Nel laser si percepisce solo una lieve sensazione di calore.</p>
-            </div>
-            <div className="faq-item">
-              <h4>Quando si iniziano a vedere i risultati?</h4>
-              <p>Dipende dal trattamento e dal punto di partenza: alcuni effetti si notano presto, altri richiedono maggiore continuita.</p>
-            </div>
-            <div className="faq-item">
-              <h4>Offrite pagamenti rateali?</h4>
-              <p>Si, proponiamo diverse soluzioni per agevolare l&apos;accesso ai percorsi piu completi.</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {faqs.map(faq => (
+              <div key={faq.q} className="bg-white p-7 rounded-2xl shadow-sm">
+                <h4 className="font-semibold text-secondary mb-2">{faq.q}</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="map-section">
-        <div className="container">
-          <div className="map-wrapper">
+      {/* Map */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-5">
+          <div className="rounded-2xl overflow-hidden shadow-lg">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.425788538769!2d8.611557315242093!3d44.91122527338317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478775a1063f6305%3A0x9584703136adee8e!2sVia%20Trotti%2C%2069%2C%2015121%20Alessandria%20AL!5e0!3m2!1sit!2sit!4v1"
-              width="100%"
-              height="450"
-              style={{ border: 0, borderRadius: '20px' }}
+              width="100%" height="450"
+              style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

@@ -1,79 +1,86 @@
 import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react'
-import './Footer.css'
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-content">
-          <div className="footer-brand">
-            <Link to="/" className="footer-logo">
-              Beauty <span>Slim</span>
+    <footer className="bg-secondary text-white pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+          {/* Brand */}
+          <div>
+            <Link to="/" className="font-playfair text-2xl font-bold text-white mb-4 block">
+              Beauty <span className="text-primary">Slim</span>
             </Link>
-            <p>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Un centro dedicato a bellezza, benessere e percorsi personalizzati ad
               Alessandria, in un ambiente elegante e rassicurante.
             </p>
-            <div className="footer-social">
-              <a href="https://wa.me/393486243991" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <div className="flex gap-4">
+              <a href="https://wa.me/393486243991" target="_blank" rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
                 <MessageCircle size={18} />
               </a>
-              <a href="tel:0131234173" aria-label="Telefono">
+              <a href="tel:0131234173"
+                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
                 <Phone size={18} />
               </a>
-              <a href="mailto:info@beautyslim.it" aria-label="Email">
+              <a href="mailto:info@beautyslim.it"
+                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
                 <Mail size={18} />
               </a>
             </div>
           </div>
 
-          <div className="footer-links">
-            <h4>Servizi</h4>
-            <ul>
-              <li><Link to="/servizi">Dimagrimento & Rimodellamento</Link></li>
-              <li><Link to="/servizi">Epilazione Laser</Link></li>
-              <li><Link to="/servizi">Cura del Viso</Link></li>
-              <li><Link to="/servizi">Estetica di Base</Link></li>
+          {/* Servizi */}
+          <div>
+            <h4 className="font-playfair text-lg font-semibold mb-5">Servizi</h4>
+            <ul className="space-y-3">
+              {['Dimagrimento & Rimodellamento','Epilazione Laser','Cura del Viso','Estetica di Base'].map(s => (
+                <li key={s}>
+                  <Link to="/servizi" className="text-gray-400 text-sm hover:text-primary transition-colors">{s}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div className="footer-links">
-            <h4>Esplora</h4>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/chi-siamo">Chi Siamo</Link></li>
-              <li><Link to="/tecnologie">Tecnologie</Link></li>
-              <li><Link to="/gallery">Gallery</Link></li>
-              <li><Link to="/contatti">Contatti</Link></li>
+          {/* Esplora */}
+          <div>
+            <h4 className="font-playfair text-lg font-semibold mb-5">Esplora</h4>
+            <ul className="space-y-3">
+              {[['/', 'Home'],['/chi-siamo','Chi Siamo'],['/tecnologie','Tecnologie'],['/gallery','Gallery'],['/contatti','Contatti']].map(([path, label]) => (
+                <li key={path}>
+                  <Link to={path} className="text-gray-400 text-sm hover:text-primary transition-colors">{label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div className="footer-links">
-            <h4>Contatti</h4>
-            <ul className="footer-contact">
-              <li>
-                <MapPin size={16} />
+          {/* Contatti */}
+          <div>
+            <h4 className="font-playfair text-lg font-semibold mb-5">Contatti</h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 text-gray-400 text-sm">
+                <MapPin size={16} className="text-primary mt-0.5 shrink-0" />
                 <span>Via Trotti, 69 - 15121 Alessandria</span>
               </li>
-              <li>
-                <Phone size={16} />
+              <li className="flex items-start gap-3 text-gray-400 text-sm">
+                <Phone size={16} className="text-primary mt-0.5 shrink-0" />
                 <span>0131 234173 / 348 6243991</span>
               </li>
-              <li>
-                <Mail size={16} />
+              <li className="flex items-start gap-3 text-gray-400 text-sm">
+                <Mail size={16} className="text-primary mt-0.5 shrink-0" />
                 <span>info@beautyslim.it</span>
               </li>
-              <li>
-                <Clock size={16} />
+              <li className="flex items-start gap-3 text-gray-400 text-sm">
+                <Clock size={16} className="text-primary mt-0.5 shrink-0" />
                 <span>Lun-Ven 10:00-20:00 / Sab 10:00-14:00</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <p>© 2026 Beauty Slim. Tutti i diritti riservati.</p>
+        <div className="border-t border-white/10 pt-6 text-center text-gray-500 text-sm">
+          © 2026 Beauty Slim. Tutti i diritti riservati.
         </div>
       </div>
     </footer>

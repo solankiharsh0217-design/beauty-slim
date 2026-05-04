@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { base44 } from '@/api/base44Client'
+import { base44 } from '../api/base44Client'
 import { Plus, Pencil, Trash2, ToggleLeft, ToggleRight, Sparkles, Tag, Calendar, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 
 const emptyForm = { title: '', description: '', badge_text: '', active: true, expires_at: '' }

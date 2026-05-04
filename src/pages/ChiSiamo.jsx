@@ -25,7 +25,7 @@ export default function ChiSiamo() {
   return (
     <div className="font-poppins">
       {/* Hero */}
-      <section className="bg-[#faf8f6] pt-40 pb-24 text-center relative overflow-hidden">
+      <section className="bg-background pt-40 pb-24 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-40" style={{backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(205,164,94,0.2), transparent 60%)'}} />
         <div className="relative max-w-3xl mx-auto px-5">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -59,7 +59,7 @@ export default function ChiSiamo() {
       </section>
 
       {/* About */}
-      <section className="py-28 bg-white">
+      <section className="py-28 bg-background">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <motion.div className="relative" initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
@@ -107,7 +107,7 @@ export default function ChiSiamo() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-[#faf8f6]">
+      <section className="py-24 bg-card">
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -132,7 +132,7 @@ export default function ChiSiamo() {
       </section>
 
       {/* Location */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>

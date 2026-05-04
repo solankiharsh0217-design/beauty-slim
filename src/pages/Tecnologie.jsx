@@ -43,7 +43,7 @@ export default function Tecnologie() {
   return (
     <div className="font-poppins">
       {/* Hero */}
-      <section className="bg-[#faf8f6] pt-40 pb-24 text-center relative overflow-hidden">
+      <section className="bg-background pt-40 pb-24 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(205,164,94,0.2), transparent 60%)' }} />
         <div className="relative max-w-3xl mx-auto px-5">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -63,13 +63,13 @@ export default function Tecnologie() {
       </section>
 
       {/* Tech Cards */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {technologies.map((tech, index) => (
               <motion.div
                 key={tech.title}
-                className="bg-[#faf8f6] rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group"
+                className="bg-card rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group border border-border"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
@@ -80,7 +80,7 @@ export default function Tecnologie() {
                 </div>
                 <div className="p-8">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
+                    <div className="w-11 h-11 rounded-full bg-muted flex items-center justify-center shadow-sm shrink-0">
                       <tech.icon size={22} className="text-primary" />
                     </div>
                     <div>
@@ -107,7 +107,7 @@ export default function Tecnologie() {
       </section>
 
       {/* Benefits */}
-      <section className="py-24 bg-[#faf8f6]">
+      <section className="py-24 bg-card">
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -121,7 +121,7 @@ export default function Tecnologie() {
             {benefits.map((b, i) => (
               <motion.div
                 key={b.title}
-                className="bg-white p-8 rounded-2xl text-center shadow-sm hover:shadow-lg transition-all"
+                className="bg-card p-8 rounded-2xl text-center shadow-sm hover:shadow-lg transition-all border border-border"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}

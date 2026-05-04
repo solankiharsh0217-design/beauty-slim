@@ -57,7 +57,7 @@ export default function Servizi() {
   return (
     <div className="font-poppins">
       {/* Hero */}
-      <section className="relative pt-40 pb-24 text-center overflow-hidden bg-[#faf8f6]">
+      <section className="relative pt-40 pb-24 text-center overflow-hidden bg-background">
         <div className="absolute inset-0 opacity-40" style={{backgroundImage: 'radial-gradient(ellipse at 60% 0%, rgba(205,164,94,0.2), transparent 60%)'}} />
         <div className="relative max-w-3xl mx-auto px-5">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -77,7 +77,7 @@ export default function Servizi() {
       </section>
 
       {/* Services List */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-5 space-y-24">
           {services.map((service, index) => (
             <motion.div
@@ -121,7 +121,7 @@ export default function Servizi() {
       </section>
 
       {/* Why Us */}
-      <section className="py-24 bg-[#faf8f6]">
+      <section className="py-24 bg-card">
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -135,7 +135,7 @@ export default function Servizi() {
             {whyChooseUs.map((item, index) => (
               <motion.div
                 key={item}
-                className="bg-white p-6 rounded-2xl flex items-center gap-4 shadow-sm hover:shadow-md transition-all"
+                className="bg-card p-6 rounded-2xl flex items-center gap-4 shadow-sm hover:shadow-md transition-all border border-border"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}

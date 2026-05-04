@@ -153,7 +153,7 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES ─────────────────────────────────────────── */}
-      <section className="py-28 bg-[#faf8f6]">
+      <section className="py-28 bg-[#0f0c08]">
         <div className="max-w-7xl mx-auto px-5">
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
@@ -177,7 +177,7 @@ export default function Home() {
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                className="group bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-border"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
@@ -236,7 +236,7 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT PREVIEW ────────────────────────────────────── */}
-      <section className="py-28 bg-white overflow-hidden">
+      <section className="py-28 bg-[#0c0a08] overflow-hidden">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             {/* Image Collage */}
@@ -247,8 +247,8 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
-                <img src={IMAGES.clinic} alt="Centro Beauty Slim" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-secondary/20 to-transparent" />
+              <img src={IMAGES.clinic} alt="Centro Beauty Slim" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-black/30 to-transparent" />
               </div>
               {/* Floating badge */}
               <div className="absolute -bottom-6 -right-6 bg-primary text-white px-7 py-5 rounded-2xl shadow-xl text-center">
@@ -256,11 +256,11 @@ export default function Home() {
                 <div className="text-white/80 text-xs mt-1 uppercase tracking-wider">Anni di esperienza</div>
               </div>
               {/* Floating mini card */}
-              <div className="absolute -top-5 -left-5 bg-white rounded-xl shadow-lg p-4 flex items-center gap-3">
+              <div className="absolute -top-5 -left-5 bg-card rounded-xl shadow-lg p-4 flex items-center gap-3 border border-border">
                 <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#CDA45E" color="#CDA45E" />)}
                 </div>
-                <span className="text-xs text-secondary font-semibold">500+ Recensioni</span>
+                <span className="text-xs text-foreground font-semibold">500+ Recensioni</span>
               </div>
             </motion.div>
 
@@ -374,7 +374,7 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ─────────────────────────────────────── */}
-      <section className="py-28 bg-[#faf8f6]">
+      <section className="py-28 bg-[#0f0c08]">
         <div className="max-w-7xl mx-auto px-5">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -390,7 +390,7 @@ export default function Home() {
             {testimonials.map((t, index) => (
               <motion.div
                 key={t.name}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300"
+                className="bg-card p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -401,12 +401,12 @@ export default function Home() {
                     <Star key={i} size={16} fill="#CDA45E" color="#CDA45E" />
                   ))}
                 </div>
-                <p className="text-gray-600 leading-relaxed mb-6 text-sm italic">"{t.text}"</p>
-                <div className="flex items-center gap-3 pt-5 border-t border-gray-100">
+                <p className="text-foreground/70 leading-relaxed mb-6 text-sm italic">"{t.text}"</p>
+                <div className="flex items-center gap-3 pt-5 border-t border-border">
                   <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center">
                     <span className="text-primary font-bold text-sm">{t.name[0]}</span>
                   </div>
-                  <span className="font-semibold text-secondary text-sm">{t.name}</span>
+                  <span className="font-semibold text-foreground text-sm">{t.name}</span>
                 </div>
               </motion.div>
             ))}

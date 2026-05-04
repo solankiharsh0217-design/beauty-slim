@@ -17,7 +17,7 @@ export default function Gallery() {
   return (
     <div className="font-poppins">
       {/* Hero */}
-      <section className="bg-[#faf8f6] pt-40 pb-20 text-center relative overflow-hidden">
+      <section className="bg-background pt-40 pb-20 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-40" style={{backgroundImage: 'radial-gradient(ellipse at 40% 0%, rgba(205,164,94,0.2), transparent 60%)'}} />
         <div className="relative max-w-3xl mx-auto px-5">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -37,7 +37,7 @@ export default function Gallery() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {galleryImages.map((image, index) => (
@@ -64,7 +64,7 @@ export default function Gallery() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-20 bg-[#faf8f6]">
+      <section className="py-20 bg-card">
         <div className="max-w-3xl mx-auto px-5 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="font-playfair text-3xl font-bold text-secondary mb-4">Contatto diretto,<br /><span className="text-primary italic">senza complicazioni</span></h2>

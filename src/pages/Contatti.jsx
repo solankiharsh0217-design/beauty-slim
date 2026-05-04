@@ -34,7 +34,7 @@ export default function Contatti() {
   return (
     <div className="font-poppins">
       {/* Hero */}
-      <section className="bg-[#faf8f6] pt-40 pb-24 text-center relative overflow-hidden">
+      <section className="bg-background pt-40 pb-24 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(205,164,94,0.2), transparent 60%)' }} />
         <div className="relative max-w-3xl mx-auto px-5">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -54,7 +54,7 @@ export default function Contatti() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Info */}
@@ -82,7 +82,7 @@ export default function Contatti() {
                   </div>
                 ))}
               </div>
-              <div className="bg-[#faf8f6] p-6 rounded-2xl border border-primary/10">
+              <div className="bg-card p-6 rounded-2xl border border-primary/20">
                 <p className="text-secondary font-semibold mb-2 text-sm">Preferisci un contatto diretto?</p>
                 <p className="text-gray-500 text-sm mb-4">Scrivici su WhatsApp e ti risponderemo subito.</p>
                 <a
@@ -100,7 +100,7 @@ export default function Contatti() {
             {/* Form */}
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               {submitted ? (
-                <div className="bg-[#faf8f6] rounded-3xl p-12 text-center border border-green-100">
+                <div className="bg-card rounded-3xl p-12 text-center border border-border">
                   <div className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-5">
                     <CheckCircle size={40} className="text-green-500" />
                   </div>
@@ -113,40 +113,40 @@ export default function Contatti() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="bg-[#faf8f6] rounded-3xl p-8 space-y-5 border border-gray-100">
+                <form onSubmit={handleSubmit} className="bg-card rounded-3xl p-8 space-y-5 border border-border">
                   <h3 className="font-playfair text-xl font-bold text-secondary mb-1">Prenota la tua consulenza</h3>
                   <p className="text-gray-500 text-sm mb-2">Gratuita, senza impegno, in circa 30 minuti.</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-semibold text-secondary mb-2 uppercase tracking-wide">Nome Completo *</label>
+                      <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">Nome Completo *</label>
                       <input
                         type="text" name="name" value={formData.name} onChange={handleChange} required
                         placeholder="Il tuo nome"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-muted focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm transition-all text-foreground placeholder:text-muted-foreground"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-secondary mb-2 uppercase tracking-wide">Telefono *</label>
+                      <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">Telefono *</label>
                       <input
                         type="tel" name="phone" value={formData.phone} onChange={handleChange} required
                         placeholder="Il tuo numero"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-muted focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm transition-all text-foreground placeholder:text-muted-foreground"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-secondary mb-2 uppercase tracking-wide">Email</label>
+                    <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">Email</label>
                     <input
                       type="email" name="email" value={formData.email} onChange={handleChange}
                       placeholder="La tua email (opzionale)"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-border bg-muted focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm transition-all text-foreground placeholder:text-muted-foreground"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-secondary mb-2 uppercase tracking-wide">Servizio di Interesse *</label>
+                    <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">Servizio di Interesse *</label>
                     <select
                       name="service" value={formData.service} onChange={handleChange} required
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-border bg-muted focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm transition-all text-foreground"
                     >
                       <option value="">Seleziona un servizio</option>
                       <option value="dimagrimento">Dimagrimento & Rimodellamento</option>
@@ -159,18 +159,18 @@ export default function Contatti() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-secondary mb-2 uppercase tracking-wide">Messaggio</label>
+                    <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">Messaggio</label>
                     <textarea
                       name="message" value={formData.message} onChange={handleChange} rows="4"
                       placeholder="Descrivi brevemente cosa vorresti affrontare..."
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm resize-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-border bg-muted focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 text-sm resize-none transition-all text-foreground placeholder:text-muted-foreground"
                     />
                   </div>
                   <button type="submit" className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark transition-all hover:shadow-lg hover:-translate-y-0.5">
                     <Send size={16} />
                     Invia e Apri WhatsApp
                   </button>
-                  <p className="text-center text-gray-400 text-xs">Verrai reindirizzata su WhatsApp per completare l'invio.</p>
+                  <p className="text-center text-muted-foreground text-xs">Verrai reindirizzata su WhatsApp per completare l'invio.</p>
                 </form>
               )}
             </motion.div>
@@ -179,7 +179,7 @@ export default function Contatti() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-[#faf8f6]">
+      <section className="py-24 bg-card">
         <div className="max-w-5xl mx-auto px-5">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -193,7 +193,7 @@ export default function Contatti() {
             {faqs.map((faq, i) => (
               <motion.div
                 key={faq.q}
-                className="bg-white p-7 rounded-2xl shadow-sm hover:shadow-md transition-all"
+                className="bg-background p-7 rounded-2xl shadow-sm hover:shadow-md transition-all border border-border"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}

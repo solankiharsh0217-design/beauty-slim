@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, LayoutDashboard } from 'lucide-react'
+import { base44 } from '@/api/base44Client'
 
 const navLinks = [
   { path: '/', label: 'Home' },
@@ -14,7 +15,12 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
   const location = useLocation()
+
+  useEffect(() => {
+    base44.auth.me().then(u => { if (u?.role === 'admin') setIsAdmin(true) }).catch(() => {})
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -31,7 +37,7 @@ export default function Navbar() {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-5">
       <motion.nav
-        className={`w-full max-w-6xl transition-all duration-500 rounded-2xl bg-secondary/95 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/20 ${
+        className={`w-full max-w-6xl transition-all duration-500 rounded-3xl bg-secondary/95 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/20 ${
           scrolled || mobileOpen ? 'px-6 py-3' : 'px-6 py-3.5'
         }`}
         initial={{ opacity: 0, y: -20 }}
@@ -65,13 +71,27 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CTA Button */}
-          <Link
-            to="/contatti"
-            className="hidden md:inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-primary text-white border border-primary/50 hover:bg-primary-dark transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30"
-          >
-            Prenota Ora
-          </Link>
+          {/* CTA + Admin */}
+          <div className="hidden md:flex items-center gap-3">
+            {isAdmin && (
+              <Link
+                to="/dashboard"
+                className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold border transition-all duration-300 ${
+                  location.pathname === '/dashboard'
+                    ? 'bg-primary/20 border-primary/40 text-primary'
+                    : 'border-white/20 text-white/70 hover:border-primary/40 hover:text-primary'
+                }`}
+              >
+                <LayoutDashboard size={13} /> Dashboard
+              </Link>
+            )}
+            <Link
+              to="/contatti"
+              className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-primary text-white border border-primary/50 hover:bg-primary-dark transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30"
+            >
+              Prenota Ora
+            </Link>
+          </div>
 
           {/* Mobile Toggle */}
           <button
@@ -104,6 +124,14 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              {isAdmin && (
+                <Link
+                  to="/dashboard"
+                  className="text-sm font-medium py-2.5 px-3 rounded-2xl transition-colors text-primary bg-primary/10 flex items-center gap-2"
+                >
+                  <LayoutDashboard size={14} /> Dashboard
+                </Link>
+              )}
               <Link
                 to="/contatti"
                 className="mt-2 inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full text-sm font-semibold"

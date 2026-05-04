@@ -1,0 +1,32 @@
+{
+  "name": "Promo",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Titolo della promozione"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descrizione della promozione"
+    },
+    "badge_text": {
+      "type": "string",
+      "description": "Testo del badge (es. 'Offerta Speciale', 'Novit\u00e0')"
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Visibile sul sito",
+      "default": true
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date",
+      "description": "Data di scadenza (opzionale)"
+    }
+  },
+  "required": [
+    "title",
+    "description"
+  ]
+}

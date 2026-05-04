@@ -2,11 +2,11 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight, Sparkles, Scissors, Smile, Leaf, HandHeart,
-  Star, Shield, Calendar, MapPin, Check, Phone
+  Star, Shield, MapPin, Check, Phone
 } from 'lucide-react'
+import HeroSlider from '../components/HeroSlider'
 
 const IMAGES = {
-  hero: 'https://media.base44.com/images/public/69f8ce55cc8dfb7009af86fe/8ec85e685_hero-beauty-consultation.png',
   clinic: 'https://media.base44.com/images/public/69f8ce55cc8dfb7009af86fe/90afd404d_clinic-interior-reception.png',
   body: 'https://media.base44.com/images/public/69f8ce55cc8dfb7009af86fe/db2dc7dc0_body-sculpting-treatment.png',
   laser: 'https://media.base44.com/images/public/69f8ce55cc8dfb7009af86fe/89dc85a38_laser-hair-removal-treatment.png',
@@ -40,97 +40,8 @@ export default function Home() {
   return (
     <div className="font-poppins">
 
-      {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <img src={IMAGES.hero} alt="Beauty Slim" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex items-center min-h-screen">
-          <div className="max-w-xl pt-24 pb-16">
-            {/* Label */}
-            <motion.div
-              className="flex items-center gap-3 mb-5"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="h-px w-8 bg-primary" />
-              <span className="text-primary font-medium tracking-[0.2em] text-[11px] uppercase">
-                Beauty Slim · Alessandria
-              </span>
-            </motion.div>
-
-            {/* Headline */}
-            <motion.h1
-              className="font-playfair text-4xl md:text-5xl font-bold leading-[1.15] text-white mb-5"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-            >
-              Bellezza che <span className="italic text-primary">trasforma.</span>
-              <br />
-              Cura che <span className="italic text-primary">dura.</span>
-            </motion.h1>
-
-            {/* Subtitle */}
-            <motion.p
-              className="text-white/70 text-base leading-relaxed mb-8 max-w-md"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-            >
-              Trattamenti viso, corpo ed epilazione laser in un centro elegante ad Alessandria. Consulenza gratuita, percorsi su misura.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div
-              className="flex flex-wrap gap-3 mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <Link
-                to="/contatti"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/30"
-              >
-                Prenota Consulenza Gratuita
-                <ArrowRight size={15} />
-              </Link>
-              <Link
-                to="/servizi"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/40 text-white rounded-full font-medium text-sm hover:bg-white/10 hover:border-white transition-all duration-300"
-              >
-                Scopri i Servizi
-              </Link>
-            </motion.div>
-
-            {/* Trust micro-badges */}
-            <motion.div
-              className="flex flex-wrap gap-5 pt-8 border-t border-white/15"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              {[
-                { icon: Shield, text: 'Tecnologie certificate' },
-                { icon: Star, text: '500+ clienti soddisfatte' },
-                { icon: MapPin, text: 'Via Trotti 69, Alessandria' },
-              ].map((b) => (
-                <div key={b.text} className="flex items-center gap-2 text-white/60 text-xs">
-                  <b.icon size={13} className="text-primary shrink-0" />
-                  <span>{b.text}</span>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-
-
-      </section>
+      {/* ── HERO SLIDER ───────────────────────────────────────── */}
+      <HeroSlider />
 
       {/* ── STATS BAND ───────────────────────────────────────── */}
       <section className="bg-secondary py-12">
@@ -177,7 +88,7 @@ export default function Home() {
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                className="group bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-border"
+                className="group bg-card rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-border"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
@@ -211,7 +122,7 @@ export default function Home() {
 
             {/* "All Services" card */}
             <motion.div
-              className="bg-secondary rounded-2xl overflow-hidden flex items-center justify-center p-10 text-center min-h-[340px]"
+              className="bg-secondary rounded-3xl overflow-hidden flex items-center justify-center p-10 text-center min-h-[340px]"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45 }}
@@ -246,17 +157,17 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
+              <div className="relative rounded-[2.5rem] overflow-hidden aspect-[4/3] shadow-2xl">
               <img src={IMAGES.clinic} alt="Centro Beauty Slim" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/30 to-transparent" />
               </div>
               {/* Floating badge */}
-              <div className="absolute -bottom-6 -right-6 bg-primary text-white px-7 py-5 rounded-2xl shadow-xl text-center">
+              <div className="absolute -bottom-6 -right-6 bg-primary text-white px-7 py-5 rounded-3xl shadow-xl text-center">
                 <div className="font-playfair text-4xl font-bold leading-none">10+</div>
                 <div className="text-white/80 text-xs mt-1 uppercase tracking-wider">Anni di esperienza</div>
               </div>
               {/* Floating mini card */}
-              <div className="absolute -top-5 -left-5 bg-card rounded-xl shadow-lg p-4 flex items-center gap-3 border border-border">
+              <div className="absolute -top-5 -left-5 bg-card rounded-2xl shadow-lg p-4 flex items-center gap-3 border border-border">
                 <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#CDA45E" color="#CDA45E" />)}
                 </div>
@@ -390,7 +301,7 @@ export default function Home() {
             {testimonials.map((t, index) => (
               <motion.div
                 key={t.name}
-                className="bg-card p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border"
+                className="bg-card p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}

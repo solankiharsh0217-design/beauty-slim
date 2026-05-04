@@ -8,12 +8,15 @@ import ChiSiamo from './pages/ChiSiamo'
 import Tecnologie from './pages/Tecnologie'
 import Contatti from './pages/Contatti'
 import Gallery from './pages/Gallery'
+import Dashboard from './pages/Dashboard'
+import PromosBanner from './components/PromosBanner'
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
         <ScrollToTop />
+        <PromosBanner />
         <Navbar />
         <main className="flex-1">
           <Routes>
@@ -23,6 +26,7 @@ function App() {
             <Route path="/tecnologie" element={<Tecnologie />} />
             <Route path="/contatti" element={<Contatti />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={
               <div className="min-h-screen flex items-center justify-center">
                 <div className="text-center">

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, LayoutDashboard } from 'lucide-react'
-import { base44 } from '@/api/base44Client'
+import { base44 } from '../api/base44Client'
 
 const navLinks = [
   { path: '/', label: 'Home' },

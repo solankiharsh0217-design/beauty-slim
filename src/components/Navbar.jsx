@@ -33,7 +33,7 @@ export default function Navbar() {
       <motion.nav
         className={`w-full max-w-6xl transition-all duration-500 rounded-2xl ${
           scrolled || mobileOpen
-            ? 'bg-white/15 backdrop-blur-xl border border-white/25 shadow-2xl shadow-black/20 px-6 py-3'
+            ? 'bg-white/80 backdrop-blur-xl border border-white/60 shadow-2xl shadow-black/10 px-6 py-3'
             : 'bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl shadow-black/10 px-6 py-3.5'
         }`}
         initial={{ opacity: 0, y: -20 }}
@@ -42,7 +42,7 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="font-playfair text-xl font-bold text-white drop-shadow-sm">
+          <Link to="/" className={`font-playfair text-xl font-bold transition-colors duration-300 ${scrolled ? 'text-secondary' : 'text-white drop-shadow-sm'}`}>
             Beauty <span className="text-primary">Slim</span>
           </Link>
 
@@ -52,10 +52,12 @@ export default function Navbar() {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className={`font-poppins text-sm font-medium transition-all duration-200 relative pb-1 group drop-shadow-sm ${
+                  className={`font-poppins text-sm font-medium transition-all duration-200 relative pb-1 group ${
                     location.pathname === link.path
                       ? 'text-primary'
-                      : 'text-white hover:text-primary'
+                      : scrolled
+                        ? 'text-secondary hover:text-primary'
+                        : 'text-white drop-shadow-sm hover:text-primary'
                   }`}
                 >
                   {link.label}
@@ -77,7 +79,7 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden p-1.5 text-white"
+            className={`md:hidden p-1.5 transition-colors ${scrolled ? 'text-secondary' : 'text-white'}`}
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}

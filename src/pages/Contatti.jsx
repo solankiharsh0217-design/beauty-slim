@@ -43,10 +43,10 @@ export default function Contatti() {
               <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Contatti</span>
               <div className="h-px w-8 bg-primary" />
             </div>
-            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-secondary mb-5 leading-tight">
+            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-foreground mb-5 leading-tight">
               Inizia il tuo<br /><span className="text-primary italic">percorso oggi</span>
             </h1>
-            <p className="text-gray-500 text-lg leading-relaxed max-w-xl mx-auto">
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto">
               Siamo qui per ascoltare le tue esigenze. Compila il form o contattaci su WhatsApp — risponderemo entro poche ore.
             </p>
           </motion.div>
@@ -63,11 +63,11 @@ export default function Contatti() {
                 <div className="h-px w-8 bg-primary" />
                 <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Parliamo di te</span>
               </div>
-              <h2 className="font-playfair text-3xl md:text-4xl font-bold text-secondary mb-4 leading-tight">
+              <h2 className="font-playfair text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
                 Raccontaci cosa<br /><span className="text-primary italic">vorresti migliorare</span>
               </h2>
-              <p className="text-gray-500 leading-relaxed mb-8 text-[15px]">
-                Ti ricontatteremo per confermare l'appuntamento e orientarti verso il percorso più adatto — <strong className="text-secondary">senza impegno e senza pressioni</strong>.
+              <p className="text-muted-foreground leading-relaxed mb-8 text-[15px]">
+                Ti ricontatteremo per confermare l'appuntamento e orientarti verso il percorso più adatto — <strong className="text-foreground">senza impegno e senza pressioni</strong>.
               </p>
               <div className="space-y-5 mb-8">
                 {contactInfo.map(item => (
@@ -76,15 +76,15 @@ export default function Contatti() {
                       <item.icon size={20} className="text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-secondary mb-1 text-sm">{item.title}</h4>
-                      {item.details.map(d => <p key={d} className="text-gray-500 text-sm">{d}</p>)}
+                      <h4 className="font-semibold text-foreground mb-1 text-sm">{item.title}</h4>
+                      {item.details.map(d => <p key={d} className="text-muted-foreground text-sm">{d}</p>)}
                     </div>
                   </div>
                 ))}
               </div>
               <div className="bg-card p-6 rounded-2xl border border-primary/20">
-                <p className="text-secondary font-semibold mb-2 text-sm">Preferisci un contatto diretto?</p>
-                <p className="text-gray-500 text-sm mb-4">Scrivici su WhatsApp e ti risponderemo subito.</p>
+                <p className="text-foreground font-semibold mb-2 text-sm">Preferisci un contatto diretto?</p>
+                <p className="text-muted-foreground text-sm mb-4">Scrivici su WhatsApp e ti risponderemo subito.</p>
                 <a
                   href="https://wa.me/393486243991"
                   target="_blank"
@@ -101,11 +101,11 @@ export default function Contatti() {
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               {submitted ? (
                 <div className="bg-card rounded-3xl p-12 text-center border border-border">
-                  <div className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-5">
-                    <CheckCircle size={40} className="text-green-500" />
+                  <div className="w-20 h-20 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-5">
+                    <CheckCircle size={40} className="text-green-400" />
                   </div>
-                  <h3 className="font-playfair text-2xl font-bold text-secondary mb-3">Grazie per la tua richiesta!</h3>
-                  <p className="text-gray-500 mb-6 text-sm leading-relaxed">
+                  <h3 className="font-playfair text-2xl font-bold text-foreground mb-3">Grazie per la tua richiesta!</h3>
+                  <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
                     Ti abbiamo reindirizzato su WhatsApp. Il nostro team ti risponderà al più presto.
                   </p>
                   <button onClick={() => setSubmitted(false)} className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-medium text-sm hover:bg-primary-dark transition-all">
@@ -114,8 +114,8 @@ export default function Contatti() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="bg-card rounded-3xl p-8 space-y-5 border border-border">
-                  <h3 className="font-playfair text-xl font-bold text-secondary mb-1">Prenota la tua consulenza</h3>
-                  <p className="text-gray-500 text-sm mb-2">Gratuita, senza impegno, in circa 30 minuti.</p>
+                  <h3 className="font-playfair text-xl font-bold text-foreground mb-1">Prenota la tua consulenza</h3>
+                  <p className="text-muted-foreground text-sm mb-2">Gratuita, senza impegno, in circa 30 minuti.</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">Nome Completo *</label>
@@ -187,7 +187,7 @@ export default function Contatti() {
               <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Domande Frequenti</span>
               <div className="h-px w-8 bg-primary" />
             </div>
-            <h2 className="font-playfair text-4xl font-bold text-secondary">Dubbi comuni <span className="text-primary italic">prima di iniziare</span></h2>
+            <h2 className="font-playfair text-4xl font-bold text-foreground">Dubbi comuni <span className="text-primary italic">prima di iniziare</span></h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {faqs.map((faq, i) => (
@@ -203,9 +203,9 @@ export default function Contatti() {
                   <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
                     <CheckCircle size={13} className="text-primary" />
                   </div>
-                  <h4 className="font-semibold text-secondary text-sm">{faq.q}</h4>
+                  <h4 className="font-semibold text-foreground text-sm">{faq.q}</h4>
                 </div>
-                <p className="text-gray-500 text-sm leading-relaxed pl-9">{faq.a}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed pl-9">{faq.a}</p>
               </motion.div>
             ))}
           </div>
@@ -213,7 +213,7 @@ export default function Contatti() {
       </section>
 
       {/* Map */}
-      <section className="bg-white pb-0">
+      <section className="bg-background pb-0">
         <div className="max-w-7xl mx-auto px-5 pb-0">
           <div className="rounded-3xl overflow-hidden shadow-xl">
             <iframe

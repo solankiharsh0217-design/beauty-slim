@@ -52,10 +52,10 @@ export default function Tecnologie() {
               <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Le Nostre Tecnologie</span>
               <div className="h-px w-8 bg-primary" />
             </div>
-            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-secondary mb-5 leading-tight">
+            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-foreground mb-5 leading-tight">
               Attrezzature di<br /><span className="text-primary italic">ultima generazione</span>
             </h1>
-            <p className="text-gray-500 text-lg leading-relaxed max-w-xl mx-auto">
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto">
               Utilizziamo tecnologie selezionate per rendere ogni percorso più preciso, più confortevole e più coerente con i tuoi obiettivi.
             </p>
           </motion.div>
@@ -85,13 +85,13 @@ export default function Tecnologie() {
                     </div>
                     <div>
                       <p className="text-primary text-xs uppercase tracking-[0.15em] font-medium">{tech.subtitle}</p>
-                      <h2 className="font-playfair text-2xl font-bold text-secondary">{tech.title}</h2>
+                      <h2 className="font-playfair text-2xl font-bold text-foreground">{tech.title}</h2>
                     </div>
                   </div>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-5">{tech.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">{tech.description}</p>
                   <ul className="grid grid-cols-2 gap-2">
                     {tech.features.map(f => (
-                      <li key={f} className="flex items-center gap-2 text-sm text-secondary">
+                      <li key={f} className="flex items-center gap-2 text-sm text-foreground">
                         <div className="w-4 h-4 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                           <CheckCircle size={11} className="text-primary" />
                         </div>
@@ -115,7 +115,7 @@ export default function Tecnologie() {
               <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">I Vantaggi</span>
               <div className="h-px w-8 bg-primary" />
             </div>
-            <h2 className="font-playfair text-4xl font-bold text-secondary">Perché scegliere il <span className="text-primary italic">nostro approccio</span></h2>
+            <h2 className="font-playfair text-4xl font-bold text-foreground">Perché scegliere il <span className="text-primary italic">nostro approccio</span></h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((b, i) => (
@@ -130,8 +130,8 @@ export default function Tecnologie() {
                 <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <b.icon size={24} className="text-primary" />
                 </div>
-                <h3 className="font-playfair text-xl font-bold text-secondary mb-3">{b.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{b.desc}</p>
+                <h3 className="font-playfair text-xl font-bold text-foreground mb-3">{b.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{b.desc}</p>
               </motion.div>
             ))}
           </div>

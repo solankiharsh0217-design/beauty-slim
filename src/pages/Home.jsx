@@ -162,12 +162,12 @@ export default function Home() {
                 <div className="h-px w-8 bg-primary" />
                 <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">I Nostri Servizi</span>
               </div>
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-secondary leading-tight">
+              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground leading-tight">
                 Trattamenti pensati<br />
                 <span className="text-primary italic">per te</span>
               </h2>
             </div>
-            <p className="text-gray-500 max-w-sm text-sm leading-relaxed">
+            <p className="text-muted-foreground max-w-sm text-sm leading-relaxed">
               Ogni servizio nasce da un ascolto reale. Costruiamo percorsi su misura per darti risultati visibili e continuità.
             </p>
           </div>
@@ -196,9 +196,9 @@ export default function Home() {
                     <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                       <service.icon size={18} className="text-primary" />
                     </div>
-                    <h3 className="font-playfair text-lg font-bold text-secondary leading-tight">{service.title}</h3>
+                    <h3 className="font-playfair text-lg font-bold text-foreground leading-tight">{service.title}</h3>
                   </div>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-4">{service.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{service.description}</p>
                   <Link
                     to="/servizi"
                     className="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-3 transition-all duration-300"
@@ -274,16 +274,16 @@ export default function Home() {
                 <div className="h-px w-8 bg-primary" />
                 <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Il Nostro Centro</span>
               </div>
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-secondary mb-6 leading-tight">
+              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
                 Dove la cura<br />
                 diventa un'
                 <span className="text-primary italic">esperienza.</span>
               </h2>
-              <p className="text-gray-500 leading-relaxed mb-4 text-[15px]">
-                Beauty Slim nasce ad Alessandria con un team che unisce <strong className="text-secondary">esperienza, cura del dettaglio</strong> e attenzione concreta alla persona.
+              <p className="text-muted-foreground leading-relaxed mb-4 text-[15px]">
+                Beauty Slim nasce ad Alessandria con un team che unisce <strong className="text-foreground">esperienza, cura del dettaglio</strong> e attenzione concreta alla persona.
               </p>
-              <p className="text-gray-500 leading-relaxed mb-8 text-[15px]">
-                L'obiettivo è offrirti un luogo bello da vivere, dove ogni trattamento sia spiegato bene, eseguito con precisione e inserito in un percorso <strong className="text-secondary">realistico e personalizzato</strong>.
+              <p className="text-muted-foreground leading-relaxed mb-8 text-[15px]">
+                L'obiettivo è offrirti un luogo bello da vivere, dove ogni trattamento sia spiegato bene, eseguito con precisione e inserito in un percorso <strong className="text-foreground">realistico e personalizzato</strong>.
               </p>
 
               <ul className="space-y-3 mb-10">
@@ -294,7 +294,7 @@ export default function Home() {
                   'Ambiente elegante, accogliente e ordinato',
                   'Consulenza iniziale chiara e senza pressioni',
                 ].map(item => (
-                  <li key={item} className="flex items-center gap-3 text-secondary text-sm">
+                  <li key={item} className="flex items-center gap-3 text-foreground text-sm">
                     <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
                       <Check size={12} className="text-primary" />
                     </div>
@@ -382,7 +382,7 @@ export default function Home() {
               <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Testimonianze</span>
               <div className="h-px w-8 bg-primary" />
             </div>
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-secondary">
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground">
               Cosa dicono di noi
             </h2>
           </div>

@@ -66,10 +66,10 @@ export default function Servizi() {
               <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">I Nostri Servizi</span>
               <div className="h-px w-8 bg-primary" />
             </div>
-            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-secondary mb-5 leading-tight">
+            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-foreground mb-5 leading-tight">
               Trattamenti per la tua<br /><span className="text-primary italic">bellezza completa</span>
             </h1>
-            <p className="text-gray-500 text-lg leading-relaxed max-w-xl mx-auto">
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto">
               Offriamo una selezione di trattamenti per viso, corpo, laser ed estetica quotidiana, costruiti per accompagnarti in un percorso curato e coerente.
             </p>
           </motion.div>
@@ -99,11 +99,11 @@ export default function Servizi() {
                   </div>
                   <span className="text-primary text-xs uppercase tracking-[0.15em] font-medium">Trattamento</span>
                 </div>
-                <h2 className="font-playfair text-3xl md:text-4xl font-bold text-secondary mb-3 leading-tight">{service.category}</h2>
-                <p className="text-gray-500 leading-relaxed mb-7 text-[15px]">{service.description}</p>
+                <h2 className="font-playfair text-3xl md:text-4xl font-bold text-foreground mb-3 leading-tight">{service.category}</h2>
+                <p className="text-muted-foreground leading-relaxed mb-7 text-[15px]">{service.description}</p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
                   {service.items.map(item => (
-                    <li key={item} className="flex items-center gap-2.5 text-sm text-secondary">
+                    <li key={item} className="flex items-center gap-2.5 text-sm text-foreground">
                       <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                         <CheckCircle size={13} className="text-primary" />
                       </div>
@@ -129,7 +129,7 @@ export default function Servizi() {
               <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Perché Sceglierci</span>
               <div className="h-px w-8 bg-primary" />
             </div>
-            <h2 className="font-playfair text-4xl font-bold text-secondary">Un metodo <span className="text-primary italic">più curato</span></h2>
+            <h2 className="font-playfair text-4xl font-bold text-foreground">Un metodo <span className="text-primary italic">più curato</span></h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {whyChooseUs.map((item, index) => (
@@ -144,7 +144,7 @@ export default function Servizi() {
                 <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                   <CheckCircle size={18} className="text-primary" />
                 </div>
-                <span className="text-secondary font-medium text-sm">{item}</span>
+                <span className="text-foreground font-medium text-sm">{item}</span>
               </motion.div>
             ))}
           </div>

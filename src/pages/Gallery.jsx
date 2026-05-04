@@ -26,10 +26,10 @@ export default function Gallery() {
               <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Galleria</span>
               <div className="h-px w-8 bg-primary" />
             </div>
-            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-secondary mb-5 leading-tight">
+            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-foreground mb-5 leading-tight">
               L'esperienza<br /><span className="text-primary italic">in immagini</span>
             </h1>
-            <p className="text-gray-500 text-lg leading-relaxed max-w-xl mx-auto">
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto">
               Una selezione di immagini che racconta l'atmosfera del centro, i servizi principali e il livello di cura con cui costruiamo ogni esperienza.
             </p>
           </motion.div>
@@ -67,8 +67,8 @@ export default function Gallery() {
       <section className="py-20 bg-card">
         <div className="max-w-3xl mx-auto px-5 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-playfair text-3xl font-bold text-secondary mb-4">Contatto diretto,<br /><span className="text-primary italic">senza complicazioni</span></h2>
-            <p className="text-gray-500 leading-relaxed mb-8">
+            <h2 className="font-playfair text-3xl font-bold text-foreground mb-4">Contatto diretto,<br /><span className="text-primary italic">senza complicazioni</span></h2>
+            <p className="text-muted-foreground leading-relaxed mb-8">
               Se vuoi informazioni su un trattamento o desideri prenotare una consulenza, puoi scriverci direttamente oppure chiamarci.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">

@@ -34,10 +34,10 @@ export default function ChiSiamo() {
               <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Chi Siamo</span>
               <div className="h-px w-8 bg-primary" />
             </div>
-            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-secondary mb-5 leading-tight">
+            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-foreground mb-5 leading-tight">
               Il tuo centro benessere<br /><span className="text-primary italic">ad Alessandria</span>
             </h1>
-            <p className="text-gray-500 text-lg leading-relaxed max-w-xl mx-auto">
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto">
               Beauty Slim è uno spazio dedicato alla bellezza e al benessere, dove stile, ascolto e precisione convivono in un'esperienza più curata e rassicurante.
             </p>
           </motion.div>
@@ -66,7 +66,7 @@ export default function ChiSiamo() {
               <div className="rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
                 <img src={IMAGES.clinic} alt="Reception Beauty Slim" className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-44 h-44 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+              <div className="absolute -bottom-6 -right-6 w-44 h-44 rounded-2xl overflow-hidden shadow-xl border-4 border-primary/40">
                 <img src={IMAGES.consultation} alt="Consulenza" className="w-full h-full object-cover" />
               </div>
             </motion.div>
@@ -76,17 +76,17 @@ export default function ChiSiamo() {
                 <div className="h-px w-8 bg-primary" />
                 <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">La Nostra Storia</span>
               </div>
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-secondary mb-6 leading-tight">
+              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
                 Passione e <span className="text-primary italic">professionalità</span><br />al tuo servizio
               </h2>
-              <p className="text-gray-500 leading-relaxed mb-4 text-[15px]">
-                Beauty Slim nasce ad Alessandria con la volontà di offrire un luogo in cui la <strong className="text-secondary">cura della persona</strong> non sia soltanto un trattamento, ma un'esperienza coerente, ordinata e piacevole da vivere.
+              <p className="text-muted-foreground leading-relaxed mb-4 text-[15px]">
+                Beauty Slim nasce ad Alessandria con la volontà di offrire un luogo in cui la <strong className="text-foreground">cura della persona</strong> non sia soltanto un trattamento, ma un'esperienza coerente, ordinata e piacevole da vivere.
               </p>
-              <p className="text-gray-500 leading-relaxed mb-4 text-[15px]">
-                Il nostro modo di lavorare mette insieme consulenza, atmosfera, <strong className="text-secondary">tecnologie selezionate</strong> e una relazione più attenta, per accompagnarti con maggiore chiarezza verso i tuoi obiettivi.
+              <p className="text-muted-foreground leading-relaxed mb-4 text-[15px]">
+                Il nostro modo di lavorare mette insieme consulenza, atmosfera, <strong className="text-foreground">tecnologie selezionate</strong> e una relazione più attenta, per accompagnarti con maggiore chiarezza verso i tuoi obiettivi.
               </p>
-              <p className="text-gray-500 leading-relaxed mb-10 text-[15px]">
-                Ogni dettaglio del centro è stato pensato per creare una sensazione di <strong className="text-secondary">calma, riservatezza e fiducia</strong>.
+              <p className="text-muted-foreground leading-relaxed mb-10 text-[15px]">
+                Ogni dettaglio del centro è stato pensato per creare una sensazione di <strong className="text-foreground">calma, riservatezza e fiducia</strong>.
               </p>
               <ul className="space-y-5">
                 {features.map(f => (
@@ -95,8 +95,8 @@ export default function ChiSiamo() {
                       <f.icon size={18} className="text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-secondary mb-1 text-sm">{f.title}</h4>
-                      <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
+                      <h4 className="font-semibold text-foreground mb-1 text-sm">{f.title}</h4>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{f.description}</p>
                     </div>
                   </li>
                 ))}
@@ -115,16 +115,16 @@ export default function ChiSiamo() {
               <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">I Nostri Valori</span>
               <div className="h-px w-8 bg-primary" />
             </div>
-            <h2 className="font-playfair text-4xl font-bold text-secondary">Cosa ci <span className="text-primary italic">guida ogni giorno</span></h2>
+            <h2 className="font-playfair text-4xl font-bold text-foreground">Cosa ci <span className="text-primary italic">guida ogni giorno</span></h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f, index) => (
-              <motion.div key={f.title} className="text-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.08 }} viewport={{ once: true }}>
+              <motion.div key={f.title} className="text-center p-8 bg-card rounded-2xl shadow-sm hover:shadow-lg transition-all border border-border" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.08 }} viewport={{ once: true }}>
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
                   <f.icon size={28} className="text-primary" />
                 </div>
-                <h3 className="font-playfair text-xl font-bold text-secondary mb-3">{f.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
+                <h3 className="font-playfair text-xl font-bold text-foreground mb-3">{f.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{f.description}</p>
               </motion.div>
             ))}
           </div>
@@ -140,8 +140,8 @@ export default function ChiSiamo() {
                 <div className="h-px w-8 bg-primary" />
                 <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Dove Siamo</span>
               </div>
-              <h2 className="font-playfair text-4xl font-bold text-secondary mb-4 leading-tight">Vieni a <span className="text-primary italic">trovarci</span></h2>
-              <p className="text-gray-500 leading-relaxed mb-8 text-[15px]">
+              <h2 className="font-playfair text-4xl font-bold text-foreground mb-4 leading-tight">Vieni a <span className="text-primary italic">trovarci</span></h2>
+              <p className="text-muted-foreground leading-relaxed mb-8 text-[15px]">
                 Il centro si trova in Via Trotti 69 ad Alessandria, in una posizione comoda da raggiungere per concederti un momento di cura in piena tranquillità.
               </p>
               <div className="space-y-5 mb-8">
@@ -156,8 +156,8 @@ export default function ChiSiamo() {
                       <item.icon size={18} className="text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-secondary mb-1 text-sm">{item.title}</h4>
-                      {item.lines.map(l => <p key={l} className="text-gray-500 text-sm">{l}</p>)}
+                      <h4 className="font-semibold text-foreground mb-1 text-sm">{item.title}</h4>
+                      {item.lines.map(l => <p key={l} className="text-muted-foreground text-sm">{l}</p>)}
                     </div>
                   </div>
                 ))}

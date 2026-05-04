@@ -4,25 +4,46 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary: #CDA45E;
-  --primary-dark: #b8956a;
-  --secondary: #1a252f;
-  --accent: #e8d5c4;
-  --light: #faf8f6;
+@layer base {
+  :root {
+    --background: 250 248 246;
+    --foreground: 26 37 47;
+    --card: 255 255 255;
+    --card-foreground: 26 37 47;
+    --popover: 255 255 255;
+    --popover-foreground: 26 37 47;
+    --primary: 205 164 94;
+    --primary-foreground: 255 255 255;
+    --secondary: 26 37 47;
+    --secondary-foreground: 255 255 255;
+    --muted: 245 240 235;
+    --muted-foreground: 107 114 128;
+    --accent: 232 213 196;
+    --accent-foreground: 26 37 47;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 229 224 218;
+    --input: 229 224 218;
+    --ring: 205 164 94;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  background: #faf8f6;
-  overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
 }

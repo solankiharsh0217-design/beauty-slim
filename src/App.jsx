@@ -8,6 +8,7 @@ import ChiSiamo from './pages/ChiSiamo'
 import Tecnologie from './pages/Tecnologie'
 import Contatti from './pages/Contatti'
 import Gallery from './pages/Gallery'
+import PageNotFound from './lib/PageNotFound'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/tecnologie" element={<Tecnologie />} />
               <Route path="/contatti" element={<Contatti />} />
               <Route path="/gallery" element={<Gallery />} />
+              <Route path="*" element={<PageNotFound />} />
             </Routes>
           </AnimatePresence>
         </main>

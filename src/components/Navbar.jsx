@@ -31,10 +31,8 @@ export default function Navbar() {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-5">
       <motion.nav
-        className={`w-full max-w-6xl transition-all duration-500 rounded-2xl ${
-          scrolled || mobileOpen
-            ? 'bg-secondary/95 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/20 px-6 py-3'
-            : 'bg-black/20 backdrop-blur-lg border border-white/15 shadow-xl shadow-black/10 px-6 py-3.5'
+        className={`w-full max-w-6xl transition-all duration-500 rounded-2xl bg-secondary/95 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/20 ${
+          scrolled || mobileOpen ? 'px-6 py-3' : 'px-6 py-3.5'
         }`}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

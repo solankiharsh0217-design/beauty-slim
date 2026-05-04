@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Servizi from './pages/Servizi'
@@ -7,6 +7,7 @@ import ChiSiamo from './pages/ChiSiamo'
 import Tecnologie from './pages/Tecnologie'
 import Contatti from './pages/Contatti'
 import Gallery from './pages/Gallery'
+
 
 function App() {
   return (

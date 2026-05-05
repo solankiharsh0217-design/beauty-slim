@@ -16,7 +16,7 @@ export default function Gallery() {
   return (
     <div className="font-poppins">
       {/* ── Hero ── */}
-      <section className="relative pt-40 pb-24 text-center overflow-hidden bg-[#16120e]">
+      <section className="relative pt-40 pb-24 text-center overflow-hidden bg-[#14141a]">
         <div className="absolute inset-0 opacity-30"
           style={{ backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(205,164,94,0.25), transparent 60%)' }}
         />

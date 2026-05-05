@@ -90,11 +90,11 @@ export default function Servizi() {
       <AmbientGlow />
 
       {/* ── Hero ── */}
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative pt-40 pb-24 overflow-hidden bg-[#0e0e12]">
         <div className="absolute inset-0">
           <img src={IMAGES.facial} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#16120e]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#14141a]" />
         </div>
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
@@ -113,7 +113,7 @@ export default function Servizi() {
       </section>
 
       {/* ── Services grid ── */}
-      <section className="relative py-24 bg-[#16120e]">
+      <section className="relative py-24 bg-[#14141a]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div className="text-center mb-14" initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-3 block">Tutti i Trattamenti</span>
@@ -235,10 +235,10 @@ export default function Servizi() {
         )}
       </AnimatePresence>
 
-      <WaveDivider color="#0f0c0a" />
+      <WaveDivider color="#0e0e12" />
 
       {/* ── CTA ── */}
-      <section className="relative py-28 bg-[#0f0c0a] overflow-hidden">
+      <section className="relative py-28 bg-[#0e0e12] overflow-hidden">
         <div className="absolute inset-0">
           <img src={IMAGES.body} alt="" className="w-full h-full object-cover opacity-10" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />

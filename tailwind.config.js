@@ -5,39 +5,44 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#C4984A",
-          dark: "#a87c34",
-          foreground: "#0a0a0c",
+          DEFAULT: "hsl(var(--primary))",
+          dark: "hsl(var(--primary-dark))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "#0d0d10",
-          foreground: "#f0e8dc",
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         accent: {
-          DEFAULT: "#1e1c28",
-          foreground: "#f0e8dc",
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
-        light: "#16161c",
-        background: "#0a0a0c",
-        foreground: "#f0e8dc",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         muted: {
-          DEFAULT: "#16161c",
-          foreground: "#969098",
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
-        border: "#232332",
-        input: "#232332",
-        ring: "#C4984A",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
         destructive: {
-          DEFAULT: "#c83c3c",
-          foreground: "#ffffff",
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
         card: {
-          DEFAULT: "#101014",
-          foreground: "#f0e8dc",
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
         popover: {
-          DEFAULT: "#101014",
-          foreground: "#f0e8dc",
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        /* Section background tokens */
+        section: {
+          a: "hsl(var(--section-a))",
+          b: "hsl(var(--section-b))",
+          dark: "hsl(var(--section-dark))",
         },
       },
       fontFamily: {

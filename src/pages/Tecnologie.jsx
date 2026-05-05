@@ -67,7 +67,7 @@ export default function Tecnologie() {
   return (
     <div className="font-poppins">
       {/* ── Hero ── */}
-      <section className="relative pt-40 pb-24 text-center overflow-hidden bg-[#14141a]">
+      <section className="relative pt-40 pb-24 text-center overflow-hidden bg-section-a">
         <div className="absolute inset-0 opacity-30"
           style={{ backgroundImage: 'radial-gradient(ellipse at 40% 0%, rgba(205,164,94,0.25), transparent 60%)' }}
         />
@@ -86,7 +86,7 @@ export default function Tecnologie() {
       </section>
 
       {/* ── Technologies 2x2 grid ── */}
-      <section className="relative py-24 bg-[#14141a]">
+      <section className="relative py-24 bg-section-a">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {technologies.map((tech, index) => (
@@ -196,10 +196,10 @@ export default function Tecnologie() {
         )}
       </AnimatePresence>
 
-      <WaveDivider color="#0e0e12" />
+      <WaveDivider color="#F0EADE" />
 
       {/* ── Benefits ── */}
-      <section className="relative py-24 bg-[#0e0e12]">
+      <section className="relative py-24 bg-section-b">
         <div className="max-w-2xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="spa-card p-10 text-center">
@@ -227,7 +227,7 @@ export default function Tecnologie() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="relative py-28 bg-[#0e0e12] overflow-hidden">
+      <section className="relative py-28 bg-section-b overflow-hidden">
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-3 leading-tight">

@@ -32,8 +32,6 @@ export default function Navbar() {
     setMobileOpen(false)
   }, [location])
 
-  const isTransparent = !scrolled && !mobileOpen
-
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-5">
       <motion.nav
@@ -49,7 +47,7 @@ export default function Navbar() {
         transition={{ duration: 0.5 }}
       >
         <div className="flex items-center justify-between">
-          <Link to="/" className="font-playfair text-xl font-bold text-white drop-shadow-sm">
+          <Link to="/" className="font-playfair text-xl font-bold text-foreground drop-shadow-sm">
             Beauty <span className="text-primary">Slim</span>
           </Link>
 
@@ -61,7 +59,7 @@ export default function Navbar() {
                   className={`font-poppins text-sm font-medium transition-all duration-300 relative ${
                     location.pathname === link.path
                       ? 'text-primary'
-                      : 'text-white/80 hover:text-white'
+                      : 'text-foreground/70 hover:text-foreground'
                   }`}
                 >
                   {link.label}
@@ -80,7 +78,7 @@ export default function Navbar() {
                 className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold border transition-all duration-300 ${
                   location.pathname === '/dashboard'
                     ? 'bg-primary/20 border-primary/40 text-primary'
-                    : 'border-white/20 text-white/70 hover:border-primary/40 hover:text-primary'
+                    : 'border-foreground/20 text-foreground/70 hover:border-primary/40 hover:text-primary'
                 }`}
               >
                 <LayoutDashboard size={13} /> Dashboard
@@ -96,7 +94,7 @@ export default function Navbar() {
           </div>
 
           <button
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-foreground"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -106,7 +104,7 @@ export default function Navbar() {
         <AnimatePresence>
           {mobileOpen && (
             <motion.div
-              className="md:hidden mt-4 pt-4 border-t border-white/10 flex flex-col gap-2"
+              className="md:hidden mt-4 pt-4 border-t border-border flex flex-col gap-2"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -118,7 +116,7 @@ export default function Navbar() {
                   className={`text-base font-medium py-3 px-4 transition-colors rounded-2xl ${
                     location.pathname === link.path
                       ? 'text-primary bg-primary/10'
-                      : 'text-white/80 hover:text-primary hover:bg-white/5'
+                      : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
                   }`}
                   style={{ borderRadius: '20px 30px 20px 20px' }}
                 >

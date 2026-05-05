@@ -75,12 +75,6 @@ export default function Servizi() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-[#16120e]" />
         </div>
 
-        {/* Decorative rings */}
-        <div className="absolute top-20 right-20 w-48 h-48 pointer-events-none hidden lg:block">
-          <div className="absolute inset-0 rounded-full border border-primary/15 ring-ripple" />
-          <div className="absolute inset-0 rounded-full border border-primary/15 ring-ripple ring-ripple-d1" />
-        </div>
-
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -165,10 +159,6 @@ export default function Servizi() {
 
       {/* ── CTA ── */}
       <section className="relative py-28 bg-[#0f0c0a] overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-          <div className="w-[600px] h-[600px] rounded-full border border-primary/6 ring-ripple" />
-          <div className="absolute w-[400px] h-[400px] rounded-full border border-primary/8 ring-ripple ring-ripple-d1" />
-        </div>
         <div className="absolute inset-0">
           <img src={IMAGES.body} alt="" className="w-full h-full object-cover opacity-10" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />

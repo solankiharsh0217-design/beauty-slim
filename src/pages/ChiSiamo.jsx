@@ -34,12 +34,6 @@ export default function ChiSiamo() {
           style={{ backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(205,164,94,0.25), transparent 60%)' }}
         />
 
-        {/* Decorative rings */}
-        <div className="absolute top-24 right-20 w-44 h-44 pointer-events-none hidden lg:block">
-          <div className="absolute inset-0 rounded-full border border-primary/12 ring-ripple" />
-          <div className="absolute inset-0 rounded-full border border-primary/12 ring-ripple ring-ripple-d2" />
-        </div>
-
         <div className="relative max-w-3xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">Chi Siamo</span>
@@ -56,12 +50,6 @@ export default function ChiSiamo() {
 
       {/* ── About content ── */}
       <section className="relative py-28 bg-[#16120e] overflow-hidden">
-        {/* Floating rings */}
-        <div className="absolute top-16 left-10 w-48 h-48 pointer-events-none hidden lg:block">
-          <div className="absolute inset-0 rounded-full border border-primary/8 ring-ripple float-d1" />
-          <div className="absolute inset-0 rounded-full border border-primary/8 ring-ripple ring-ripple-d2 float-d1" />
-        </div>
-
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             {/* Image */}
@@ -135,10 +123,6 @@ export default function ChiSiamo() {
         <div className="absolute inset-0">
           <img src={IMAGES.clinic} alt="" className="w-full h-full object-cover opacity-12" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/65 to-black/80" />
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[500px] h-[500px] rounded-full border border-primary/6 ring-ripple" />
-          <div className="absolute w-[320px] h-[320px] rounded-full border border-primary/8 ring-ripple ring-ripple-d1" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div

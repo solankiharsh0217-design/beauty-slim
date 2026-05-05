@@ -42,11 +42,6 @@ export default function Home() {
     <div className="font-poppins relative">
       <AmbientGlow />
 
-      {/* Floating blob decors */}
-      <div className="blob-circle w-[500px] h-[500px] -top-40 -left-40 opacity-60 float-gentle" />
-      <div className="blob-circle w-[350px] h-[350px] bottom-40 -right-20 opacity-35 float-gentle float-d2" />
-      <div className="blob-circle w-[280px] h-[280px] top-1/2 left-1/3 opacity-25 float-gentle float-d1" />
-
       {/* ── Hero ── */}
       <HeroSlider />
 
@@ -113,17 +108,6 @@ export default function Home() {
 
       {/* ── About / Center ── */}
       <section className="relative py-28 bg-[#0f0c0a] overflow-hidden">
-        {/* Decorative floating rings */}
-        <div className="absolute top-16 right-16 w-64 h-64 pointer-events-none hidden lg:block">
-          <div className="absolute inset-0 rounded-full border border-primary/10 ring-ripple" />
-          <div className="absolute inset-0 rounded-full border border-primary/10 ring-ripple ring-ripple-d1" />
-          <div className="absolute inset-0 rounded-full border border-primary/10 ring-ripple ring-ripple-d2" />
-        </div>
-        <div className="absolute bottom-24 left-10 w-40 h-40 pointer-events-none hidden lg:block">
-          <div className="absolute inset-0 rounded-full border border-primary/8 ring-ripple float-d2" />
-          <div className="absolute inset-0 rounded-full border border-primary/8 ring-ripple ring-ripple-d1 float-d2" />
-        </div>
-
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             {/* Image */}
@@ -251,12 +235,6 @@ export default function Home() {
         <div className="absolute inset-0">
           <img src={IMAGES.body} alt="" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/85" />
-        </div>
-
-        {/* Decorative rings */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[500px] h-[500px] rounded-full border border-primary/8 ring-ripple" />
-          <div className="absolute w-[350px] h-[350px] rounded-full border border-primary/10 ring-ripple ring-ripple-d1" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">

@@ -72,48 +72,6 @@ export default function HeroSlider() {
         </motion.div>
       </AnimatePresence>
 
-      {/* ── Floating decorative rings ── */}
-      <div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
-        {/* Large ring group — top right */}
-        <motion.div
-          className="absolute -top-24 -right-24 w-[520px] h-[520px]"
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2, ease: 'easeOut' }}
-        >
-          <div className="absolute inset-0 rounded-full border border-primary/10 ring-ripple" />
-          <div className="absolute inset-0 rounded-full border border-primary/8  ring-ripple ring-ripple-d1" />
-          <div className="absolute inset-0 rounded-full border border-primary/6  ring-ripple ring-ripple-d2" />
-        </motion.div>
-
-        {/* Medium ring — bottom left */}
-        <motion.div
-          className="absolute -bottom-32 -left-32 w-[380px] h-[380px]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2, delay: 0.5 }}
-        >
-          <div className="absolute inset-0 rounded-full border border-primary/8 ring-ripple float-d2" />
-          <div className="absolute inset-0 rounded-full border-dashed border-primary/6 spin-slow" />
-        </motion.div>
-
-        {/* Small floating orb — mid right */}
-        <motion.div
-          className="absolute top-1/3 right-12 w-20 h-20 rounded-full bg-primary/6 blur-xl orb-pulse float-gentle"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-        />
-
-        {/* Tiny orb — lower left */}
-        <motion.div
-          className="absolute bottom-1/4 left-1/4 w-12 h-12 rounded-full bg-primary/8 blur-lg orb-pulse-d1 float-soft float-d1"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-        />
-      </div>
-
       {/* ── Content ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <div className="max-w-xl pt-24 pb-16">

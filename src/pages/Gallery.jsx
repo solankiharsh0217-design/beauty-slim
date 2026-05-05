@@ -15,26 +15,11 @@ const galleryImages = [
 export default function Gallery() {
   return (
     <div className="font-poppins">
-      {/* Ambient orbs */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-primary/8 blur-[100px] -top-64 -left-64 orb-pulse" />
-        <div className="absolute w-[400px] h-[400px] rounded-full bg-primary/6 blur-[80px] bottom-20 -right-40 orb-pulse-d1" />
-      </div>
-
       {/* ── Hero ── */}
       <section className="relative pt-40 pb-24 text-center overflow-hidden bg-[#16120e]">
         <div className="absolute inset-0 opacity-30"
           style={{ backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(205,164,94,0.25), transparent 60%)' }}
         />
-
-        {/* Decorative rings */}
-        <div className="absolute top-24 left-16 w-40 h-40 pointer-events-none hidden lg:block">
-          <div className="absolute inset-0 rounded-full border border-primary/12 ring-ripple" />
-          <div className="absolute inset-0 rounded-full border border-primary/12 ring-ripple ring-ripple-d2" />
-        </div>
-        <div className="absolute bottom-12 right-16 w-28 h-28 pointer-events-none hidden lg:block">
-          <div className="absolute inset-0 rounded-full border border-primary/10 ring-ripple ring-ripple-d1" />
-        </div>
 
         <div className="relative max-w-3xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
@@ -81,10 +66,6 @@ export default function Gallery() {
 
       {/* ── CTA ── */}
       <section className="relative py-28 bg-[#0f0c0a] overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[500px] h-[500px] rounded-full border border-primary/6 ring-ripple" />
-          <div className="absolute w-[320px] h-[320px] rounded-full border border-primary/8 ring-ripple ring-ripple-d1" />
-        </div>
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 25 }}

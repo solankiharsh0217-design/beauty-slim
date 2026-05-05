@@ -15,11 +15,13 @@ export default function Dashboard() {
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
-    base44.auth.me().then(u => {
-      setUser(u)
-      if (u?.role === 'admin') loadPromos()
-      else setLoading(false)
-    })
+    base44.auth.me()
+      .then(u => {
+        setUser(u)
+        if (u?.role === 'admin') loadPromos()
+        else setLoading(false)
+      })
+      .catch(() => setLoading(false))
   }, [])
 
   const loadPromos = () => {

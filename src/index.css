@@ -29,7 +29,7 @@
 
   * { border-color: hsl(var(--border)); }
   body {
-    background-color: hsl(var(--background));
+    background-color: #000000;
     color: hsl(var(--foreground));
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
@@ -50,14 +50,14 @@ html { scroll-behavior: smooth; }
   .ambient-glow-1 {
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle, rgba(196,152,74,0.09) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(196,152,74,0.03) 0%, transparent 70%);
     top: -350px;
     left: -350px;
   }
   .ambient-glow-2 {
     width: 650px;
     height: 650px;
-    background: radial-gradient(circle, rgba(196,152,74,0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(196,152,74,0.02) 0%, transparent 70%);
     bottom: -250px;
     right: -250px;
   }

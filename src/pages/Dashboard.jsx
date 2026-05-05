@@ -75,7 +75,25 @@ export default function Dashboard() {
     </div>
   )
 
-  if (!user || user.role !== 'admin') return (
+  if (!user) return (
+    <div className="min-h-screen bg-background flex items-center justify-center px-5">
+      <div className="text-center">
+        <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
+          <XCircle size={32} className="text-primary" />
+        </div>
+        <h2 className="font-playfair text-2xl font-bold text-foreground mb-4">Accesso richiesto</h2>
+        <p className="text-muted-foreground text-sm mb-6">Effettua il login per accedere alla dashboard amministratore.</p>
+        <button
+          onClick={() => base44.auth.redirectToLogin(window.location.pathname)}
+          className="px-7 py-3 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30"
+        >
+          Accedi
+        </button>
+      </div>
+    </div>
+  )
+
+  if (user.role !== 'admin') return (
     <div className="min-h-screen bg-background flex items-center justify-center px-5">
       <div className="text-center">
         <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">

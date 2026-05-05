@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight, Sparkles, Scissors, Smile, Leaf, HandHeart,
-  Star, Shield, MapPin, Check, Phone, Droplets
+  Star, Check, Phone
 } from 'lucide-react'
 import HeroSlider from '../components/HeroSlider'
 
@@ -16,8 +16,8 @@ const IMAGES = {
 }
 
 const services = [
-  { icon: Sparkles, title: 'Dimagrimento', description: 'Percorsi personalizzati per ridefinire il corpo con trattamenti mirati.', image: IMAGES.body },
-  { icon: Scissors, title: 'Epilazione Laser', description: "Trattamenti laser sicuri per una pelle liscia.", image: IMAGES.laser },
+  { icon: Sparkles, title: 'Dimagrimento', description: 'Percorsi personalizzati per ridefinire il corpo.', image: IMAGES.body },
+  { icon: Scissors, title: 'Epilazione Laser', description: 'Trattamenti laser sicuri per una pelle liscia.', image: IMAGES.laser },
   { icon: Smile, title: 'Cura del Viso', description: 'Protocolli avanzati per luminosità e freschezza.', image: IMAGES.facial },
   { icon: Leaf, title: 'Estetica Base', description: 'Manicure, pedicure e beauty care quotidiano.', image: IMAGES.manicure },
   { icon: HandHeart, title: 'Massaggi', description: 'Percorsi di benessere per un relax completo.', image: IMAGES.massage },
@@ -29,40 +29,34 @@ const testimonials = [
   { name: 'Laura B.', text: 'Ambiente raffinato e accogliente, risultati visibili.', rating: 5 },
 ]
 
-const WaveDivider = ({ color = '#0c0a08', flipped = false, opacity = 1 }) => (
-  <div className={`wave-divider ${flipped ? 'wave-divider-bottom' : 'wave-divider-top'}`} style={{ color, opacity }}>
+const WaveDivider = ({ color = '#0c0a08', flipped = false }) => (
+  <div className={`wave-divider ${flipped ? 'wave-divider-bottom' : 'wave-divider-top'}`} style={{ color }}>
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
       <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.63,250.45-.09C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="wave-shape" />
     </svg>
   </div>
 )
 
-const FloatingBlob = ({ className }) => (
-  <div className={`blob-orb ${className}`} />
-)
-
 export default function Home() {
   return (
     <div className="font-poppins relative">
-      {/* Organic background blobs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <FloatingBlob className="w-[600px] h-[600px] bg-primary/20 top-[-200px] left-[-200px] blob-orb" />
-        <FloatingBlob className="w-[500px] h-[500px] bg-primary/15 bottom-[20%] right-[-100px] blob-orb" />
-        <FloatingBlob className="w-[400px] h-[400px] bg-accent/20 top-[40%] left-[30%] blob-orb" />
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-primary/10 blur-[100px] -top-64 -left-64 animate-pulse" style={{ animationDuration: '8s' }} />
+        <div className="absolute w-[400px] h-[400px] rounded-full bg-primary/8 blur-[80px] bottom-20 -right-40 animate-pulse" style={{ animationDuration: '10s' }} />
       </div>
 
       <HeroSlider />
 
-      {/* ── SERVICES ─────────────────────────────────────────── */}
-      <section className="relative py-32 flowing-bg">
-        <WaveDivider color="#16120e" />
+      <section className="relative py-32 bg-gradient-to-b from-[#16120e] to-[#0c0a08]">
+        <WaveDivider color="#0c0a08" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
-            className="text-center mb-20"
+            className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
             <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">I Nostri Servizi</span>
             <h2 className="font-playfair text-5xl md:text-6xl font-bold text-foreground leading-tight mb-6">
@@ -73,46 +67,46 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                className="organic-card group p-1"
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <div className="relative h-64 overflow-hidden soft-curve">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-5 left-5 w-12 h-12 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
-                    <service.icon size={20} className="text-primary" />
+                <div className="organic-card group h-full">
+                  <div className="relative h-56 overflow-hidden soft-curve">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
+                      <service.icon size={18} className="text-primary" />
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-playfair text-xl font-bold text-foreground mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{service.description}</p>
-                  <Link
-                    to="/servizi"
-                    className="inline-flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all duration-300"
-                  >
-                    Scopri <ArrowRight size={14} />
-                  </Link>
+                  <div className="p-5">
+                    <h3 className="font-playfair text-lg font-bold text-foreground mb-2">{service.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-3">{service.description}</p>
+                    <Link
+                      to="/servizi"
+                      className="inline-flex items-center gap-1.5 text-primary font-medium text-sm group-hover:gap-2.5 transition-all duration-300"
+                    >
+                      Scopri <ArrowRight size={12} />
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
 
-        <WaveDivider color="#16120e" flipped />
+        <WaveDivider color="#0c0a08" flipped />
       </section>
 
-      {/* ── ABOUT ─────────────────────────────────────────── */}
       <section className="relative py-32 bg-[#16120e]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -146,7 +140,7 @@ export default function Home() {
                 Dove la cura diventa <span className="text-primary italic">esperienza</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Beauty Slim nasce ad Alessandria con un team che unisce esperienza, cura del dettaglio e attenzione concreta alla persona. L'obiettivo è offrirti un luogo bello da vivere.
+                Beauty Slim nasce ad Alessandria con un team che unisce esperienza, cura del dettaglio e attenzione concreta alla persona.
               </p>
               
               <ul className="space-y-4 mb-10">
@@ -176,13 +170,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ─────────────────────────────────────── */}
-      <section className="relative py-32 flowing-bg">
+      <section className="relative py-32 bg-gradient-to-b from-[#16120e] to-[#0c0a08]">
         <WaveDivider color="#0c0a08" />
         
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            className="text-center mb-20"
+            className="text-center mb-16"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -193,27 +186,27 @@ export default function Home() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((t, index) => (
               <motion.div
                 key={t.name}
-                className="organic-card p-8 text-center"
+                className="organic-card p-6 text-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.15 }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="flex justify-center gap-1 mb-6">
+                <div className="flex justify-center gap-1 mb-4">
                   {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} size={18} fill="#CDA45E" color="#CDA45E" />
+                    <Star key={i} size={16} fill="#CDA45E" color="#CDA45E" />
                   ))}
                 </div>
-                <p className="text-foreground/80 text-lg leading-relaxed mb-6 italic">"{t.text}"</p>
-                <div className="flex items-center justify-center gap-3 pt-4 border-t border-primary/20">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                    <span className="text-primary font-bold">{t.name[0]}</span>
+                <p className="text-foreground/80 text-base leading-relaxed mb-4 italic">"{t.text}"</p>
+                <div className="flex items-center justify-center gap-3 pt-3 border-t border-primary/15">
+                  <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center">
+                    <span className="text-primary font-bold text-sm">{t.name[0]}</span>
                   </div>
-                  <span className="font-semibold text-foreground">{t.name}</span>
+                  <span className="font-semibold text-foreground text-sm">{t.name}</span>
                 </div>
               </motion.div>
             ))}
@@ -221,18 +214,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CTA ────────────────────────────────────────────── */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img src={IMAGES.body} alt="" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
-        </div>
-        
-        {/* Floating bubbles in CTA */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="bubble w-64 h-64 bg-primary/30 top-1/4 left-1/4 bubble-1" />
-          <div className="bubble w-48 h-48 bg-primary/20 top-1/2 right-1/4 bubble-2" />
-          <div className="bubble w-40 h-40 bg-primary/25 bottom-1/3 left-1/3 bubble-3" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">

@@ -158,9 +158,6 @@ export default function Dashboard() {
               Accedi
             </button>
           </form>
-          <p className="text-center text-muted-foreground text-xs mt-4">
-            Credenziali: admin / beautyslim2024
-          </p>
         </div>
       </motion.div>
     </div>

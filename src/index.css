@@ -26,9 +26,7 @@
     --input: 45 36 24;
     --ring: 196 152 74;
   }
-}
 
-@layer base {
   * { border-color: hsl(var(--border)); }
   body {
     background-color: hsl(var(--background));
@@ -42,8 +40,6 @@
 html { scroll-behavior: smooth; }
 
 @layer utilities {
-
-  /* ─── Ambient Glow ─── */
   .ambient-glow {
     position: fixed;
     border-radius: 50%;
@@ -66,39 +62,6 @@ html { scroll-behavior: smooth; }
     right: -250px;
   }
 
-  /* ─── Blob Decor ─── */
-  .blob-circle {
-    position: absolute;
-    border-radius: 45% 55% 55% 45% / 50% 45% 55% 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(196,152,74,0.06), transparent 60%);
-    filter: blur(50px);
-    pointer-events: none;
-    animation: blob-morph 14s ease-in-out infinite;
-  }
-  @keyframes blob-morph {
-    0%,100% { border-radius: 45% 55% 55% 45% / 50% 45% 55% 50%; }
-    25%      { border-radius: 55% 45% 45% 55% / 45% 50% 50% 55%; }
-    50%      { border-radius: 45% 55% 45% 55% / 55% 40% 50% 55%; }
-    75%      { border-radius: 55% 45% 50% 45% / 45% 55% 45% 55%; }
-  }
-
-  /* ─── Circle Decor Ring ─── */
-  .circle-decor {
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid rgba(196,152,74,0.10);
-    pointer-events: none;
-  }
-
-  /* ─── Small circular badge helper ─── */
-  .circle-badge {
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* ─── SPA GRID (responsive 3/2/1) ─── */
   .spa-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -107,24 +70,19 @@ html { scroll-behavior: smooth; }
   @media (max-width: 1024px) { .spa-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 600px)  { .spa-grid { grid-template-columns: 1fr; } }
 
-  /* ─── SPA CARD ─── */
   .spa-card {
     background: linear-gradient(150deg, rgba(28,22,16,0.97) 0%, rgba(18,14,10,0.99) 100%);
     border-radius: 28px;
     border: 1px solid rgba(196,152,74,0.13);
     overflow: hidden;
-    transition: transform 0.5s cubic-bezier(0.34,1.4,0.64,1),
-                box-shadow 0.5s ease,
-                border-color 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.5s ease, border-color 0.4s ease;
   }
   .spa-card:hover {
     transform: translateY(-10px) scale(1.015);
     border-color: rgba(196,152,74,0.32);
-    box-shadow: 0 28px 72px rgba(0,0,0,0.55),
-                0 0 60px rgba(196,152,74,0.09);
+    box-shadow: 0 28px 72px rgba(0,0,0,0.55), 0 0 60px rgba(196,152,74,0.09);
   }
 
-  /* ─── OVAL IMAGE FRAME (circular, used inside cards) ─── */
   .oval-img-wrap {
     width: 8.5rem;
     height: 8.5rem;
@@ -141,11 +99,8 @@ html { scroll-behavior: smooth; }
     object-fit: cover;
     transition: transform 0.7s ease;
   }
-  .spa-card:hover .oval-img-wrap img {
-    transform: scale(1.12);
-  }
+  .spa-card:hover .oval-img-wrap img { transform: scale(1.12); }
 
-  /* ─── PORTRAIT OVAL (used in gallery & large feature images) ─── */
   .portrait-oval {
     border-radius: 50%;
     overflow: hidden;
@@ -159,17 +114,9 @@ html { scroll-behavior: smooth; }
     box-shadow: 0 24px 72px rgba(0,0,0,0.55), 0 0 0 8px rgba(196,152,74,0.10);
     transform: scale(1.04);
   }
-  .portrait-oval img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.7s ease;
-  }
-  .portrait-oval:hover img {
-    transform: scale(1.10);
-  }
+  .portrait-oval img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+  .portrait-oval:hover img { transform: scale(1.10); }
 
-  /* ─── FEATURE IMAGE (large portrait oval for about section) ─── */
   .feature-oval {
     border-radius: 50% 50% 45% 45% / 40% 40% 50% 50%;
     overflow: hidden;
@@ -177,7 +124,6 @@ html { scroll-behavior: smooth; }
     box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 10px rgba(196,152,74,0.05);
   }
 
-  /* ─── TESTIMONIAL CARD ─── */
   .testimonial-card {
     background: linear-gradient(135deg, rgba(28,22,16,0.93) 0%, rgba(20,16,11,0.97) 100%);
     border-radius: 24px;
@@ -190,7 +136,6 @@ html { scroll-behavior: smooth; }
     box-shadow: 0 24px 56px rgba(196,152,74,0.12), 0 0 0 1px rgba(196,152,74,0.08);
   }
 
-  /* ─── INFO CARD (contact info, benefits) ─── */
   .info-card {
     background: linear-gradient(135deg, rgba(28,22,16,0.92) 0%, rgba(20,16,11,0.96) 100%);
     border-radius: 20px;
@@ -203,19 +148,16 @@ html { scroll-behavior: smooth; }
     transform: translateY(-4px);
   }
 
-  /* ─── GLASS MORPHISM (navbar) ─── */
   .glass-morphism {
     background: rgba(18,14,10,0.65);
     backdrop-filter: blur(24px);
     border: 1px solid rgba(196,152,74,0.12);
   }
 
-  /* ─── SOFT SHADOW ─── */
   .soft-shadow {
     box-shadow: 0 4px 20px rgba(196,152,74,0.08), 0 8px 40px rgba(0,0,0,0.15);
   }
 
-  /* ─── AVATAR CIRCLE ─── */
   .avatar-circle {
     border-radius: 50%;
     display: flex;
@@ -223,7 +165,6 @@ html { scroll-behavior: smooth; }
     justify-content: center;
   }
 
-  /* ─── WAVE ORNAMENT ─── */
   .wave-ornament {
     width: 64px;
     height: 2px;
@@ -232,7 +173,6 @@ html { scroll-behavior: smooth; }
     margin: 0.75rem auto 0;
   }
 
-  /* ─── LINE CLAMP ─── */
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -240,52 +180,9 @@ html { scroll-behavior: smooth; }
     overflow: hidden;
   }
 
-  /* ─── SMOOTH TEXT ─── */
   .smooth-text {
     font-feature-settings: 'salt' on;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
-  /* ════════════════════════════════════
-     ANIMATIONS
-  ════════════════════════════════════ */
-
-  @keyframes float-gentle {
-    0%,100% { transform: translateY(0px)  rotate(0deg); }
-    33%      { transform: translateY(-16px) rotate(1.8deg); }
-    66%      { transform: translateY(-8px)  rotate(-1deg); }
-  }
-  @keyframes float-soft {
-    0%,100% { transform: translateY(0px)  scale(1); }
-    50%      { transform: translateY(-22px) scale(1.03); }
-  }
-  @keyframes orb-pulse {
-    0%,100% { opacity: 0.07; transform: scale(1); }
-    50%      { opacity: 0.18; transform: scale(1.18); }
-  }
-  @keyframes ring-expand {
-    0%   { transform: scale(0.8);  opacity: 0.5; }
-    100% { transform: scale(1.7);  opacity: 0; }
-  }
-  @keyframes gold-shimmer {
-    0%   { background-position: -200% 0; }
-    100% { background-position:  200% 0; }
-  }
-  @keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-
-  .float-gentle  { animation: float-gentle 10s ease-in-out infinite; }
-  .float-soft    { animation: float-soft    7s ease-in-out infinite; }
-  .float-d1      { animation-delay: -2.5s; }
-  .float-d2      { animation-delay: -5s; }
-  .float-d3      { animation-delay: -7.5s; }
-  .orb-pulse     { animation: orb-pulse  9s ease-in-out infinite; }
-  .orb-pulse-d1  { animation: orb-pulse 12s ease-in-out infinite -4s; }
-  .ring-ripple   { animation: ring-expand 3.5s ease-out infinite; }
-  .ring-ripple-d1{ animation: ring-expand 3.5s ease-out infinite -1.2s; }
-  .ring-ripple-d2{ animation: ring-expand 3.5s ease-out infinite -2.4s; }
-  .spin-slow     { animation: spin-slow 25s linear infinite; }
 }

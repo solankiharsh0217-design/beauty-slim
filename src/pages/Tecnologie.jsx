@@ -196,7 +196,7 @@ export default function Tecnologie() {
         )}
       </AnimatePresence>
 
-      <WaveDivider color="#0f0c0a" />
+      <WaveDivider />
 
       {/* ── Benefits ── */}
       <section className="relative py-24 bg-background">

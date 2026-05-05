@@ -1,4 +1,4 @@
-export default function WaveDivider({ color = '#080604', flip = false, height = 80 }) {
+export default function WaveDivider({ color = '#030201', flip = false, height = 80 }) {
   return (
     <div
       className="w-full overflow-hidden leading-none pointer-events-none"

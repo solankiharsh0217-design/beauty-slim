@@ -62,7 +62,7 @@ export default function Gallery() {
         </div>
       </section>
 
-      <WaveDivider color="#0f0c0a" />
+      <WaveDivider />
 
       {/* ── CTA ── */}
       <section className="relative py-28 bg-background overflow-hidden">

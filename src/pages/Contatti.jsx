@@ -70,7 +70,7 @@ export default function Contatti() {
         </div>
       </section>
 
-      <WaveDivider color="#0f0c0a" />
+      <WaveDivider />
 
       {/* ── Form ── */}
       <section className="relative py-28 bg-background">

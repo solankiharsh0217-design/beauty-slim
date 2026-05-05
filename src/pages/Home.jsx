@@ -199,7 +199,7 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Wave between services and about */}
-      <WaveDivider color="#0f0c0a" />
+      <WaveDivider />
 
       {/* ── About / Center ── */}
       <section className="relative py-28 bg-background overflow-hidden">
@@ -271,7 +271,7 @@ export default function Home() {
       </section>
 
       {/* Wave between about and testimonials */}
-      <WaveDivider color="#16120e" flip />
+      <WaveDivider flip />
 
       {/* ── Testimonials ── */}
       <section className="relative py-24 bg-secondary">
@@ -304,7 +304,7 @@ export default function Home() {
                   {/* Stars */}
                   <div className="flex gap-1">
                     {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} size={13} fill="#CDA45E" color="#CDA45E" />
+                      <Star key={i} size={13} className="text-primary fill-primary" />
                     ))}
                   </div>
                   {/* Quote */}

@@ -94,7 +94,7 @@ export default function Servizi() {
         <div className="absolute inset-0">
           <img src={IMAGES.facial} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#16120e]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-secondary" />
         </div>
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
@@ -235,7 +235,7 @@ export default function Servizi() {
         )}
       </AnimatePresence>
 
-      <WaveDivider color="#0f0c0a" />
+      <WaveDivider />
 
       {/* ── CTA ── */}
       <section className="relative py-28 bg-background overflow-hidden">

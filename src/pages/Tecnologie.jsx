@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Thermometer, Zap, Scan, Droplets, CheckCircle, ArrowRight, Shield, Star, Clock } from 'lucide-react'
+import { Check, Shield, ArrowRight, Phone } from 'lucide-react'
 
 const IMAGES = {
   body: 'https://media.base44.com/images/public/69f8ce55cc8dfb7009af86fe/db2dc7dc0_body-sculpting-treatment.png',
@@ -10,95 +10,61 @@ const IMAGES = {
 }
 
 const technologies = [
-  {
-    icon: Thermometer, title: 'QQN System', subtitle: 'Percorsi corpo con supporto tecnologico', image: IMAGES.body,
-    description: 'Una tecnologia pensata per accompagnare i percorsi di rimodellamento con maggiore continuità, comfort e metodo.',
-    features: ['Approccio progressivo al trattamento', 'Supporto nei percorsi corpo', 'Comfort durante la seduta', 'Lavoro su obiettivi mirati', 'Esperienza ordinata e guidata', 'Integrazione con altri protocolli'],
-  },
-  {
-    icon: Zap, title: 'Infrabaldan 3.0', subtitle: 'Tecnologia avanzata per il corpo', image: IMAGES.clinic,
-    description: 'Uno strumento orientato al lavoro su silhouette, tonicità e definizione, inserito in percorsi costruiti su misura.',
-    features: ['Ridefinizione di aree mirate', 'Percorsi personalizzati', 'Supporto alla tonicità', 'Integrazione con trattamenti corpo', 'Metodo calibrato sulle esigenze', 'Continuità nel tempo'],
-  },
-  {
-    icon: Scan, title: 'Laser Diodo', subtitle: 'Epilazione progressiva e professionale', image: IMAGES.laser,
-    description: 'Un servizio laser pensato per offrirti precisione, continuità e maggiore serenità durante tutto il percorso.',
-    features: ['Protocollo per viso e corpo', 'Valutazione iniziale accurata', 'Indicazioni chiare tra sedute', 'Maggiore uniformità della pelle', 'Comfort durante il trattamento', 'Percorso organizzato e progressivo'],
-  },
-  {
-    icon: Droplets, title: 'Slim Press', subtitle: 'Benessere e drenaggio', image: IMAGES.facial,
-    description: 'Un trattamento pensato per alleggerire, riequilibrare e accompagnare i percorsi corpo con una sensazione di comfort diffuso.',
-    features: ['Sensazione di leggerezza', 'Supporto ai percorsi corpo', 'Momento di rilassamento guidato', 'Integrazione con altri protocolli', 'Trattamento non invasivo', 'Esperienza ordinata e confortevole'],
-  },
+  { title: 'QQN System', description: 'Tecnologia per percorsi corpo con supporto mirato.', image: IMAGES.body },
+  { title: 'Infrabaldan 3.0', description: 'Tecnologia avanzata per silhouette e tonicità.', image: IMAGES.clinic },
+  { title: 'Laser Diodo', description: 'Epilazione progressiva e professionale.', image: IMAGES.laser },
+  { title: 'Slim Press', description: 'Benessere, drenaggio e riequilibrio.', image: IMAGES.facial },
 ]
 
 const benefits = [
-  { icon: Shield, title: 'Sicurezza certificata', desc: 'Tecnologie selezionate e spiegate con un linguaggio semplice, prima di iniziare ogni percorso.' },
-  { icon: Star, title: 'Comfort totale', desc: 'Ogni trattamento è pensato per farti sentire accompagnata, mai spaesata o sotto pressione.' },
-  { icon: Zap, title: 'Integrazione tra servizi', desc: 'Le tecnologie vengono inserite in un percorso coerente con i tuoi obiettivi reali.' },
-  { icon: Clock, title: 'Personalizzazione', desc: 'Ogni seduta viene calibrata sul tuo punto di partenza, sui tempi e sul risultato desiderato.' },
+  'Tecnologie certificate e sicure',
+  'Assistenza personalizzata',
+  'Percorsi su misura',
+  'Risultati progressivi',
 ]
 
 export default function Tecnologie() {
   return (
     <div className="font-poppins">
-      {/* Hero */}
-      <section className="bg-background pt-40 pb-24 text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(205,164,94,0.2), transparent 60%)' }} />
-        <div className="relative max-w-3xl mx-auto px-5">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-primary/10 blur-[100px] -top-64 -left-64" />
+        <div className="absolute w-[400px] h-[400px] rounded-full bg-primary/8 blur-[80px] bottom-20 -right-40" />
+      </div>
+
+      <section className="relative pt-40 pb-20 text-center overflow-hidden bg-[#16120e]">
+        <div className="absolute inset-0 opacity-30" style={{backgroundImage: 'radial-gradient(ellipse at 40% 0%, rgba(205,164,94,0.25), transparent 60%)'}} />
+        <div className="relative max-w-3xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="h-px w-8 bg-primary" />
-              <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Le Nostre Tecnologie</span>
-              <div className="h-px w-8 bg-primary" />
-            </div>
-            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-foreground mb-5 leading-tight">
-              Attrezzature di<br /><span className="text-primary italic">ultima generazione</span>
+            <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">Tecnologie</span>
+            <h1 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-5 leading-tight">
+              Strumenti per la tua <span className="text-primary italic">bellezza</span>
             </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto">
-              Utilizziamo tecnologie selezionate per rendere ogni percorso più preciso, più confortevole e più coerente con i tuoi obiettivi.
+            <p className="text-muted-foreground text-base leading-relaxed max-w-xl mx-auto">
+              Utilizziamo tecnologie selezionate per offrirti risultati visibili e duraturi.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Tech Cards */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-5">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="relative py-20 bg-[#16120e]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {technologies.map((tech, index) => (
               <motion.div
                 key={tech.title}
-                className="bg-card rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group border border-border"
-                initial={{ opacity: 0, y: 30 }}
+                className="organic-card overflow-hidden"
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
                 viewport={{ once: true }}
               >
-                <div className="h-60 overflow-hidden">
-                  <img src={tech.image} alt={tech.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="relative h-40 overflow-hidden soft-curve">
+                  <img src={tech.image} alt={tech.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
-                <div className="p-8">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-11 h-11 rounded-full bg-muted flex items-center justify-center shadow-sm shrink-0">
-                      <tech.icon size={22} className="text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-primary text-xs uppercase tracking-[0.15em] font-medium">{tech.subtitle}</p>
-                      <h2 className="font-playfair text-2xl font-bold text-foreground">{tech.title}</h2>
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">{tech.description}</p>
-                  <ul className="grid grid-cols-2 gap-2">
-                    {tech.features.map(f => (
-                      <li key={f} className="flex items-center gap-2 text-sm text-foreground">
-                        <div className="w-4 h-4 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                          <CheckCircle size={11} className="text-primary" />
-                        </div>
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="p-4">
+                  <h3 className="font-playfair text-base font-semibold text-foreground mb-1">{tech.title}</h3>
+                  <p className="text-muted-foreground text-xs">{tech.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -106,53 +72,56 @@ export default function Tecnologie() {
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="py-24 bg-card">
-        <div className="max-w-7xl mx-auto px-5">
-          <div className="text-center mb-14">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="h-px w-8 bg-primary" />
-              <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">I Vantaggi</span>
-              <div className="h-px w-8 bg-primary" />
-            </div>
-            <h2 className="font-playfair text-4xl font-bold text-foreground">Perché scegliere il <span className="text-primary italic">nostro approccio</span></h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((b, i) => (
-              <motion.div
-                key={b.title}
-                className="bg-card p-8 rounded-2xl text-center shadow-sm hover:shadow-lg transition-all border border-border"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <b.icon size={24} className="text-primary" />
-                </div>
-                <h3 className="font-playfair text-xl font-bold text-foreground mb-3">{b.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{b.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+      <section className="relative py-28 bg-[#16120e]">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            className="organic-card p-8"
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-playfair text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
+              Perché scegliere <span className="text-primary italic">noi</span>
+            </h2>
+            <ul className="space-y-3">
+              {benefits.map(item => (
+                <li key={item} className="flex items-center gap-3 text-foreground text-sm">
+                  <Check size={16} className="text-primary shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-secondary text-white text-center">
-        <div className="max-w-2xl mx-auto px-5">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-playfair text-4xl font-bold mb-4">Vuoi capire quale tecnologia<br /><span className="text-primary italic">fa per te?</span></h2>
-            <p className="text-white/70 leading-relaxed mb-8">
-              Prenota una consulenza gratuita: ti spiegheremo con chiarezza quale percorso può adattarsi meglio alle tue esigenze.
+      <section className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/75" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+              Scopri le nostre <span className="text-primary italic">tecnologie</span>
+            </h2>
+            <p className="text-white/65 text-base leading-relaxed mb-8">
+              Prenota una consulenza per conoscere i trattamenti più adatti a te.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link to="/contatti" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark transition-all hover:-translate-y-1 hover:shadow-xl">
-                Prenota Consulenza <ArrowRight size={16} />
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link
+                to="/contatti"
+                className="px-8 py-3.5 bg-primary text-white rounded-full font-medium text-sm hover:bg-primary/90 transition-all"
+              >
+                Prenota Consulenza
               </Link>
-              <Link to="/servizi" className="inline-flex items-center px-8 py-4 border border-white/40 text-white rounded-full font-medium text-sm hover:bg-white/10 transition-all">
-                Visualizza Servizi
-              </Link>
+              <a
+                href="tel:0131234173"
+                className="px-8 py-3.5 border border-white/30 text-white rounded-full font-medium text-sm hover:bg-white/10 transition-all inline-flex items-center gap-2"
+              >
+                <Phone size={14} /> Chiamaci
+              </a>
             </div>
           </motion.div>
         </div>

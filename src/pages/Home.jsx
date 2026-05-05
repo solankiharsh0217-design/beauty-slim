@@ -1,8 +1,9 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight, Sparkles, Scissors, Smile, Leaf, HandHeart,
-  Star, Check, Phone
+  Star, Check, Phone, X
 } from 'lucide-react'
 import HeroSlider from '../components/HeroSlider'
 import WaveDivider from '../components/WaveDivider'
@@ -17,11 +18,36 @@ const IMAGES = {
 }
 
 const services = [
-  { icon: Sparkles, title: 'Dimagrimento', description: 'Percorsi personalizzati per ridefinire il corpo.', image: IMAGES.body },
-  { icon: Scissors, title: 'Epilazione Laser', description: 'Trattamenti laser sicuri per una pelle liscia.', image: IMAGES.laser },
-  { icon: Smile, title: 'Cura del Viso', description: 'Protocolli avanzati per luminosità e freschezza.', image: IMAGES.facial },
-  { icon: Leaf, title: 'Estetica Base', description: 'Manicure, pedicure e beauty care.', image: IMAGES.manicure },
-  { icon: HandHeart, title: 'Massaggi', description: 'Percorsi di benessere per un relax completo.', image: IMAGES.massage },
+  {
+    icon: Sparkles, title: 'Dimagrimento', description: 'Percorsi personalizzati per ridefinire il corpo.', image: IMAGES.body,
+    fullDescription: 'Percorsi di rimodellamento corporeo studiati su misura per te. Con tecnologie avanzate come il QQN System e l\'Infrabaldan 3.0, agiamo sulle adiposità localizzate, tonifichiamo i tessuti e ridefinisco la silhouette in modo progressivo e naturale.',
+    items: ['Consulenza e misurazione iniziale', 'Tecnologie corpo di ultima generazione', 'Percorsi personalizzati per zona', 'Monitoraggio risultati ad ogni seduta'],
+    duration: '60–90 min per seduta', sessions: '8–12 sedute consigliate',
+  },
+  {
+    icon: Scissors, title: 'Epilazione Laser', description: 'Trattamenti laser sicuri per una pelle liscia.', image: IMAGES.laser,
+    fullDescription: 'Con il nostro Laser Diodo profesionale offriamo epilazione definitiva sicura su tutti i fototipi. Un protocollo progressivo e indolore per eliminare i peli in modo permanente su viso e corpo.',
+    items: ['Laser Diodo per ogni zona corporea', 'Adatto a tutti i fototipi cutanei', 'Protocollo progressivo e indolore', 'Indicazioni pre e post trattamento'],
+    duration: '20–60 min (zona trattata)', sessions: '6–8 sedute per ciclo',
+  },
+  {
+    icon: Smile, title: 'Cura del Viso', description: 'Protocolli avanzati per luminosità e freschezza.', image: IMAGES.facial,
+    fullDescription: 'Trattamenti viso personalizzati in base al tuo tipo di pelle: pulizia profonda, protocolli anti-age, idratazione intensiva e trattamenti glow per un viso luminoso e in salute.',
+    items: ['Pulizia viso profonda', 'Trattamenti anti-age e rigeneranti', 'Idratazione e nutrimento mirati', 'Consigli skincare personalizzati'],
+    duration: '50–75 min per seduta', sessions: 'Ciclo mensile consigliato',
+  },
+  {
+    icon: Leaf, title: 'Estetica Base', description: 'Manicure, pedicure e beauty care.', image: IMAGES.manicure,
+    fullDescription: 'La cura quotidiana del corpo eseguita con precisione e attenzione. Manicure, pedicure, ceretta e tutti i servizi fondamentali per sentirti sempre al meglio.',
+    items: ['Manicure classica e semipermanente', 'Pedicure estetica e curativa', 'Ceretta e depilazione', 'Trattamenti mani e piedi'],
+    duration: '30–60 min per servizio', sessions: 'Ogni 3–4 settimane',
+  },
+  {
+    icon: HandHeart, title: 'Massaggi', description: 'Percorsi di benessere per un relax completo.', image: IMAGES.massage,
+    fullDescription: 'Massaggi rilassanti, decontratturanti e drenanti per ritrovare equilibrio fisico e mentale. Un\'esperienza di benessere totale in un ambiente calmo e curato.',
+    items: ['Massaggio rilassante corpo intero', 'Massaggio decontratturante', 'Drenaggio linfatico manuale', 'Percorsi benessere personalizzati'],
+    duration: '50–80 min per seduta', sessions: 'Bisettimanale consigliato',
+  },
 ]
 
 const testimonials = [
@@ -38,6 +64,8 @@ const AmbientGlow = () => (
 )
 
 export default function Home() {
+  const [selected, setSelected] = useState(null)
+
   return (
     <div className="font-poppins relative">
       <AmbientGlow />
@@ -74,8 +102,10 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-30px' }}
                 transition={{ duration: 0.55, delay: index * 0.09 }}
+              onClick={() => setSelected(service)}
+              className="cursor-pointer"
               >
-                <div className="spa-card group text-center flex flex-col items-center py-8 px-5 h-full">
+                <div className="spa-card group text-center flex flex-col items-center py-8 px-5 h-full hover:border-primary/40 transition-all">
                   {/* Circular image */}
                   <div className="oval-img-wrap mb-4">
                     <img src={service.image} alt={service.title} />
@@ -90,18 +120,83 @@ export default function Home() {
                   <p className="text-muted-foreground text-xs leading-relaxed mb-4 flex-1">
                     {service.description}
                   </p>
-                  <Link
-                    to="/servizi"
-                    className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs hover:gap-3 transition-all duration-300"
-                  >
+                  <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs group-hover:gap-3 transition-all duration-300">
                     Scopri <ArrowRight size={11} />
-                  </Link>
+                  </span>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* ── Service Modal ── */}
+      <AnimatePresence>
+        {selected && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelected(null)}
+          >
+            <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
+            <motion.div
+              className="relative bg-card border border-primary/30 rounded-3xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto"
+              initial={{ opacity: 0, scale: 0.92, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 20 }}
+              transition={{ duration: 0.35, ease: 'easeOut' }}
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="relative h-48 overflow-hidden rounded-t-3xl">
+                <img src={selected.image} alt={selected.title} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <button onClick={() => setSelected(null)} className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-white hover:bg-primary/80 transition-all">
+                  <X size={16} />
+                </button>
+                <div className="absolute bottom-4 left-5 flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
+                    <selected.icon size={14} className="text-primary" />
+                  </div>
+                  <h2 className="font-playfair text-xl font-bold text-white">{selected.title}</h2>
+                </div>
+              </div>
+              <div className="p-6 space-y-5">
+                <p className="text-muted-foreground text-sm leading-relaxed">{selected.fullDescription}</p>
+                <div>
+                  <h4 className="font-semibold text-foreground text-sm mb-3 flex items-center gap-2">
+                    <span className="w-5 h-px bg-primary" /> Cosa include
+                  </h4>
+                  <ul className="space-y-2">
+                    {selected.items.map(item => (
+                      <li key={item} className="flex items-start gap-3 text-foreground text-sm">
+                        <span className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center shrink-0 mt-0.5">
+                          <Check size={11} className="text-primary" />
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-muted/50 rounded-2xl p-4 text-center border border-border">
+                    <p className="text-primary font-bold text-sm">{selected.sessions}</p>
+                    <p className="text-muted-foreground text-xs mt-1">Ciclo consigliato</p>
+                  </div>
+                  <div className="bg-muted/50 rounded-2xl p-4 text-center border border-border">
+                    <p className="text-primary font-bold text-sm">{selected.duration}</p>
+                    <p className="text-muted-foreground text-xs mt-1">Durata seduta</p>
+                  </div>
+                </div>
+                <Link to="/contatti" onClick={() => setSelected(null)} className="block w-full text-center py-3.5 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary/90 transition-all">
+                  Prenota questo trattamento
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Wave between services and about */}
       <WaveDivider color="#0f0c0a" />

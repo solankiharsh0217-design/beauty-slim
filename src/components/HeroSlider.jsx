@@ -67,8 +67,9 @@ export default function HeroSlider() {
           transition={{ duration: 1.3, ease: 'easeInOut' }}
         >
           <img src={slides[current].image} alt="" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/55 to-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10" />
+          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
         </motion.div>
       </AnimatePresence>
 

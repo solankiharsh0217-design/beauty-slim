@@ -202,7 +202,7 @@ export default function HeroSlider() {
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '60px' }}>
           <path
             d="M0,40 C160,80 320,0 480,40 C640,80 800,0 960,40 C1120,80 1280,10 1440,40 L1440,80 L0,80 Z"
-            fill="#14141a"
+            fill="#16120e"
           />
         </svg>
       </div>

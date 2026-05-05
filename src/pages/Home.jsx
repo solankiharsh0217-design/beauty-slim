@@ -74,7 +74,7 @@ export default function Home() {
       <HeroSlider />
 
       {/* ── Services ── */}
-      <section className="relative py-24 bg-[#14141a]">
+      <section className="relative py-24 bg-[#16120e]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-14"
@@ -199,10 +199,10 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Wave between services and about */}
-      <WaveDivider color="#0e0e12" />
+      <WaveDivider color="#0f0c0a" />
 
       {/* ── About / Center ── */}
-      <section className="relative py-28 bg-[#0e0e12] overflow-hidden">
+      <section className="relative py-28 bg-[#0f0c0a] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             {/* Image */}
@@ -271,10 +271,10 @@ export default function Home() {
       </section>
 
       {/* Wave between about and testimonials */}
-      <WaveDivider color="#14141a" flip />
+      <WaveDivider color="#16120e" flip />
 
       {/* ── Testimonials ── */}
-      <section className="relative py-24 bg-[#14141a]">
+      <section className="relative py-24 bg-[#16120e]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-14"

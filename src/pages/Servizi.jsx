@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Sparkles, Scissors, Smile, Leaf, HandHeart, Dumbbell, ArrowRight, Phone } from 'lucide-react'
+import WaveDivider from '../components/WaveDivider'
 
 const IMAGES = {
   body: 'https://media.base44.com/images/public/69f8ce55cc8dfb7009af86fe/db2dc7dc0_body-sculpting-treatment.png',
@@ -67,77 +68,92 @@ export default function Servizi() {
     <div className="font-poppins relative">
       <AmbientGlow />
 
+      {/* ── Hero ── */}
       <section className="relative pt-40 pb-24 overflow-hidden">
         <div className="absolute inset-0">
           <img src={IMAGES.facial} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#16120e]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-[#16120e]" />
+        </div>
+
+        {/* Decorative rings */}
+        <div className="absolute top-20 right-20 w-48 h-48 pointer-events-none hidden lg:block">
+          <div className="absolute inset-0 rounded-full border border-primary/15 ring-ripple" />
+          <div className="absolute inset-0 rounded-full border border-primary/15 ring-ripple ring-ripple-d1" />
         </div>
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
           >
-            <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase mb-4 block">I Nostri Servizi</span>
-            <h1 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
-              Trattamenti per la tua<br /><span className="text-primary italic">bellezza completa</span>
+            <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">
+              I Nostri Servizi
+            </span>
+            <h1 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              Trattamenti per la tua
+              <br />
+              <span className="text-primary italic">bellezza completa</span>
             </h1>
-            <p className="text-white/70 text-base max-w-xl mx-auto">
+            <div className="wave-ornament mb-5" style={{ margin: '0 auto 1.25rem' }} />
+            <p className="text-white/70 text-base max-w-xl mx-auto leading-relaxed">
               Offriamo una selezione di trattamenti per viso, corpo, laser ed estetica quotidiana.
             </p>
           </motion.div>
         </div>
       </section>
 
+      {/* ── Services grid ── */}
       <section className="relative py-24 bg-[#16120e]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-14"
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">I Nostri Servizi</span>
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-3 block">
+              Tutti i Trattamenti
+            </span>
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-3">
               Tutti i nostri <span className="text-primary italic">trattamenti</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto text-base">
+            <div className="wave-ornament" />
+            <p className="text-muted-foreground max-w-xl mx-auto text-base mt-5">
               Scopri la gamma completa dei nostri servizi.
             </p>
           </motion.div>
 
-          <div className="circle-grid">
+          <div className="spa-grid">
             {services.map((service, index) => (
               <motion.div
                 key={service.category}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.55, delay: index * 0.09 }}
               >
-                <div className="circle-card group h-full overflow-hidden">
-                  <div className="relative h-36 sm:h-40 soft-curve">
-                    <img
-                      src={service.image}
-                      alt={service.category}
-                      className="w-full h-full object-cover soft-curve-img"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                    <div className="absolute bottom-2 left-2 w-8 h-8 circle-card-sm bg-primary/20 backdrop-blur-sm flex items-center justify-center">
-                      <service.icon size={14} className="text-primary" />
-                    </div>
+                <div className="spa-card group text-center flex flex-col items-center py-8 px-5 h-full">
+                  {/* Circular image */}
+                  <div className="oval-img-wrap mb-4">
+                    <img src={service.image} alt={service.category} />
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-playfair text-base font-semibold text-foreground mb-1">{service.category}</h3>
-                    <p className="text-muted-foreground text-xs mb-2 line-clamp-2">{service.description}</p>
-                    <Link
-                      to="/contatti"
-                      className="inline-flex items-center gap-1 text-primary font-medium text-xs"
-                    >
-                      Prenota <ArrowRight size={10} />
-                    </Link>
+                  {/* Icon */}
+                  <div className="w-9 h-9 rounded-full bg-primary/15 border border-primary/20 flex items-center justify-center mb-3">
+                    <service.icon size={15} className="text-primary" />
                   </div>
+                  <h3 className="font-playfair text-base font-semibold text-foreground mb-2">
+                    {service.category}
+                  </h3>
+                  <p className="text-muted-foreground text-xs leading-relaxed mb-4 flex-1">
+                    {service.description}
+                  </p>
+                  <Link
+                    to="/contatti"
+                    className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs hover:gap-3 transition-all duration-300"
+                  >
+                    Prenota <ArrowRight size={11} />
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -145,10 +161,17 @@ export default function Servizi() {
         </div>
       </section>
 
-      <section className="relative py-28 overflow-hidden">
+      <WaveDivider color="#0f0c0a" />
+
+      {/* ── CTA ── */}
+      <section className="relative py-28 bg-[#0f0c0a] overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+          <div className="w-[600px] h-[600px] rounded-full border border-primary/6 ring-ripple" />
+          <div className="absolute w-[400px] h-[400px] rounded-full border border-primary/8 ring-ripple ring-ripple-d1" />
+        </div>
         <div className="absolute inset-0">
-          <img src={IMAGES.body} alt="" className="w-full h-full object-cover opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/75" />
+          <img src={IMAGES.body} alt="" className="w-full h-full object-cover opacity-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
@@ -157,26 +180,26 @@ export default function Servizi() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">Prenota Ora</span>
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Pronta a iniziare<br />
+            <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">
+              Prenota Ora
+            </span>
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-3 leading-tight">
+              Pronta a iniziare
+              <br />
               <span className="text-primary italic">il tuo percorso?</span>
             </h2>
+            <div className="wave-ornament mb-7" style={{ margin: '0.75rem auto 1.75rem' }} />
             <p className="text-white/65 text-base leading-relaxed mb-8">
               Prenota una consulenza e scopri quale combinazione di trattamenti può accompagnarti meglio.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Link
-                to="/contatti"
-                className="px-8 py-3.5 bg-primary text-white rounded-full font-medium text-sm hover:bg-primary/90 transition-all"
-              >
+              <Link to="/contatti"
+                className="px-8 py-3.5 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/30">
                 Prenota Consulenza
               </Link>
-              <a
-                href="tel:0131234173"
-                className="px-8 py-3.5 border border-white/30 text-white rounded-full font-medium text-sm hover:bg-white/10 transition-all"
-              >
-                <Phone size={14} className="inline mr-1.5" /> Chiamaci
+              <a href="tel:0131234173"
+                className="px-8 py-3.5 border border-white/30 text-white rounded-full font-semibold text-sm hover:bg-white/10 transition-all inline-flex items-center gap-2">
+                <Phone size={14} /> Chiamaci
               </a>
             </div>
           </motion.div>

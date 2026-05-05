@@ -55,43 +55,66 @@ export default function HeroSlider() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Slides */}
+
+      {/* ── Background slides ── */}
       <AnimatePresence mode="sync">
         <motion.div
           key={current}
           className="absolute inset-0"
           initial={{ opacity: 0, scale: 1.04 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.98 }}
-          transition={{ duration: 1.2, ease: 'easeInOut' }}
+          exit={{ opacity: 0, scale: 0.97 }}
+          transition={{ duration: 1.3, ease: 'easeInOut' }}
         >
-          <img
-            src={slides[current].image}
-            alt=""
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
+          <img src={slides[current].image} alt="" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/55 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Decorative circles */}
+      {/* ── Floating decorative rings ── */}
       <div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
-        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] opacity-10">
-          <div className="absolute inset-0 rounded-full border border-primary animate-pulse" style={{ animationDuration: '8s' }} />
-          <div className="absolute inset-8 rounded-full border border-primary/60" />
-          <div className="absolute inset-16 rounded-full border border-primary/40" />
-          <div className="absolute inset-24 rounded-full border border-primary/20" />
-        </div>
-        <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] opacity-8">
-          <div className="absolute inset-0 rounded-full border border-primary/40" style={{ animationDuration: '12s' }} />
-          <div className="absolute inset-10 rounded-full border-dashed border-primary/30" style={{ animationDuration: '20s' }} />
-        </div>
-        <div className="absolute top-1/3 right-10 w-24 h-24 rounded-full bg-primary/5 blur-xl" />
-        <div className="absolute bottom-1/4 left-1/4 w-16 h-16 rounded-full bg-primary/5 blur-lg" />
+        {/* Large ring group — top right */}
+        <motion.div
+          className="absolute -top-24 -right-24 w-[520px] h-[520px]"
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2, ease: 'easeOut' }}
+        >
+          <div className="absolute inset-0 rounded-full border border-primary/10 ring-ripple" />
+          <div className="absolute inset-0 rounded-full border border-primary/8  ring-ripple ring-ripple-d1" />
+          <div className="absolute inset-0 rounded-full border border-primary/6  ring-ripple ring-ripple-d2" />
+        </motion.div>
+
+        {/* Medium ring — bottom left */}
+        <motion.div
+          className="absolute -bottom-32 -left-32 w-[380px] h-[380px]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, delay: 0.5 }}
+        >
+          <div className="absolute inset-0 rounded-full border border-primary/8 ring-ripple float-d2" />
+          <div className="absolute inset-0 rounded-full border-dashed border-primary/6 spin-slow" />
+        </motion.div>
+
+        {/* Small floating orb — mid right */}
+        <motion.div
+          className="absolute top-1/3 right-12 w-20 h-20 rounded-full bg-primary/6 blur-xl orb-pulse float-gentle"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        />
+
+        {/* Tiny orb — lower left */}
+        <motion.div
+          className="absolute bottom-1/4 left-1/4 w-12 h-12 rounded-full bg-primary/8 blur-lg orb-pulse-d1 float-soft float-d1"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+        />
       </div>
 
-      {/* Content */}
+      {/* ── Content ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <div className="max-w-xl pt-24 pb-16">
           {/* Label */}
@@ -99,37 +122,47 @@ export default function HeroSlider() {
             className="flex items-center gap-3 mb-6"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7 }}
           >
             <div className="h-px w-8 bg-primary" />
-            <span className="text-primary font-medium tracking-[0.2em] text-[11px] uppercase">
+            <span className="text-primary font-medium tracking-[0.22em] text-[11px] uppercase">
               Beauty Slim · Alessandria
             </span>
           </motion.div>
 
-          {/* Headline — animated per slide */}
+          {/* Headline */}
           <AnimatePresence mode="wait">
             <motion.h1
               key={`h-${current}`}
-              className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.12] text-white mb-5"
-              initial={{ opacity: 0, y: 28 }}
+              className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white mb-5"
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.7, ease: 'easeOut' }}
+              transition={{ duration: 0.75, ease: 'easeOut' }}
             >
               {slides[current].headline[0]}{' '}
               <span className="italic text-primary">{slides[current].headline[1]}</span>
             </motion.h1>
           </AnimatePresence>
 
+          {/* Wave ornament */}
+          <motion.div
+            className="wave-ornament mb-6"
+            style={{ margin: '0 0 1.5rem 0' }}
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          />
+
+          {/* Subtitle */}
           <AnimatePresence mode="wait">
             <motion.p
               key={`p-${current}`}
               className="text-white/70 text-base leading-relaxed mb-8 max-w-md"
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+              transition={{ duration: 0.65, delay: 0.1 }}
             >
               {slides[current].sub}
             </motion.p>
@@ -140,18 +173,18 @@ export default function HeroSlider() {
             className="flex flex-wrap gap-3 mb-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.65, delay: 0.4 }}
           >
             <Link
               to="/contatti"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/30"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary/90 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/30"
             >
               Prenota Consulenza Gratuita
               <ArrowRight size={15} />
             </Link>
             <Link
               to="/servizi"
-              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/40 text-white rounded-full font-medium text-sm hover:bg-white/10 hover:border-white transition-all duration-300"
+              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/35 text-white rounded-full font-medium text-sm hover:bg-white/10 hover:border-white/60 transition-all duration-300"
             >
               Scopri i Servizi
             </Link>
@@ -159,10 +192,10 @@ export default function HeroSlider() {
 
           {/* Trust badges */}
           <motion.div
-            className="flex flex-wrap gap-5 pt-8 border-t border-white/15"
+            className="flex flex-wrap gap-5 pt-7 border-t border-white/12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.65, delay: 0.6 }}
           >
             {[
               { icon: Shield, text: 'Tecnologie certificate' },
@@ -178,33 +211,41 @@ export default function HeroSlider() {
         </div>
       </div>
 
-      {/* Navigation arrows */}
+      {/* ── Navigation arrows ── */}
       <button
         onClick={prev}
-        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-primary/80 transition-all duration-300"
+        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-primary/80 hover:border-primary/50 transition-all duration-300"
       >
         <ChevronLeft size={20} />
       </button>
       <button
         onClick={next}
-        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-primary/80 transition-all duration-300"
+        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-primary/80 hover:border-primary/50 transition-all duration-300"
       >
         <ChevronRight size={20} />
       </button>
 
-      {/* Dot indicators */}
+      {/* ── Dot indicators ── */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-2.5">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
             className={`transition-all duration-500 rounded-full ${
-              i === current
-                ? 'w-8 h-2.5 bg-primary'
-                : 'w-2.5 h-2.5 bg-white/40 hover:bg-white/70'
+              i === current ? 'w-8 h-2.5 bg-primary' : 'w-2.5 h-2.5 bg-white/35 hover:bg-white/65'
             }`}
           />
         ))}
+      </div>
+
+      {/* ── Wave transition to next section ── */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none" style={{ lineHeight: 0 }}>
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '60px' }}>
+          <path
+            d="M0,40 C160,80 320,0 480,40 C640,80 800,0 960,40 C1120,80 1280,10 1440,40 L1440,80 L0,80 Z"
+            fill="#16120e"
+          />
+        </svg>
       </div>
     </section>
   )

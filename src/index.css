@@ -42,118 +42,180 @@
 html { scroll-behavior: smooth; }
 
 @layer utilities {
+
+  /* ─── Ambient Glow ─── */
   .ambient-glow {
     position: fixed;
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(120px);
     pointer-events: none;
     z-index: 0;
   }
-  
   .ambient-glow-1 {
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(196, 152, 74, 0.1) 0%, transparent 70%);
-    top: -300px;
-    left: -300px;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(196,152,74,0.09) 0%, transparent 70%);
+    top: -350px;
+    left: -350px;
   }
-  
   .ambient-glow-2 {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(196, 152, 74, 0.06) 0%, transparent 70%);
-    bottom: -200px;
-    right: -200px;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(196,152,74,0.06) 0%, transparent 70%);
+    bottom: -250px;
+    right: -250px;
   }
 
-  .circle-section {
-    border-radius: 50% 50% 50% 50% / 8% 8% 92% 92%;
-  }
-
-  .circle-card {
-    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
-  }
-
-  .circle-card-sm {
-    border-radius: 50%;
-  }
-
-  .circle-img {
-    border-radius: 50%;
-  }
-
+  /* ─── Blob Decor ─── */
   .blob-circle {
     position: absolute;
     border-radius: 45% 55% 55% 45% / 50% 45% 55% 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(196, 152, 74, 0.06), transparent 60%);
-    filter: blur(40px);
+    background: radial-gradient(circle at 30% 30%, rgba(196,152,74,0.06), transparent 60%);
+    filter: blur(50px);
     pointer-events: none;
-    animation: blob-morph 12s ease-in-out infinite;
+    animation: blob-morph 14s ease-in-out infinite;
   }
-
   @keyframes blob-morph {
-    0%, 100% { border-radius: 45% 55% 55% 45% / 50% 45% 55% 50%; }
-    25% { border-radius: 55% 45% 45% 55% / 45% 50% 50% 55%; }
-    50% { border-radius: 45% 55% 45% 55% / 55% 40% 50% 55%; }
-    75% { border-radius: 55% 45% 50% 45% / 45% 55% 45% 55%; }
+    0%,100% { border-radius: 45% 55% 55% 45% / 50% 45% 55% 50%; }
+    25%      { border-radius: 55% 45% 45% 55% / 45% 50% 50% 55%; }
+    50%      { border-radius: 45% 55% 45% 55% / 55% 40% 50% 55%; }
+    75%      { border-radius: 55% 45% 50% 45% / 45% 55% 45% 55%; }
   }
 
+  /* ─── Circle Decor Ring ─── */
   .circle-decor {
     position: absolute;
     border-radius: 50%;
-    border: 1px solid rgba(196, 152, 74, 0.1);
+    border: 1px solid rgba(196,152,74,0.10);
     pointer-events: none;
   }
 
-  .circle-grid {
+  /* ─── Small circular badge helper ─── */
+  .circle-badge {
+    border-radius: 50%;
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    align-items: center;
     justify-content: center;
   }
 
-  .circle-grid > * {
-    flex: 0 1 calc(33% - 1rem);
-    min-width: 280px;
+  /* ─── SPA GRID (responsive 3/2/1) ─── */
+  .spa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+  @media (max-width: 1024px) { .spa-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px)  { .spa-grid { grid-template-columns: 1fr; } }
+
+  /* ─── SPA CARD ─── */
+  .spa-card {
+    background: linear-gradient(150deg, rgba(28,22,16,0.97) 0%, rgba(18,14,10,0.99) 100%);
+    border-radius: 28px;
+    border: 1px solid rgba(196,152,74,0.13);
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.34,1.4,0.64,1),
+                box-shadow 0.5s ease,
+                border-color 0.4s ease;
+  }
+  .spa-card:hover {
+    transform: translateY(-10px) scale(1.015);
+    border-color: rgba(196,152,74,0.32);
+    box-shadow: 0 28px 72px rgba(0,0,0,0.55),
+                0 0 60px rgba(196,152,74,0.09);
   }
 
-  .soft-curve {
+  /* ─── OVAL IMAGE FRAME (circular, used inside cards) ─── */
+  .oval-img-wrap {
+    width: 8.5rem;
+    height: 8.5rem;
     border-radius: 50%;
     overflow: hidden;
+    border: 2px solid rgba(196,152,74,0.22);
+    box-shadow: 0 8px 36px rgba(0,0,0,0.45), 0 0 0 7px rgba(196,152,74,0.06);
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+  .oval-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+  .spa-card:hover .oval-img-wrap img {
+    transform: scale(1.12);
   }
 
-  .soft-curve-img {
-    transition: transform 0.5s ease;
-  }
-
-  .organic-card {
-    background: linear-gradient(135deg, rgba(30, 24, 18, 0.9) 0%, rgba(22, 18, 14, 0.95) 100%);
+  /* ─── PORTRAIT OVAL (used in gallery & large feature images) ─── */
+  .portrait-oval {
     border-radius: 50%;
-    border: 1px solid rgba(196, 152, 74, 0.12);
-    transition: all 0.4s ease;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    border: 2px solid rgba(196,152,74,0.16);
+    box-shadow: 0 12px 48px rgba(0,0,0,0.45), 0 0 0 8px rgba(196,152,74,0.05);
+    transition: all 0.55s cubic-bezier(0.34,1.4,0.64,1);
+  }
+  .portrait-oval:hover {
+    border-color: rgba(196,152,74,0.38);
+    box-shadow: 0 24px 72px rgba(0,0,0,0.55), 0 0 0 8px rgba(196,152,74,0.10);
+    transform: scale(1.04);
+  }
+  .portrait-oval img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+  .portrait-oval:hover img {
+    transform: scale(1.10);
   }
 
-  .organic-card:hover .soft-curve-img {
-    transform: scale(1.08);
+  /* ─── FEATURE IMAGE (large portrait oval for about section) ─── */
+  .feature-oval {
+    border-radius: 50% 50% 45% 45% / 40% 40% 50% 50%;
+    overflow: hidden;
+    border: 2px solid rgba(196,152,74,0.16);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 10px rgba(196,152,74,0.05);
   }
 
-  .organic-card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
-  }
-
+  /* ─── TESTIMONIAL CARD ─── */
   .testimonial-card {
-    background: linear-gradient(135deg, rgba(30, 24, 18, 0.9) 0%, rgba(22, 18, 14, 0.95) 100%);
-    border-radius: 50%;
-    border: 1px solid rgba(196, 152, 74, 0.12);
+    background: linear-gradient(135deg, rgba(28,22,16,0.93) 0%, rgba(20,16,11,0.97) 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(196,152,74,0.13);
+    transition: all 0.45s ease;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(196,152,74,0.30);
+    box-shadow: 0 24px 56px rgba(196,152,74,0.12), 0 0 0 1px rgba(196,152,74,0.08);
+  }
+
+  /* ─── INFO CARD (contact info, benefits) ─── */
+  .info-card {
+    background: linear-gradient(135deg, rgba(28,22,16,0.92) 0%, rgba(20,16,11,0.96) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(196,152,74,0.12);
     transition: all 0.4s ease;
   }
-
-  .testimonial-card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 16px 40px rgba(196, 152, 74, 0.15);
+  .info-card:hover {
+    border-color: rgba(196,152,74,0.25);
+    box-shadow: 0 12px 40px rgba(196,152,74,0.08);
+    transform: translateY(-4px);
   }
 
+  /* ─── GLASS MORPHISM (navbar) ─── */
+  .glass-morphism {
+    background: rgba(18,14,10,0.65);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(196,152,74,0.12);
+  }
+
+  /* ─── SOFT SHADOW ─── */
+  .soft-shadow {
+    box-shadow: 0 4px 20px rgba(196,152,74,0.08), 0 8px 40px rgba(0,0,0,0.15);
+  }
+
+  /* ─── AVATAR CIRCLE ─── */
   .avatar-circle {
     border-radius: 50%;
     display: flex;
@@ -161,16 +223,16 @@ html { scroll-behavior: smooth; }
     justify-content: center;
   }
 
-  .soft-shadow {
-    box-shadow: 0 4px 20px rgba(196, 152, 74, 0.08), 0 8px 40px rgba(0, 0, 0, 0.15);
+  /* ─── WAVE ORNAMENT ─── */
+  .wave-ornament {
+    width: 64px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(196,152,74,0.85), transparent);
+    border-radius: 4px;
+    margin: 0.75rem auto 0;
   }
 
-  .glass-morphism {
-    background: rgba(22, 18, 14, 0.6);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(196, 152, 74, 0.1);
-  }
-
+  /* ─── LINE CLAMP ─── */
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -178,9 +240,52 @@ html { scroll-behavior: smooth; }
     overflow: hidden;
   }
 
+  /* ─── SMOOTH TEXT ─── */
   .smooth-text {
     font-feature-settings: 'salt' on;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  /* ════════════════════════════════════
+     ANIMATIONS
+  ════════════════════════════════════ */
+
+  @keyframes float-gentle {
+    0%,100% { transform: translateY(0px)  rotate(0deg); }
+    33%      { transform: translateY(-16px) rotate(1.8deg); }
+    66%      { transform: translateY(-8px)  rotate(-1deg); }
+  }
+  @keyframes float-soft {
+    0%,100% { transform: translateY(0px)  scale(1); }
+    50%      { transform: translateY(-22px) scale(1.03); }
+  }
+  @keyframes orb-pulse {
+    0%,100% { opacity: 0.07; transform: scale(1); }
+    50%      { opacity: 0.18; transform: scale(1.18); }
+  }
+  @keyframes ring-expand {
+    0%   { transform: scale(0.8);  opacity: 0.5; }
+    100% { transform: scale(1.7);  opacity: 0; }
+  }
+  @keyframes gold-shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position:  200% 0; }
+  }
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .float-gentle  { animation: float-gentle 10s ease-in-out infinite; }
+  .float-soft    { animation: float-soft    7s ease-in-out infinite; }
+  .float-d1      { animation-delay: -2.5s; }
+  .float-d2      { animation-delay: -5s; }
+  .float-d3      { animation-delay: -7.5s; }
+  .orb-pulse     { animation: orb-pulse  9s ease-in-out infinite; }
+  .orb-pulse-d1  { animation: orb-pulse 12s ease-in-out infinite -4s; }
+  .ring-ripple   { animation: ring-expand 3.5s ease-out infinite; }
+  .ring-ripple-d1{ animation: ring-expand 3.5s ease-out infinite -1.2s; }
+  .ring-ripple-d2{ animation: ring-expand 3.5s ease-out infinite -2.4s; }
+  .spin-slow     { animation: spin-slow 25s linear infinite; }
 }

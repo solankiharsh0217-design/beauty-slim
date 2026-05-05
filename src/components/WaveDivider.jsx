@@ -1,4 +1,4 @@
-export default function WaveDivider({ color = '#030201', flip = false, height = 60 }) {
+export default function WaveDivider({ color = '#0a0806', flip = false, height = 60 }) {
   return (
     <div 
       className="relative w-full overflow-hidden pointer-events-none"
@@ -9,7 +9,7 @@ export default function WaveDivider({ color = '#030201', flip = false, height = 
       }}
     >
       <svg
-        viewBox="0 0 1440 60"
+        viewBox="0 0 1440 80"
         preserveAspectRatio="none"
         style={{ 
           display: 'block', 
@@ -19,7 +19,7 @@ export default function WaveDivider({ color = '#030201', flip = false, height = 
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M0,0 C360,50 540,20 720,40 C900,60 1080,20 1440,35 L1440,60 L0,60 Z"
+          d="M0,40 C160,80 320,0 480,40 C640,80 800,0 960,40 C1120,80 1280,10 1440,40 L1440,80 L0,80 Z"
           fill={color}
         />
       </svg>

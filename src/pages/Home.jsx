@@ -75,7 +75,7 @@ export default function Home() {
 
       {/* ── Services ── */}
       <section className="relative py-24 bg-secondary">
-        <WaveDivider />
+        <WaveDivider color="#0a0806" />
         <div className="max-w-7xl mx-auto px-6 pt-12">
           <motion.div
             className="text-center mb-14"
@@ -127,7 +127,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <WaveDivider flip />
+        <WaveDivider flip color="#030201" />
       </section>
 
       {/* ── Service Modal ── */}
@@ -199,7 +199,7 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Wave between services and about */}
-      <WaveDivider />
+      <WaveDivider color="#0a0806" />
 
       {/* ── About / Center ── */}
       <section className="relative py-28 bg-background overflow-hidden">
@@ -271,7 +271,7 @@ export default function Home() {
       </section>
 
       {/* Wave between about and testimonials */}
-      <WaveDivider flip />
+      <WaveDivider flip color="#030201" />
 
       {/* ── Testimonials ── */}
       <section className="relative py-24 bg-secondary">

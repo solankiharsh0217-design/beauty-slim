@@ -26,7 +26,7 @@ export default function Contatti() {
   return (
     <div className="font-poppins">
       {/* ── Hero ── */}
-      <section className="relative pt-40 pb-20 text-center overflow-hidden bg-[#16120e]">
+      <section className="relative pt-40 pb-20 text-center overflow-hidden bg-secondary">
         <div className="absolute inset-0 opacity-30"
           style={{ backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(205,164,94,0.25), transparent 60%)' }}
         />
@@ -45,7 +45,7 @@ export default function Contatti() {
       </section>
 
       {/* ── Contact cards ── */}
-      <section className="relative py-16 bg-[#16120e]">
+      <section className="relative py-16 bg-secondary">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {contactInfo.map((item, index) => (
@@ -73,7 +73,7 @@ export default function Contatti() {
       <WaveDivider color="#0f0c0a" />
 
       {/* ── Form ── */}
-      <section className="relative py-28 bg-[#0f0c0a]">
+      <section className="relative py-28 bg-background">
         <div className="max-w-2xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -145,7 +145,7 @@ export default function Contatti() {
       </section>
 
       {/* ── Call CTA ── */}
-      <section className="relative py-24 bg-[#0f0c0a] overflow-hidden">
+      <section className="relative py-24 bg-background overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div

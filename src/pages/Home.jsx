@@ -74,7 +74,7 @@ export default function Home() {
       <HeroSlider />
 
       {/* ── Services ── */}
-      <section className="relative py-24 bg-[#16120e]">
+      <section className="relative py-24 bg-secondary">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-14"
@@ -202,7 +202,7 @@ export default function Home() {
       <WaveDivider color="#0f0c0a" />
 
       {/* ── About / Center ── */}
-      <section className="relative py-28 bg-[#0f0c0a] overflow-hidden">
+      <section className="relative py-28 bg-background overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             {/* Image */}
@@ -274,7 +274,7 @@ export default function Home() {
       <WaveDivider color="#16120e" flip />
 
       {/* ── Testimonials ── */}
-      <section className="relative py-24 bg-[#16120e]">
+      <section className="relative py-24 bg-secondary">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-14"

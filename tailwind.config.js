@@ -9,10 +9,10 @@ export default {
           dark: "#a87c34",
           foreground: "#0c0a08",
         },
-        secondary: {
-          DEFAULT: "#12100a",
-          foreground: "#f0e8dc",
-        },
+secondary: {
+  DEFAULT: "#0a0806",
+  foreground: "#f0e8dc",
+},
         accent: {
           DEFAULT: "#322618",
           foreground: "#f0e8dc",
@@ -31,10 +31,10 @@ export default {
           DEFAULT: "#c83c3c",
           foreground: "#ffffff",
         },
-        card: {
-          DEFAULT: "#16120e",
-          foreground: "#f0e8dc",
-        },
+card: {
+  DEFAULT: "#0d0a08",
+  foreground: "#f0e8dc",
+},
         popover: {
           DEFAULT: "#16120e",
           foreground: "#f0e8dc",

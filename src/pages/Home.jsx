@@ -75,7 +75,8 @@ export default function Home() {
 
       {/* ── Services ── */}
       <section className="relative py-24 bg-secondary">
-        <div className="max-w-7xl mx-auto px-6">
+        <WaveDivider />
+        <div className="max-w-7xl mx-auto px-6 pt-12">
           <motion.div
             className="text-center mb-14"
             initial={{ opacity: 0, y: 25 }}
@@ -94,7 +95,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="spa-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -106,21 +107,19 @@ export default function Home() {
               className="cursor-pointer"
               >
                 <div className="spa-card group text-center flex flex-col items-center py-8 px-5 h-full hover:border-primary/40 transition-all">
-                  {/* Circular image */}
                   <div className="oval-img-wrap mb-4">
                     <img src={service.image} alt={service.title} />
                   </div>
-                  {/* Icon badge */}
                   <div className="w-9 h-9 rounded-full bg-primary/15 border border-primary/20 flex items-center justify-center mb-3">
                     <service.icon size={15} className="text-primary" />
                   </div>
-                  <h3 className="font-playfair text-base font-semibold text-foreground mb-2">
+                  <h3 className="font-playfair text-base font-semibold text-foreground mb-2 min-h-[2.5rem] flex items-center justify-center">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground text-xs leading-relaxed mb-4 flex-1">
+                  <p className="text-muted-foreground text-xs leading-relaxed mb-4 line-clamp-3">
                     {service.description}
                   </p>
-                  <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs group-hover:gap-3 transition-all duration-300">
+                  <span className="mt-auto inline-flex items-center gap-1.5 text-primary font-semibold text-xs group-hover:gap-3 transition-all duration-300">
                     Scopri <ArrowRight size={11} />
                   </span>
                 </div>
@@ -128,6 +127,7 @@ export default function Home() {
             ))}
           </div>
         </div>
+        <WaveDivider flip />
       </section>
 
       {/* ── Service Modal ── */}

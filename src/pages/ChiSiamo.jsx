@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Check, Phone } from 'lucide-react'
-import WaveDivider from '../components/WaveDivider'
 
 const IMAGES = {
   clinic: 'https://media.base44.com/images/public/69f8ce55cc8dfb7009af86fe/90afd404d_clinic-interior-reception.png',
@@ -116,7 +115,7 @@ export default function ChiSiamo() {
         </div>
       </section>
 
-      <WaveDivider />
+      
 
       {/* ── CTA ── */}
       <section className="relative py-28 bg-background overflow-hidden">

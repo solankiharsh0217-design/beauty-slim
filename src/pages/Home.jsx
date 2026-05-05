@@ -6,7 +6,6 @@ import {
   Star, Check, Phone, X
 } from 'lucide-react'
 import HeroSlider from '../components/HeroSlider'
-import WaveDivider from '../components/WaveDivider'
 
 const IMAGES = {
   clinic: 'https://media.base44.com/images/public/69f8ce55cc8dfb7009af86fe/90afd404d_clinic-interior-reception.png',
@@ -75,7 +74,7 @@ export default function Home() {
 
       {/* ── Services ── */}
       <section className="relative py-24 bg-secondary">
-        <WaveDivider color="#0a0806" />
+        
         <div className="max-w-7xl mx-auto px-6 pt-12">
           <motion.div
             className="text-center mb-14"
@@ -127,7 +126,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <WaveDivider flip color="#030201" />
+        
       </section>
 
       {/* ── Service Modal ── */}
@@ -199,7 +198,7 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Wave between services and about */}
-      <WaveDivider color="#0a0806" />
+      
 
       {/* ── About / Center ── */}
       <section className="relative py-28 bg-background overflow-hidden">
@@ -271,7 +270,7 @@ export default function Home() {
       </section>
 
       {/* Wave between about and testimonials */}
-      <WaveDivider flip color="#030201" />
+      
 
       {/* ── Testimonials ── */}
       <section className="relative py-24 bg-secondary">

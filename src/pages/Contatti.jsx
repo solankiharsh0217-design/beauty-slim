@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react'
-import WaveDivider from '../components/WaveDivider'
 
 const contactInfo = [
   { icon: MapPin, title: 'Indirizzo', details: ['Via Trotti, 69', '15121 Alessandria'] },

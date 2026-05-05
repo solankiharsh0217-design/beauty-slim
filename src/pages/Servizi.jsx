@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Sparkles, Scissors, Smile, Leaf, HandHeart, Dumbbell, ArrowRight, Phone, X, Check } from 'lucide-react'
-import WaveDivider from '../components/WaveDivider'
 
 const IMAGES = {
   body: 'https://media.base44.com/images/public/69f8ce55cc8dfb7009af86fe/db2dc7dc0_body-sculpting-treatment.png',
@@ -114,7 +113,7 @@ export default function Servizi() {
 
       {/* ── Services grid ── */}
       <section className="relative py-24 bg-secondary">
-        <WaveDivider />
+        
         <div className="max-w-7xl mx-auto px-6 pt-8">
           <motion.div className="text-center mb-14" initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-3 block">Tutti i Trattamenti</span>
@@ -236,7 +235,7 @@ export default function Servizi() {
         )}
       </AnimatePresence>
 
-      <WaveDivider />
+      
 
       {/* ── CTA ── */}
       <section className="relative py-28 bg-background overflow-hidden">

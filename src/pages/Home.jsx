@@ -19,7 +19,7 @@ const services = [
   { icon: Sparkles, title: 'Dimagrimento', description: 'Percorsi personalizzati per ridefinire il corpo.', image: IMAGES.body },
   { icon: Scissors, title: 'Epilazione Laser', description: 'Trattamenti laser sicuri per una pelle liscia.', image: IMAGES.laser },
   { icon: Smile, title: 'Cura del Viso', description: 'Protocolli avanzati per luminosità e freschezza.', image: IMAGES.facial },
-  { icon: Leaf, title: 'Estetica Base', description: 'Manicure, pedicure e beauty care quotidiano.', image: IMAGES.manicure },
+  { icon: Leaf, title: 'Estetica Base', description: 'Manicure, pedicure e beauty care.', image: IMAGES.manicure },
   { icon: HandHeart, title: 'Massaggi', description: 'Percorsi di benessere per un relax completo.', image: IMAGES.massage },
 ]
 
@@ -29,28 +29,18 @@ const testimonials = [
   { name: 'Laura B.', text: 'Ambiente raffinato e accogliente, risultati visibili.', rating: 5 },
 ]
 
-const WaveDivider = ({ color = '#0c0a08', flipped = false }) => (
-  <div className={`wave-divider ${flipped ? 'wave-divider-bottom' : 'wave-divider-top'}`} style={{ color }}>
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.63,250.45-.09C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="wave-shape" />
-    </svg>
-  </div>
-)
-
 export default function Home() {
   return (
     <div className="font-poppins relative">
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-primary/10 blur-[100px] -top-64 -left-64 animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute w-[400px] h-[400px] rounded-full bg-primary/8 blur-[80px] bottom-20 -right-40 animate-pulse" style={{ animationDuration: '10s' }} />
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-primary/10 blur-[100px] -top-64 -left-64" />
+        <div className="absolute w-[400px] h-[400px] rounded-full bg-primary/8 blur-[80px] bottom-20 -right-40" />
       </div>
 
       <HeroSlider />
 
-      <section className="relative py-28 bg-[#16120e]">
-        <WaveDivider color="#16120e" />
-        
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <section className="relative py-28 bg-gradient-to-b from-[#16120e] to-[#0f0c0a]">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 25 }}
@@ -61,8 +51,8 @@ export default function Home() {
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground leading-tight mb-4">
               Trattamenti pensati <span className="text-primary italic">per te</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto text-base leading-relaxed">
-              Ogni servizio nasce da un ascolto reale. Costruiamo percorsi su misura per darti risultati visibili.
+            <p className="text-muted-foreground max-w-xl mx-auto text-base">
+              Ogni servizio nasce da un ascolto reale. Costruiamo percorsi su misura.
             </p>
           </motion.div>
 
@@ -77,11 +67,7 @@ export default function Home() {
               >
                 <div className="organic-card group h-full overflow-hidden">
                   <div className="relative h-48 sm:h-52 overflow-hidden soft-curve">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover soft-curve-img"
-                    />
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover soft-curve-img" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                     <div className="absolute bottom-3 left-3 w-9 h-9 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
                       <service.icon size={16} className="text-primary" />
@@ -89,11 +75,8 @@ export default function Home() {
                   </div>
                   <div className="p-5">
                     <h3 className="font-playfair text-lg font-semibold text-foreground mb-1.5">{service.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-3">{service.description}</p>
-                    <Link
-                      to="/servizi"
-                      className="inline-flex items-center gap-1.5 text-primary font-medium text-sm transition-colors"
-                    >
+                    <p className="text-muted-foreground text-sm mb-3">{service.description}</p>
+                    <Link to="/servizi" className="inline-flex items-center gap-1.5 text-primary font-medium text-sm">
                       Scopri <ArrowRight size={12} />
                     </Link>
                   </div>
@@ -102,11 +85,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-
-        <WaveDivider color="#0c0a08" flipped />
       </section>
 
-      <section className="relative py-28 bg-[#16120e]">
+      <section className="relative py-28 bg-[#0f0c0a]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
@@ -134,17 +115,12 @@ export default function Home() {
               <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
                 Dove la cura diventa <span className="text-primary italic">esperienza</span>
               </h2>
-              <p className="text-muted-foreground text-base leading-relaxed mb-6">
-                Beauty Slim nasce ad Alessandria con un team che unisce esperienza, cura del dettaglio e attenzione concreta alla persona.
+              <p className="text-muted-foreground text-base mb-6">
+                Beauty Slim nasce ad Alessandria con un team che unisce esperienza, cura del dettaglio e attenzione alla persona.
               </p>
               
               <ul className="space-y-3 mb-8">
-                {[
-                  'Staff con esperienza e formazione continua',
-                  'Tecnologie selezionate per viso e corpo',
-                  'Trattamenti su misura per te',
-                  'Consulenza iniziale senza pressioni',
-                ].map(item => (
+                {['Staff con esperienza', 'Tecnologie selezionate', 'Trattamenti su misura', 'Consulenza senza pressioni'].map(item => (
                   <li key={item} className="flex items-center gap-3 text-foreground text-sm">
                     <Check size={16} className="text-primary shrink-0" />
                     {item}
@@ -165,9 +141,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative py-28 bg-[#16120e]">
-        <WaveDivider color="#16120e" />
-        
+      <section className="relative py-28 bg-gradient-to-b from-[#0f0c0a] to-[#16120e]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-12"
@@ -188,15 +162,13 @@ export default function Home() {
                 className="organic-card p-5 text-center"
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
+                transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
                 <div className="flex justify-center gap-1 mb-3">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} size={14} fill="#CDA45E" color="#CDA45E" />
-                  ))}
+                  {[...Array(t.rating)].map((_, i) => (<Star key={i} size={14} fill="#CDA45E" color="#CDA45E" />))}
                 </div>
-                <p className="text-foreground/75 text-sm leading-relaxed mb-4 italic">"{t.text}"</p>
+                <p className="text-foreground/75 text-sm mb-4 italic">"{t.text}"</p>
                 <div className="flex items-center justify-center gap-2 pt-3 border-t border-primary/15">
                   <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center">
                     <span className="text-primary font-bold text-xs">{t.name[0]}</span>
@@ -212,35 +184,22 @@ export default function Home() {
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={IMAGES.body} alt="" className="w-full h-full object-cover opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/75" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/80" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">Inizia Oggi</span>
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Pronta a ritrovare il tuo<br />
-              <span className="text-primary italic">equilibrio?</span>
+              Pronta a ritrovare il tuo<br /><span className="text-primary italic">equilibrio?</span>
             </h2>
-            <p className="text-white/65 text-base leading-relaxed mb-8">
-              Prenota una consulenza gratuita — senza impegno.
-            </p>
+            <p className="text-white/65 text-base mb-8">Prenota una consulenza gratuita — senza impegno.</p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Link
-                to="/contatti"
-                className="px-8 py-3.5 bg-primary text-white rounded-full font-medium text-sm hover:bg-primary/90 transition-all"
-              >
+              <Link to="/contatti" className="px-8 py-3.5 bg-primary text-white rounded-full font-medium text-sm hover:bg-primary/90 transition-all">
                 Prenota Consulenza
               </Link>
-              <a
-                href="tel:0131234173"
-                className="px-8 py-3.5 border border-white/30 text-white rounded-full font-medium text-sm hover:bg-white/10 transition-all"
-              >
-                <Phone size={14} className="inline mr-1.5" /> Chiamaci
+              <a href="tel:0131234173" className="px-8 py-3.5 border border-white/30 text-white rounded-full font-medium text-sm hover:bg-white/10 transition-all flex items-center gap-2">
+                <Phone size={14} /> Chiamaci
               </a>
             </div>
           </motion.div>

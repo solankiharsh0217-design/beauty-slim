@@ -48,34 +48,55 @@ html {
 }
 
 @layer utilities {
-  .wave-divider {
+  .section-gap {
+    position: relative;
+  }
+
+  .section-gap::before {
+    content: '';
     position: absolute;
-    width: 100%;
-    height: 120px;
+    top: 0;
     left: 0;
     right: 0;
-    overflow: hidden;
-    line-height: 0;
+    height: 150px;
+    background: linear-gradient(to bottom, var(--section-top, transparent), var(--section-mid, currentColor));
+    -webkit-mask: linear-gradient(to bottom, black 0%, transparent 100%);
+    mask: linear-gradient(to bottom, black 0%, transparent 100%);
+    pointer-events: none;
   }
 
-  .wave-divider svg {
+  .smooth-transition-top {
     position: relative;
+    margin-top: -1px;
+  }
+
+  .smooth-transition-top::before {
+    content: '';
     display: block;
-    width: calc(100% + 1.3px);
-    height: 120px;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--smooth-color, currentColor));
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='80' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q 25 25, 50 0 T 100 0 L 100 80 L 0 80 Z' fill='%23fff'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='80' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q 25 25, 50 0 T 100 0 L 100 80 L 0 80 Z' fill='%23fff'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
   }
 
-  .wave-divider .wave-shape {
-    fill: currentColor;
+  .smooth-transition-bottom {
+    position: relative;
+    margin-bottom: -1px;
   }
 
-  .wave-divider-top {
-    top: 0;
-    transform: rotate(180deg);
-  }
-
-  .wave-divider-bottom {
-    bottom: 0;
+  .smooth-transition-bottom::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, transparent, var(--smooth-color, currentColor));
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='80' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q 25 55, 50 80 T 100 80 L 100 80 L 0 80 Z' fill='%23fff'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='80' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q 25 55, 50 80 T 100 80 L 100 80 L 0 80 Z' fill='%23fff'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
   }
 
   .organic-border {

@@ -7,16 +7,26 @@ import { Sparkles, X, ArrowRight } from 'lucide-react'
 export default function PromosBanner() {
   const [promos, setPromos] = useState([])
   const [dismissed, setDismissed] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    base44.entities.Promo.filter({ active: true }).then(data => {
-      const today = new Date().toISOString().split('T')[0]
-      setPromos(data.filter(p => !p.expires_at || p.expires_at >= today))
-    })
+    loadPromos()
   }, [])
 
+  const loadPromos = async () => {
+    setLoading(true)
+    try {
+      const data = await base44.entities.Promo.filter({ active: true })
+      const today = new Date().toISOString().split('T')[0]
+      setPromos(data.filter(p => !p.expires_at || p.expires_at >= today))
+    } catch (e) {
+      console.warn('Failed to load promos:', e)
+    }
+    setLoading(false)
+  }
+
   const visible = promos.filter(p => !dismissed.includes(p.id))
-  if (!visible.length) return null
+  if (loading || !visible.length) return null
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-xl border-t border-primary/30 py-3 px-5 shadow-2xl shadow-black/40">

@@ -1,35 +1,55 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { base44 } from '../api/base44Client'
-import { Plus, Pencil, Trash2, ToggleLeft, ToggleRight, Sparkles, Tag, Calendar, CheckCircle, XCircle, Loader2 } from 'lucide-react'
+import { adminAuth } from '../lib/adminAuth'
+import { Plus, Pencil, Trash2, ToggleLeft, ToggleRight, Sparkles, Calendar, CheckCircle, Loader2, LogOut, XCircle } from 'lucide-react'
 
 const emptyForm = { title: '', description: '', badge_text: '', active: true, expires_at: '' }
 
 export default function Dashboard() {
-  const [user, setUser] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(null)
   const [promos, setPromos] = useState([])
   const [loading, setLoading] = useState(true)
   const [form, setForm] = useState(emptyForm)
   const [editingId, setEditingId] = useState(null)
   const [showForm, setShowForm] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [loginError, setLoginError] = useState('')
+  const [loginCreds, setLoginCreds] = useState({ username: '', password: '' })
 
   useEffect(() => {
-    base44.auth.me()
-      .then(u => {
-        setUser(u)
-        if (u?.role === 'admin') loadPromos()
-        else setLoading(false)
-      })
-      .catch(() => setLoading(false))
+    setIsLoggedIn(adminAuth.isLoggedIn())
+    if (adminAuth.isLoggedIn()) {
+      loadPromos()
+    } else {
+      setLoading(false)
+    }
   }, [])
 
-  const loadPromos = () => {
+  const loadPromos = async () => {
     setLoading(true)
-    base44.entities.Promo.list('-created_date').then(data => {
+    try {
+      const data = await adminAuth.getPromos()
       setPromos(data)
-      setLoading(false)
-    })
+    } catch (e) {
+      console.error('Failed to load promos:', e)
+    }
+    setLoading(false)
+  }
+
+  const handleLogin = (e) => {
+    e.preventDefault()
+    if (adminAuth.login(loginCreds.username, loginCreds.password)) {
+      setIsLoggedIn(true)
+      setLoginError('')
+      loadPromos()
+    } else {
+      setLoginError('Credenziali non valide')
+    }
+  }
+
+  const handleLogout = () => {
+    adminAuth.logout()
+    setIsLoggedIn(false)
   }
 
   const openNew = () => {
@@ -48,25 +68,39 @@ export default function Dashboard() {
     e.preventDefault()
     setSaving(true)
     const data = { ...form, expires_at: form.expires_at || null }
-    if (editingId) {
-      await base44.entities.Promo.update(editingId, data)
-    } else {
-      await base44.entities.Promo.create(data)
+    
+    try {
+      if (editingId) {
+        await adminAuth.updatePromo(editingId, data)
+      } else {
+        await adminAuth.addPromo(data)
+      }
+      setShowForm(false)
+      loadPromos()
+    } catch (e) {
+      console.error('Failed to save promo:', e)
+      alert('Errore nel salvataggio')
     }
     setSaving(false)
-    setShowForm(false)
-    loadPromos()
   }
 
   const toggleActive = async (p) => {
-    await base44.entities.Promo.update(p.id, { active: !p.active })
-    loadPromos()
+    try {
+      await adminAuth.updatePromo(p.id, { active: !p.active })
+      loadPromos()
+    } catch (e) {
+      console.error('Failed to toggle promo:', e)
+    }
   }
 
   const deletePromo = async (id) => {
     if (!window.confirm('Eliminare questa promozione?')) return
-    await base44.entities.Promo.delete(id)
-    loadPromos()
+    try {
+      await adminAuth.deletePromo(id)
+      loadPromos()
+    } catch (e) {
+      console.error('Failed to delete promo:', e)
+    }
   }
 
   if (loading) return (
@@ -75,33 +109,60 @@ export default function Dashboard() {
     </div>
   )
 
-  if (!user) return (
+  if (!isLoggedIn) return (
     <div className="min-h-screen bg-background flex items-center justify-center px-5">
-      <div className="text-center">
-        <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
-          <XCircle size={32} className="text-primary" />
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }} 
+        animate={{ opacity: 1, y: 0 }}
+        className="w-full max-w-md"
+      >
+        <div className="bg-card border border-border rounded-3xl p-8 shadow-xl">
+          <div className="text-center mb-8">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+              <Sparkles size={28} className="text-primary" />
+            </div>
+            <h2 className="font-playfair text-2xl font-bold text-foreground">Admin Login</h2>
+            <p className="text-muted-foreground text-sm mt-2">Inserisci le credenziali per accedere</p>
+          </div>
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div>
+              <label className="block text-xs font-semibold text-foreground uppercase tracking-wide mb-1.5">Username</label>
+              <input
+                type="text"
+                value={loginCreds.username}
+                onChange={e => setLoginCreds(c => ({ ...c, username: e.target.value }))}
+                className="w-full px-4 py-3 rounded-2xl border border-border bg-muted text-foreground text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-foreground uppercase tracking-wide mb-1.5">Password</label>
+              <input
+                type="password"
+                value={loginCreds.password}
+                onChange={e => setLoginCreds(c => ({ ...c, password: e.target.value }))}
+                className="w-full px-4 py-3 rounded-2xl border border-border bg-muted text-foreground text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all"
+                required
+              />
+            </div>
+            {loginError && (
+              <div className="flex items-center gap-2 text-red-500 text-sm">
+                <XCircle size={16} />
+                {loginError}
+              </div>
+            )}
+            <button
+              type="submit"
+              className="w-full py-3 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark transition-all hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              Accedi
+            </button>
+          </form>
+          <p className="text-center text-muted-foreground text-xs mt-4">
+            Credenziali: admin / beautyslim2024
+          </p>
         </div>
-        <h2 className="font-playfair text-2xl font-bold text-foreground mb-4">Accesso richiesto</h2>
-        <p className="text-muted-foreground text-sm mb-6">Effettua il login per accedere alla dashboard amministratore.</p>
-        <button
-          onClick={() => base44.auth.redirectToLogin(window.location.pathname)}
-          className="px-7 py-3 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30"
-        >
-          Accedi
-        </button>
-      </div>
-    </div>
-  )
-
-  if (user.role !== 'admin') return (
-    <div className="min-h-screen bg-background flex items-center justify-center px-5">
-      <div className="text-center">
-        <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
-          <XCircle size={32} className="text-primary" />
-        </div>
-        <h2 className="font-playfair text-2xl font-bold text-foreground mb-2">Accesso riservato</h2>
-        <p className="text-muted-foreground text-sm">Questa area è riservata agli amministratori del sito.</p>
-      </div>
+      </motion.div>
     </div>
   )
 
@@ -109,20 +170,28 @@ export default function Dashboard() {
     <div className="min-h-screen bg-background font-poppins pt-28 pb-20 px-5">
       <div className="max-w-4xl mx-auto">
 
-        {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="h-px w-8 bg-primary" />
-            <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Area Admin</span>
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="h-px w-8 bg-primary" />
+                <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Area Admin</span>
+              </div>
+              <h1 className="font-playfair text-4xl font-bold text-foreground mb-1">Dashboard</h1>
+              <p className="text-muted-foreground text-sm">Gestisci le promozioni che appaiono sul sito.</p>
+            </div>
+            <button
+              onClick={handleLogout}
+              className="inline-flex items-center gap-2 px-4 py-2 border border-border text-muted-foreground rounded-full font-medium text-sm hover:border-foreground/30 transition-all"
+            >
+              <LogOut size={16} /> Esci
+            </button>
           </div>
-          <h1 className="font-playfair text-4xl font-bold text-foreground mb-1">Dashboard</h1>
-          <p className="text-muted-foreground text-sm">Gestisci le promozioni che appaiono sul sito.</p>
         </motion.div>
 
-        {/* Add button */}
         <div className="flex justify-between items-center mb-6">
           <h2 className="font-playfair text-xl font-bold text-foreground flex items-center gap-2">
-            <Sparkles size={18} className="text-primary" /> Promozioni attive
+            <Sparkles size={18} className="text-primary" /> Promozioni
           </h2>
           <button
             onClick={openNew}
@@ -132,7 +201,6 @@ export default function Dashboard() {
           </button>
         </div>
 
-        {/* Form modal */}
         <AnimatePresence>
           {showForm && (
             <motion.div
@@ -201,7 +269,6 @@ export default function Dashboard() {
           )}
         </AnimatePresence>
 
-        {/* Promos list */}
         {promos.length === 0 ? (
           <div className="text-center py-20 bg-card rounded-3xl border border-border">
             <Sparkles size={32} className="text-primary mx-auto mb-3 opacity-50" />

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight, Sparkles, Scissors, Smile, Leaf, HandHeart,
-  Star, Shield, MapPin, Check, Phone
+  Star, Shield, MapPin, Check, Phone, Droplets
 } from 'lucide-react'
 import HeroSlider from '../components/HeroSlider'
 
@@ -16,214 +16,158 @@ const IMAGES = {
 }
 
 const services = [
-  { icon: Sparkles, title: 'Dimagrimento & Rimodellamento', description: 'Percorsi personalizzati per ridefinire il corpo con trattamenti mirati e tecnologie professionali.', image: IMAGES.body },
-  { icon: Scissors, title: 'Epilazione Laser', description: "Trattamenti laser sicuri e progressivi per una pelle liscia, uniforme e curata tutto l'anno.", image: IMAGES.laser },
-  { icon: Smile, title: 'Cura del Viso', description: 'Protocolli avanzati per luminosità, tono e freschezza, con un approccio delicato ma efficace.', image: IMAGES.facial },
-  { icon: Leaf, title: 'Estetica di Base', description: 'Manicure, pedicure e beauty care quotidiano per mantenere mani, piedi e dettagli sempre impeccabili.', image: IMAGES.manicure },
-  { icon: HandHeart, title: 'Massaggi & Relax', description: 'Percorsi di benessere che combinano manualità, atmosfera e ascolto per un relax completo.', image: IMAGES.massage },
+  { icon: Sparkles, title: 'Dimagrimento', description: 'Percorsi personalizzati per ridefinire il corpo con trattamenti mirati.', image: IMAGES.body },
+  { icon: Scissors, title: 'Epilazione Laser', description: "Trattamenti laser sicuri per una pelle liscia.", image: IMAGES.laser },
+  { icon: Smile, title: 'Cura del Viso', description: 'Protocolli avanzati per luminosità e freschezza.', image: IMAGES.facial },
+  { icon: Leaf, title: 'Estetica Base', description: 'Manicure, pedicure e beauty care quotidiano.', image: IMAGES.manicure },
+  { icon: HandHeart, title: 'Massaggi', description: 'Percorsi di benessere per un relax completo.', image: IMAGES.massage },
 ]
 
 const testimonials = [
-  { name: 'Giulia M.', text: 'Ho trovato un percorso serio, curato e davvero personalizzato. Il centro è bellissimo e il team ti mette subito a tuo agio.', rating: 5 },
-  { name: 'Elena R.', text: 'Mi sono affidata a Beauty Slim per viso e laser: esperienza elegante, spiegazioni chiare e trattamenti eseguiti con grande attenzione.', rating: 5 },
-  { name: 'Laura B.', text: 'Un ambiente raffinato ma accogliente, con risultati visibili e un modo di lavorare molto professionale.', rating: 5 },
+  { name: 'Giulia M.', text: 'Ho trovato un percorso serio e personalizzato. Il centro è bellissimo!', rating: 5 },
+  { name: 'Elena R.', text: 'Esperienza elegante con spiegazioni chiare e grande attenzione.', rating: 5 },
+  { name: 'Laura B.', text: 'Ambiente raffinato e accogliente, risultati visibili.', rating: 5 },
 ]
 
-const stats = [
-  { number: '500+', label: 'Clienti Soddisfatte' },
-  { number: '10+', label: 'Anni di Esperienza' },
-  { number: '6', label: 'Aree di Trattamento' },
-  { number: '5.0', label: '★ Valutazione' },
-]
+const WaveDivider = ({ color = '#0c0a08', flipped = false, opacity = 1 }) => (
+  <div className={`wave-divider ${flipped ? 'wave-divider-bottom' : 'wave-divider-top'}`} style={{ color, opacity }}>
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.63,250.45-.09C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="wave-shape" />
+    </svg>
+  </div>
+)
+
+const FloatingBlob = ({ className }) => (
+  <div className={`blob-orb ${className}`} />
+)
 
 export default function Home() {
   return (
-    <div className="font-poppins">
+    <div className="font-poppins relative">
+      {/* Organic background blobs */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <FloatingBlob className="w-[600px] h-[600px] bg-primary/20 top-[-200px] left-[-200px] blob-orb" />
+        <FloatingBlob className="w-[500px] h-[500px] bg-primary/15 bottom-[20%] right-[-100px] blob-orb" />
+        <FloatingBlob className="w-[400px] h-[400px] bg-accent/20 top-[40%] left-[30%] blob-orb" />
+      </div>
 
-      {/* ── HERO SLIDER ───────────────────────────────────────── */}
       <HeroSlider />
 
-      {/* ── STATS BAND ───────────────────────────────────────── */}
-      <section className="bg-secondary py-12">
-        <div className="max-w-5xl mx-auto px-5">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.08 }}
-                viewport={{ once: true }}
-              >
-                <div className="font-playfair text-4xl font-bold text-primary mb-1">{s.number}</div>
-                <div className="text-white/60 text-sm">{s.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── SERVICES ─────────────────────────────────────────── */}
-      <section className="py-28 bg-[#0f0c08]">
-        <div className="max-w-7xl mx-auto px-5">
-          {/* Section Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="h-px w-8 bg-primary" />
-                <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">I Nostri Servizi</span>
-              </div>
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground leading-tight">
-                Trattamenti pensati<br />
-                <span className="text-primary italic">per te</span>
-              </h2>
-            </div>
-            <p className="text-muted-foreground max-w-sm text-sm leading-relaxed">
-              Ogni servizio nasce da un ascolto reale. Costruiamo percorsi su misura per darti risultati visibili e continuità.
+      <section className="relative py-32 flowing-bg">
+        <WaveDivider color="#16120e" />
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">I Nostri Servizi</span>
+            <h2 className="font-playfair text-5xl md:text-6xl font-bold text-foreground leading-tight mb-6">
+              Trattamenti pensati <span className="text-primary italic">per te</span>
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto text-lg leading-relaxed">
+              Ogni servizio nasce da un ascolto reale. Costruiamo percorsi su misura per darti risultati visibili.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                className="group bg-card rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-border"
-                initial={{ opacity: 0, y: 24 }}
+                className="organic-card group p-1"
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.08 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-64 overflow-hidden soft-curve">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-5 left-5 w-12 h-12 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
+                    <service.icon size={20} className="text-primary" />
+                  </div>
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <service.icon size={18} className="text-primary" />
-                    </div>
-                    <h3 className="font-playfair text-lg font-bold text-foreground leading-tight">{service.title}</h3>
-                  </div>
+                  <h3 className="font-playfair text-xl font-bold text-foreground mb-2">{service.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4">{service.description}</p>
                   <Link
                     to="/servizi"
-                    className="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-3 transition-all duration-300"
+                    className="inline-flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all duration-300"
                   >
-                    Scopri di più <ArrowRight size={14} />
+                    Scopri <ArrowRight size={14} />
                   </Link>
                 </div>
               </motion.div>
             ))}
-
-            {/* "All Services" card */}
-            <motion.div
-              className="bg-secondary rounded-3xl overflow-hidden flex items-center justify-center p-10 text-center min-h-[340px]"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45 }}
-              viewport={{ once: true }}
-            >
-              <div>
-                <div className="w-16 h-16 rounded-full border-2 border-primary/50 flex items-center justify-center mx-auto mb-5">
-                  <Sparkles size={28} className="text-primary" />
-                </div>
-                <h3 className="font-playfair text-2xl font-bold text-white mb-3">E molto altro</h3>
-                <p className="text-white/60 text-sm mb-6 leading-relaxed">Esplora tutti i nostri trattamenti e trova quello più adatto a te.</p>
-                <Link
-                  to="/servizi"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-medium text-sm hover:bg-primary-dark transition-all"
-                >
-                  Tutti i Servizi <ArrowRight size={14} />
-                </Link>
-              </div>
-            </motion.div>
           </div>
         </div>
+
+        <WaveDivider color="#16120e" flipped />
       </section>
 
-      {/* ── ABOUT PREVIEW ────────────────────────────────────── */}
-      <section className="py-28 bg-[#0c0a08] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-5">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            {/* Image Collage */}
+      {/* ── ABOUT ─────────────────────────────────────────── */}
+      <section className="relative py-32 bg-[#16120e]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               className="relative"
-              initial={{ opacity: 0, x: -40 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="relative rounded-[2.5rem] overflow-hidden aspect-[4/3] shadow-2xl">
-              <img src={IMAGES.clinic} alt="Centro Beauty Slim" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/30 to-transparent" />
+              <div className="relative soft-curve overflow-hidden aspect-[4/5] shadow-2xl">
+                <img src={IMAGES.clinic} alt="Beauty Slim" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/30 to-transparent" />
               </div>
-              {/* Floating badge */}
-              <div className="absolute -bottom-6 -right-6 bg-primary text-white px-7 py-5 rounded-3xl shadow-xl text-center">
-                <div className="font-playfair text-4xl font-bold leading-none">10+</div>
-                <div className="text-white/80 text-xs mt-1 uppercase tracking-wider">Anni di esperienza</div>
-              </div>
-              {/* Floating mini card */}
-              <div className="absolute -top-5 -left-5 bg-card rounded-2xl shadow-lg p-4 flex items-center gap-3 border border-border">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#CDA45E" color="#CDA45E" />)}
-                </div>
-                <span className="text-xs text-foreground font-semibold">500+ Recensioni</span>
-              </div>
+              <motion.div
+                className="absolute -bottom-8 -right-8 bg-primary px-8 py-6 soft-curve text-center soft-shadow"
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <div className="font-playfair text-4xl font-bold text-white">10+</div>
+                <div className="text-white/80 text-xs mt-1 uppercase tracking-wider">Anni</div>
+              </motion.div>
             </motion.div>
 
-            {/* Text */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px w-8 bg-primary" />
-                <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Il Nostro Centro</span>
-              </div>
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-                Dove la cura<br />
-                diventa un'
-                <span className="text-primary italic">esperienza.</span>
+              <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">Il Nostro Centro</span>
+              <h2 className="font-playfair text-5xl font-bold text-foreground mb-8 leading-tight">
+                Dove la cura diventa <span className="text-primary italic">esperienza</span>
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-4 text-[15px]">
-                Beauty Slim nasce ad Alessandria con un team che unisce <strong className="text-foreground">esperienza, cura del dettaglio</strong> e attenzione concreta alla persona.
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                Beauty Slim nasce ad Alessandria con un team che unisce esperienza, cura del dettaglio e attenzione concreta alla persona. L'obiettivo è offrirti un luogo bello da vivere.
               </p>
-              <p className="text-muted-foreground leading-relaxed mb-8 text-[15px]">
-                L'obiettivo è offrirti un luogo bello da vivere, dove ogni trattamento sia spiegato bene, eseguito con precisione e inserito in un percorso <strong className="text-foreground">realistico e personalizzato</strong>.
-              </p>
-
-              <ul className="space-y-3 mb-10">
+              
+              <ul className="space-y-4 mb-10">
                 {[
                   'Staff con esperienza e formazione continua',
-                  'Tecnologie selezionate per viso, corpo e laser',
-                  'Trattamenti costruiti sulle tue esigenze',
-                  'Ambiente elegante, accogliente e ordinato',
-                  'Consulenza iniziale chiara e senza pressioni',
+                  'Tecnologie selezionate per viso e corpo',
+                  'Trattamenti su misura per te',
+                  'Consulenza iniziale senza pressioni',
                 ].map(item => (
-                  <li key={item} className="flex items-center gap-3 text-foreground text-sm">
-                    <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
-                      <Check size={12} className="text-primary" />
-                    </div>
+                  <li key={item} className="flex items-center gap-3 text-foreground">
+                    <Check size={18} className="text-primary shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  to="/chi-siamo"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-secondary text-white rounded-full font-medium text-sm hover:bg-secondary/80 transition-all"
-                >
-                  Scopri la nostra storia
+              
+              <div className="flex gap-4">
+                <Link to="/chi-siamo" className="px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-all">
+                  Scopri di più
                 </Link>
-                <Link
-                  to="/contatti"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-primary text-primary rounded-full font-medium text-sm hover:bg-primary hover:text-white transition-all"
-                >
+                <Link to="/contatti" className="px-8 py-4 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-white transition-all">
                   Prenota Ora
                 </Link>
               </div>
@@ -232,92 +176,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ─────────────────────────────────────── */}
-      <section className="py-28 bg-secondary overflow-hidden">
-        <div className="max-w-7xl mx-auto px-5">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="h-px w-8 bg-primary" />
-              <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Come Funziona</span>
-              <div className="h-px w-8 bg-primary" />
-            </div>
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white">
-              Da zero al tuo <span className="text-primary italic">risultato</span>
-            </h2>
-            <p className="text-white/60 mt-4 max-w-xl mx-auto text-sm leading-relaxed">
-              Un processo semplice, trasparente e pensato per metterti sempre a tuo agio.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-            {/* Connector line - desktop only */}
-            <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-primary/30" />
-            {[
-              { step: '01', title: 'Prenota', desc: 'Compila il form o scrivici su WhatsApp. La consulenza iniziale è sempre gratuita.' },
-              { step: '02', title: 'Consulenza', desc: 'Incontriamoci: ti ascoltiamo, valutiamo le tue esigenze e costruiamo un piano su misura.' },
-              { step: '03', title: 'Trattamento', desc: 'Iniziamo il tuo percorso con tecnologie selezionate e un team sempre presente.' },
-              { step: '04', title: 'Risultati', desc: 'Vedi i risultati nel tempo con un approccio progressivo, realistico e duraturo.' },
-            ].map((item, i) => (
-              <motion.div
-                key={item.step}
-                className="text-center relative z-10"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.12 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-20 h-20 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center mx-auto mb-5 relative">
-                  <span className="font-playfair text-2xl font-bold text-primary">{item.step}</span>
-                </div>
-                <h3 className="font-playfair text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-white/55 text-sm leading-relaxed max-w-[200px] mx-auto">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-          <div className="text-center mt-14">
-            <Link
-              to="/contatti"
-              className="inline-flex items-center gap-2 px-9 py-4 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/30"
-            >
-              Inizia Ora — È Gratuito <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* ── TESTIMONIALS ─────────────────────────────────────── */}
-      <section className="py-28 bg-[#0f0c08]">
-        <div className="max-w-7xl mx-auto px-5">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="h-px w-8 bg-primary" />
-              <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Testimonianze</span>
-              <div className="h-px w-8 bg-primary" />
-            </div>
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground">
-              Cosa dicono di noi
+      <section className="relative py-32 flowing-bg">
+        <WaveDivider color="#0c0a08" />
+        
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">Testimonianze</span>
+            <h2 className="font-playfair text-5xl font-bold text-foreground">
+              Cosa dicono di <span className="text-primary italic">noi</span>
             </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((t, index) => (
               <motion.div
                 key={t.name}
-                className="bg-card p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border"
-                initial={{ opacity: 0, y: 20 }}
+                className="organic-card p-8 text-center"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.15 }}
                 viewport={{ once: true }}
               >
-                <div className="flex gap-1 mb-5">
+                <div className="flex justify-center gap-1 mb-6">
                   {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} size={16} fill="#CDA45E" color="#CDA45E" />
+                    <Star key={i} size={18} fill="#CDA45E" color="#CDA45E" />
                   ))}
                 </div>
-                <p className="text-foreground/70 leading-relaxed mb-6 text-sm italic">"{t.text}"</p>
-                <div className="flex items-center gap-3 pt-5 border-t border-border">
-                  <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center">
-                    <span className="text-primary font-bold text-sm">{t.name[0]}</span>
+                <p className="text-foreground/80 text-lg leading-relaxed mb-6 italic">"{t.text}"</p>
+                <div className="flex items-center justify-center gap-3 pt-4 border-t border-primary/20">
+                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                    <span className="text-primary font-bold">{t.name[0]}</span>
                   </div>
-                  <span className="font-semibold text-foreground text-sm">{t.name}</span>
+                  <span className="font-semibold text-foreground">{t.name}</span>
                 </div>
               </motion.div>
             ))}
@@ -325,42 +221,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CTA BANNER ───────────────────────────────────────── */}
-      <section className="relative py-28 overflow-hidden">
+      {/* ── CTA ────────────────────────────────────────────── */}
+      <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={IMAGES.body} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-secondary/85" />
+          <img src={IMAGES.body} alt="" className="w-full h-full object-cover opacity-30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
         </div>
-        <div className="relative z-10 max-w-3xl mx-auto px-5 text-center text-white">
+        
+        {/* Floating bubbles in CTA */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="bubble w-64 h-64 bg-primary/30 top-1/4 left-1/4 bubble-1" />
+          <div className="bubble w-48 h-48 bg-primary/20 top-1/2 right-1/4 bubble-2" />
+          <div className="bubble w-40 h-40 bg-primary/25 bottom-1/3 left-1/3 bubble-3" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-3 mb-5">
-              <div className="h-px w-8 bg-primary" />
-              <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">Inizia Oggi</span>
-              <div className="h-px w-8 bg-primary" />
-            </div>
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-5 leading-tight">
+            <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">Inizia Oggi</span>
+            <h2 className="font-playfair text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
               Pronta a ritrovare il tuo<br />
-              <span className="text-primary italic">equilibrio estetico?</span>
+              <span className="text-primary italic">equilibrio?</span>
             </h2>
-            <p className="text-white/70 leading-relaxed mb-10 text-lg">
-              Prenota una consulenza gratuita e scopri il percorso più adatto a te — senza impegno.
+            <p className="text-white/70 text-xl leading-relaxed mb-10">
+              Prenota una consulenza gratuita — senza impegno.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 to="/contatti"
-                className="inline-flex items-center gap-2 px-9 py-4 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/30"
+                className="group px-10 py-5 bg-primary text-white rounded-full font-semibold text-lg hover:bg-primary/90 transition-all hover:scale-105 soft-shadow"
               >
-                Prenota Consulenza Gratuita <ArrowRight size={16} />
+                Prenota Consulenza <ArrowRight size={18} className="inline ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
                 href="tel:0131234173"
-                className="inline-flex items-center gap-2 px-9 py-4 border border-white/40 text-white rounded-full font-medium text-sm hover:bg-white/10 transition-all duration-300"
+                className="px-10 py-5 border-2 border-white/30 text-white rounded-full font-medium text-lg hover:bg-white/10 transition-all"
               >
-                <Phone size={16} /> Chiamaci Ora
+                <Phone size={18} className="inline mr-2" /> Chiamaci
               </a>
             </div>
           </motion.div>

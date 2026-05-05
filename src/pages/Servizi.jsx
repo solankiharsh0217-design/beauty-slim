@@ -114,7 +114,8 @@ export default function Servizi() {
 
       {/* ── Services grid ── */}
       <section className="relative py-24 bg-secondary">
-        <div className="max-w-7xl mx-auto px-6">
+        <WaveDivider />
+        <div className="max-w-7xl mx-auto px-6 pt-8">
           <motion.div className="text-center mb-14" initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-3 block">Tutti i Trattamenti</span>
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-3">

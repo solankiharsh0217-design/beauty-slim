@@ -29,7 +29,7 @@ export default function ChiSiamo() {
       <AmbientGlow />
 
       {/* ── Hero ── */}
-      <section className="relative pt-40 pb-24 text-center overflow-hidden bg-section-a">
+      <section className="relative pt-40 pb-24 text-center overflow-hidden bg-[#14141a]">
         <div className="absolute inset-0 opacity-30"
           style={{ backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(205,164,94,0.25), transparent 60%)' }}
         />
@@ -49,7 +49,7 @@ export default function ChiSiamo() {
       </section>
 
       {/* ── About content ── */}
-      <section className="relative py-28 bg-section-a overflow-hidden">
+      <section className="relative py-28 bg-[#14141a] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             {/* Image */}
@@ -116,10 +116,10 @@ export default function ChiSiamo() {
         </div>
       </section>
 
-      <WaveDivider color="#26382C" />
+      <WaveDivider color="#0e0e12" />
 
       {/* ── CTA ── */}
-      <section className="relative py-28 bg-section-dark overflow-hidden">
+      <section className="relative py-28 bg-[#0e0e12] overflow-hidden">
         <div className="absolute inset-0">
           <img src={IMAGES.clinic} alt="" className="w-full h-full object-cover opacity-12" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/65 to-black/80" />

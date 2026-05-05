@@ -5,44 +5,39 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          dark: "hsl(var(--primary-dark))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#C4984A",
+          dark: "#a87c34",
+          foreground: "#0a0a0c",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#0d0d10",
+          foreground: "#f0e8dc",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "#1e1c28",
+          foreground: "#f0e8dc",
         },
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        light: "#16161c",
+        background: "#0a0a0c",
+        foreground: "#f0e8dc",
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "#16161c",
+          foreground: "#969098",
         },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
+        border: "#232332",
+        input: "#232332",
+        ring: "#C4984A",
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "#c83c3c",
+          foreground: "#ffffff",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "#101014",
+          foreground: "#f0e8dc",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        /* Section background tokens */
-        section: {
-          a: "hsl(var(--section-a))",
-          b: "hsl(var(--section-b))",
-          dark: "hsl(var(--section-dark))",
+          DEFAULT: "#101014",
+          foreground: "#f0e8dc",
         },
       },
       fontFamily: {

@@ -3,19 +3,19 @@ import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowRight } from 'lucide-re
 
 export default function Footer() {
   return (
-    <footer className="bg-section-dark text-secondary-foreground relative">
+    <footer className="bg-secondary text-white relative">
       {/* Wave at top of footer */}
       <div className="w-full overflow-hidden leading-none pointer-events-none" style={{ lineHeight: 0 }}>
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '60px' }}>
           <path
             d="M0,40 C160,80 320,0 480,40 C640,80 800,0 960,40 C1120,80 1280,10 1440,40 L1440,80 L0,80 Z"
-            fill="#26382C"
+            fill="#0e0e12"
           />
         </svg>
       </div>
 
       {/* Top CTA strip */}
-      <div className="border-b border-white/10">
+      <div className="border-b border-white/8">
         <div className="max-w-7xl mx-auto px-5 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p className="text-primary font-medium text-xs uppercase tracking-[0.15em] mb-1">Inizia oggi — è gratuito</p>
@@ -106,7 +106,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/40 text-xs">
+        <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/25 text-xs">
           <span>© 2026 Beauty Slim. Tutti i diritti riservati.</span>
           <span>Via Trotti 69 · Alessandria · Italy</span>
         </div>

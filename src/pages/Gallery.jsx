@@ -16,7 +16,7 @@ export default function Gallery() {
   return (
     <div className="font-poppins">
       {/* ── Hero ── */}
-      <section className="relative pt-40 pb-24 text-center overflow-hidden bg-section-a">
+      <section className="relative pt-40 pb-24 text-center overflow-hidden bg-[#14141a]">
         <div className="absolute inset-0 opacity-30"
           style={{ backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(205,164,94,0.25), transparent 60%)' }}
         />
@@ -36,7 +36,7 @@ export default function Gallery() {
       </section>
 
       {/* ── Gallery grid ── */}
-      <section className="relative py-24 bg-section-a">
+      <section className="relative py-24 bg-[#14141a]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="spa-grid">
             {galleryImages.map((img, index) => (
@@ -62,10 +62,10 @@ export default function Gallery() {
         </div>
       </section>
 
-      <WaveDivider color="#F0EADE" />
+      <WaveDivider color="#0e0e12" />
 
       {/* ── CTA ── */}
-      <section className="relative py-28 bg-section-b overflow-hidden">
+      <section className="relative py-28 bg-[#0e0e12] overflow-hidden">
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 25 }}

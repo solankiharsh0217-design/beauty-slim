@@ -6,48 +6,25 @@
 
 @layer base {
   :root {
-    /* ─── Body / Page ─── */
-    --background: 248 243 235;        /* warm ivory #F8F3EB */
-    --foreground: 42 30 20;           /* deep warm brown #2A1E14 */
-
-    /* ─── Cards / Surfaces ─── */
-    --card: 255 251 245;              /* off-white cream #FFFBF5 */
-    --card-foreground: 42 30 20;
-
-    /* ─── Popover ─── */
-    --popover: 255 251 245;
-    --popover-foreground: 42 30 20;
-
-    /* ─── Primary — Gold ─── */
-    --primary: 185 142 68;            /* #B98E44 warm gold */
-    --primary-dark: 154 116 50;       /* #9A7432 darker gold */
-    --primary-foreground: 255 251 245;
-
-    /* ─── Secondary — Deep Green ─── */
-    --secondary: 38 56 44;            /* #26382C forest green */
-    --secondary-foreground: 248 243 235;
-
-    /* ─── Muted / Subtle ─── */
-    --muted: 240 234 222;             /* #F0EADE warm light beige */
-    --muted-foreground: 120 100 78;   /* #78644E warm mid-tone */
-
-    /* ─── Accent ─── */
-    --accent: 232 222 205;            /* #E8DECD warm sand */
-    --accent-foreground: 42 30 20;
-
-    /* ─── Destructive ─── */
-    --destructive: 180 50 50;
+    --background: 10 10 12;
+    --foreground: 240 232 220;
+    --card: 16 16 20;
+    --card-foreground: 240 232 220;
+    --popover: 16 16 20;
+    --popover-foreground: 240 232 220;
+    --primary: 196 152 74;
+    --primary-foreground: 10 10 12;
+    --secondary: 13 13 16;
+    --secondary-foreground: 240 232 220;
+    --muted: 22 22 28;
+    --muted-foreground: 150 145 160;
+    --accent: 30 28 40;
+    --accent-foreground: 240 232 220;
+    --destructive: 200 60 60;
     --destructive-foreground: 255 255 255;
-
-    /* ─── Borders / Inputs ─── */
-    --border: 210 196 176;            /* #D2C4B0 warm taupe */
-    --input: 210 196 176;
-    --ring: 185 142 68;
-
-    /* ─── Section alternates (used as bg tokens) ─── */
-    --section-a: 248 243 235;         /* #F8F3EB — main ivory */
-    --section-b: 240 234 222;         /* #F0EADE — slightly deeper warm beige */
-    --section-dark: 38 56 44;         /* #26382C — deep green for CTA sections */
+    --border: 35 35 50;
+    --input: 35 35 50;
+    --ring: 196 152 74;
   }
 }
 
@@ -77,14 +54,14 @@ html { scroll-behavior: smooth; }
   .ambient-glow-1 {
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle, rgba(185,142,68,0.07) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(196,152,74,0.09) 0%, transparent 70%);
     top: -350px;
     left: -350px;
   }
   .ambient-glow-2 {
     width: 650px;
     height: 650px;
-    background: radial-gradient(circle, rgba(38,56,44,0.05) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(196,152,74,0.06) 0%, transparent 70%);
     bottom: -250px;
     right: -250px;
   }
@@ -93,7 +70,7 @@ html { scroll-behavior: smooth; }
   .blob-circle {
     position: absolute;
     border-radius: 45% 55% 55% 45% / 50% 45% 55% 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(185,142,68,0.05), transparent 60%);
+    background: radial-gradient(circle at 30% 30%, rgba(196,152,74,0.06), transparent 60%);
     filter: blur(50px);
     pointer-events: none;
     animation: blob-morph 14s ease-in-out infinite;
@@ -109,7 +86,7 @@ html { scroll-behavior: smooth; }
   .circle-decor {
     position: absolute;
     border-radius: 50%;
-    border: 1px solid rgba(185,142,68,0.12);
+    border: 1px solid rgba(196,152,74,0.10);
     pointer-events: none;
   }
 
@@ -132,9 +109,9 @@ html { scroll-behavior: smooth; }
 
   /* ─── SPA CARD ─── */
   .spa-card {
-    background: linear-gradient(150deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    background: linear-gradient(150deg, rgba(22,22,28,0.97) 0%, rgba(14,14,18,0.99) 100%);
     border-radius: 28px;
-    border: 1px solid rgba(185,142,68,0.15);
+    border: 1px solid rgba(196,152,74,0.13);
     overflow: hidden;
     transition: transform 0.5s cubic-bezier(0.34,1.4,0.64,1),
                 box-shadow 0.5s ease,
@@ -142,19 +119,19 @@ html { scroll-behavior: smooth; }
   }
   .spa-card:hover {
     transform: translateY(-10px) scale(1.015);
-    border-color: rgba(185,142,68,0.35);
-    box-shadow: 0 28px 72px rgba(42,30,20,0.12),
-                0 0 60px rgba(185,142,68,0.08);
+    border-color: rgba(196,152,74,0.32);
+    box-shadow: 0 28px 72px rgba(0,0,0,0.55),
+                0 0 60px rgba(196,152,74,0.09);
   }
 
-  /* ─── OVAL IMAGE FRAME ─── */
+  /* ─── OVAL IMAGE FRAME (circular, used inside cards) ─── */
   .oval-img-wrap {
     width: 8.5rem;
     height: 8.5rem;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid rgba(185,142,68,0.25);
-    box-shadow: 0 8px 36px rgba(42,30,20,0.12), 0 0 0 7px rgba(185,142,68,0.06);
+    border: 2px solid rgba(196,152,74,0.22);
+    box-shadow: 0 8px 36px rgba(0,0,0,0.45), 0 0 0 7px rgba(196,152,74,0.06);
     margin: 0 auto;
     flex-shrink: 0;
   }
@@ -168,18 +145,18 @@ html { scroll-behavior: smooth; }
     transform: scale(1.12);
   }
 
-  /* ─── PORTRAIT OVAL ─── */
+  /* ─── PORTRAIT OVAL (used in gallery & large feature images) ─── */
   .portrait-oval {
     border-radius: 50%;
     overflow: hidden;
     aspect-ratio: 1 / 1;
-    border: 2px solid rgba(185,142,68,0.18);
-    box-shadow: 0 12px 48px rgba(42,30,20,0.12), 0 0 0 8px rgba(185,142,68,0.05);
+    border: 2px solid rgba(196,152,74,0.16);
+    box-shadow: 0 12px 48px rgba(0,0,0,0.45), 0 0 0 8px rgba(196,152,74,0.05);
     transition: all 0.55s cubic-bezier(0.34,1.4,0.64,1);
   }
   .portrait-oval:hover {
-    border-color: rgba(185,142,68,0.40);
-    box-shadow: 0 24px 72px rgba(42,30,20,0.18), 0 0 0 8px rgba(185,142,68,0.10);
+    border-color: rgba(196,152,74,0.38);
+    box-shadow: 0 24px 72px rgba(0,0,0,0.55), 0 0 0 8px rgba(196,152,74,0.10);
     transform: scale(1.04);
   }
   .portrait-oval img {
@@ -192,50 +169,50 @@ html { scroll-behavior: smooth; }
     transform: scale(1.10);
   }
 
-  /* ─── FEATURE IMAGE ─── */
+  /* ─── FEATURE IMAGE (large portrait oval for about section) ─── */
   .feature-oval {
     border-radius: 50% 50% 45% 45% / 40% 40% 50% 50%;
     overflow: hidden;
-    border: 2px solid rgba(185,142,68,0.18);
-    box-shadow: 0 24px 80px rgba(42,30,20,0.15), 0 0 0 10px rgba(185,142,68,0.05);
+    border: 2px solid rgba(196,152,74,0.16);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 10px rgba(196,152,74,0.05);
   }
 
   /* ─── TESTIMONIAL CARD ─── */
   .testimonial-card {
-    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    background: linear-gradient(135deg, rgba(22,22,28,0.93) 0%, rgba(16,16,20,0.97) 100%);
     border-radius: 24px;
-    border: 1px solid rgba(185,142,68,0.15);
+    border: 1px solid rgba(196,152,74,0.13);
     transition: all 0.45s ease;
   }
   .testimonial-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(185,142,68,0.32);
-    box-shadow: 0 24px 56px rgba(185,142,68,0.10), 0 0 0 1px rgba(185,142,68,0.08);
+    border-color: rgba(196,152,74,0.30);
+    box-shadow: 0 24px 56px rgba(196,152,74,0.12), 0 0 0 1px rgba(196,152,74,0.08);
   }
 
-  /* ─── INFO CARD ─── */
+  /* ─── INFO CARD (contact info, benefits) ─── */
   .info-card {
-    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    background: linear-gradient(135deg, rgba(22,22,28,0.92) 0%, rgba(16,16,20,0.96) 100%);
     border-radius: 20px;
-    border: 1px solid rgba(185,142,68,0.14);
+    border: 1px solid rgba(196,152,74,0.12);
     transition: all 0.4s ease;
   }
   .info-card:hover {
-    border-color: rgba(185,142,68,0.28);
-    box-shadow: 0 12px 40px rgba(42,30,20,0.08);
+    border-color: rgba(196,152,74,0.25);
+    box-shadow: 0 12px 40px rgba(196,152,74,0.08);
     transform: translateY(-4px);
   }
 
   /* ─── GLASS MORPHISM (navbar) ─── */
   .glass-morphism {
-    background: rgba(248,243,235,0.80);
+    background: rgba(14,14,18,0.65);
     backdrop-filter: blur(24px);
-    border: 1px solid rgba(185,142,68,0.18);
+    border: 1px solid rgba(196,152,74,0.12);
   }
 
   /* ─── SOFT SHADOW ─── */
   .soft-shadow {
-    box-shadow: 0 4px 20px rgba(185,142,68,0.10), 0 8px 40px rgba(42,30,20,0.06);
+    box-shadow: 0 4px 20px rgba(196,152,74,0.08), 0 8px 40px rgba(0,0,0,0.15);
   }
 
   /* ─── AVATAR CIRCLE ─── */
@@ -250,7 +227,7 @@ html { scroll-behavior: smooth; }
   .wave-ornament {
     width: 64px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(185,142,68,0.85), transparent);
+    background: linear-gradient(90deg, transparent, rgba(196,152,74,0.85), transparent);
     border-radius: 4px;
     margin: 0.75rem auto 0;
   }

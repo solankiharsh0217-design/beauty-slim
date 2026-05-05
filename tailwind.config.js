@@ -18,7 +18,7 @@ export default {
           foreground: "#f0e8dc",
         },
         light: "#1a1410",
-        background: "#0c0a08",
+        background: "#080604",
         foreground: "#f0e8dc",
         muted: {
           DEFAULT: "#1e1812",

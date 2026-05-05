@@ -36,7 +36,7 @@ export default function Gallery() {
       </section>
 
       {/* ── Gallery grid ── */}
-      <section className="relative py-24 bg-[#16120e]">
+      <section className="relative py-24 bg-[#14141a]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="spa-grid">
             {galleryImages.map((img, index) => (
@@ -62,10 +62,10 @@ export default function Gallery() {
         </div>
       </section>
 
-      <WaveDivider color="#0f0c0a" />
+      <WaveDivider color="#0e0e12" />
 
       {/* ── CTA ── */}
-      <section className="relative py-28 bg-[#0f0c0a] overflow-hidden">
+      <section className="relative py-28 bg-[#0e0e12] overflow-hidden">
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 25 }}

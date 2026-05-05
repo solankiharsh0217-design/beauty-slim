@@ -36,21 +36,21 @@ export default function Gallery() {
 
       <section className="relative py-20 bg-[#16120e]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="circle-grid">
             {galleryImages.map((img, index) => (
               <motion.div
                 key={img.category}
-                className="organic-card overflow-hidden"
+                className="circle-card overflow-hidden"
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
                 viewport={{ once: true }}
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-square soft-curve">
                   <img 
                     src={img.src} 
                     alt={img.category} 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+                    className="w-full h-full object-cover soft-curve-img" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity" />
                 </div>

@@ -48,23 +48,23 @@ export default function Tecnologie() {
 
       <section className="relative py-20 bg-[#16120e]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="circle-grid">
             {technologies.map((tech, index) => (
               <motion.div
                 key={tech.title}
-                className="organic-card overflow-hidden"
+                className="circle-card overflow-hidden"
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
                 viewport={{ once: true }}
               >
-                <div className="relative h-36 overflow-hidden soft-curve">
+                <div className="relative h-28 soft-curve">
                   <img src={tech.image} alt={tech.title} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 </div>
-                <div className="p-4">
-                  <h3 className="font-playfair text-base font-semibold text-foreground mb-1">{tech.title}</h3>
-                  <p className="text-muted-foreground text-xs leading-relaxed line-clamp-2">{tech.description}</p>
+                <div className="p-3">
+                  <h3 className="font-playfair text-sm font-semibold text-foreground mb-0.5">{tech.title}</h3>
+                  <p className="text-muted-foreground text-[10px] line-clamp-2">{tech.description}</p>
                 </div>
               </motion.div>
             ))}

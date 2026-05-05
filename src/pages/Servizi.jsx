@@ -107,7 +107,7 @@ export default function Servizi() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="circle-grid">
             {services.map((service, index) => (
               <motion.div
                 key={service.category}
@@ -116,26 +116,26 @@ export default function Servizi() {
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <div className="organic-card group h-full overflow-hidden">
-                  <div className="relative h-48 sm:h-52 overflow-hidden soft-curve">
+                <div className="circle-card group h-full overflow-hidden">
+                  <div className="relative h-36 sm:h-40 soft-curve">
                     <img
                       src={service.image}
                       alt={service.category}
                       className="w-full h-full object-cover soft-curve-img"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                    <div className="absolute bottom-3 left-3 w-9 h-9 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
-                      <service.icon size={16} className="text-primary" />
+                    <div className="absolute bottom-2 left-2 w-8 h-8 circle-card-sm bg-primary/20 backdrop-blur-sm flex items-center justify-center">
+                      <service.icon size={14} className="text-primary" />
                     </div>
                   </div>
-                  <div className="p-5">
-                    <h3 className="font-playfair text-lg font-semibold text-foreground mb-1.5">{service.category}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-3">{service.description}</p>
+                  <div className="p-4">
+                    <h3 className="font-playfair text-base font-semibold text-foreground mb-1">{service.category}</h3>
+                    <p className="text-muted-foreground text-xs mb-2 line-clamp-2">{service.description}</p>
                     <Link
                       to="/contatti"
-                      className="inline-flex items-center gap-1.5 text-primary font-medium text-sm transition-colors"
+                      className="inline-flex items-center gap-1 text-primary font-medium text-xs"
                     >
-                      Prenota <ArrowRight size={12} />
+                      Prenota <ArrowRight size={10} />
                     </Link>
                   </div>
                 </div>

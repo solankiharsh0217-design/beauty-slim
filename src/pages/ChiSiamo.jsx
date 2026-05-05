@@ -54,13 +54,13 @@ export default function ChiSiamo() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="relative overflow-hidden rounded-2xl aspect-[4/5] shadow-xl">
+              <div className="relative overflow-hidden soft-curve aspect-[4/5] shadow-xl">
                 <img src={IMAGES.clinic} alt="Beauty Slim" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/30 to-transparent" />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-primary px-6 py-5 rounded-2xl text-center shadow-lg">
-                <div className="font-playfair text-3xl font-bold text-white">10+</div>
-                <div className="text-white/80 text-xs mt-0.5 uppercase tracking-wider">Anni</div>
+              <div className="absolute -bottom-5 -right-5 bg-primary px-5 py-4 circle-card-sm text-center shadow-lg">
+                <div className="font-playfair text-2xl font-bold text-white">10+</div>
+                <div className="text-white/80 text-[10px] mt-0.5 uppercase tracking-wider">Anni</div>
               </div>
             </motion.div>
 
@@ -73,7 +73,7 @@ export default function ChiSiamo() {
               <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
                 Dove la cura diventa <span className="text-primary italic">esperienza</span>
               </h2>
-              <p className="text-muted-foreground text-base leading-relaxed mb-6">
+              <p className="text-muted-foreground text-base mb-6">
                 Beauty Slim nasce ad Alessandria con un team che unisce esperienza, cura del dettaglio e attenzione concreta alla persona.
               </p>
               
@@ -87,10 +87,10 @@ export default function ChiSiamo() {
               </ul>
               
               <div className="flex gap-3">
-                <Link to="/contatti" className="px-7 py-3 bg-primary text-white rounded-full font-medium text-sm hover:bg-primary/90 transition-all">
+                <Link to="/contatti" className="px-7 py-3 bg-primary text-white circle-card-sm font-medium text-sm hover:bg-primary/90 transition-all">
                   Prenota Ora
                 </Link>
-                <a href="tel:0131234173" className="px-7 py-3 border border-white/30 text-white rounded-full font-medium text-sm hover:bg-white/10 transition-all flex items-center gap-2">
+                <a href="tel:0131234173" className="px-7 py-3 border border-white/30 text-white circle-card-sm font-medium text-sm hover:bg-white/10 transition-all flex items-center gap-2">
                   <Phone size={14} /> Chiamaci
                 </a>
               </div>

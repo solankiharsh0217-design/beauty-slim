@@ -75,7 +75,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="circle-grid">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -84,19 +84,19 @@ export default function Home() {
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <div className="organic-card group h-full overflow-hidden">
-                  <div className="relative h-48 sm:h-52 overflow-hidden bg-black">
-                    <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                <div className="circle-card group h-full overflow-hidden">
+                  <div className="relative h-40 sm:h-44 soft-curve">
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover soft-curve-img" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                    <div className="absolute bottom-3 left-3 w-9 h-9 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
-                      <service.icon size={16} className="text-primary" />
+                    <div className="absolute bottom-2 left-2 w-8 h-8 circle-card-sm bg-primary/20 backdrop-blur-sm flex items-center justify-center">
+                      <service.icon size={14} className="text-primary" />
                     </div>
                   </div>
-                  <div className="p-5">
-                    <h3 className="font-playfair text-lg font-semibold text-foreground mb-1.5">{service.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-3">{service.description}</p>
-                    <Link to="/servizi" className="inline-flex items-center gap-1.5 text-primary font-medium text-sm">
-                      Scopri <ArrowRight size={12} />
+                  <div className="p-4 text-center">
+                    <h3 className="font-playfair text-base font-semibold text-foreground mb-1">{service.title}</h3>
+                    <p className="text-muted-foreground text-xs mb-2">{service.description}</p>
+                    <Link to="/servizi" className="inline-flex items-center gap-1 text-primary font-medium text-xs">
+                      Scopri <ArrowRight size={10} />
                     </Link>
                   </div>
                 </div>
@@ -115,13 +115,13 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="relative overflow-hidden rounded-2xl aspect-[4/5] shadow-xl">
+              <div className="relative overflow-hidden soft-curve aspect-[4/5] shadow-xl">
                 <img src={IMAGES.clinic} alt="Beauty Slim" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/30 to-transparent" />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-primary px-6 py-5 rounded-2xl text-center shadow-lg">
-                <div className="font-playfair text-3xl font-bold text-white">10+</div>
-                <div className="text-white/80 text-xs mt-0.5 uppercase tracking-wider">Anni</div>
+              <div className="absolute -bottom-5 -right-5 bg-primary px-5 py-4 circle-card-sm text-center shadow-lg">
+                <div className="font-playfair text-2xl font-bold text-white">10+</div>
+                <div className="text-white/80 text-[10px] mt-0.5 uppercase tracking-wider">Anni</div>
               </div>
             </motion.div>
 
@@ -174,25 +174,25 @@ export default function Home() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="circle-grid">
             {testimonials.map((t, index) => (
               <motion.div
                 key={t.name}
-                className="organic-card p-5 text-center"
+                className="testimonial-card p-5 text-center"
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="flex justify-center gap-1 mb-3">
-                  {[...Array(t.rating)].map((_, i) => (<Star key={i} size={14} fill="#CDA45E" color="#CDA45E" />))}
+                <div className="flex justify-center gap-1 mb-2">
+                  {[...Array(t.rating)].map((_, i) => (<Star key={i} size={12} fill="#CDA45E" color="#CDA45E" />))}
                 </div>
-                <p className="text-foreground/75 text-sm mb-4 italic">"{t.text}"</p>
-                <div className="flex items-center justify-center gap-2 pt-3 border-t border-primary/15">
-                  <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center">
+                <p className="text-foreground/75 text-xs mb-3 italic">"{t.text}"</p>
+                <div className="flex items-center justify-center gap-2 pt-2 border-t border-primary/15">
+                  <div className="w-7 h-7 avatar-circle bg-primary/20">
                     <span className="text-primary font-bold text-xs">{t.name[0]}</span>
                   </div>
-                  <span className="font-semibold text-foreground text-sm">{t.name}</span>
+                  <span className="font-semibold text-foreground text-xs">{t.name}</span>
                 </div>
               </motion.div>
             ))}

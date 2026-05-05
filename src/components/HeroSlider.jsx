@@ -75,7 +75,21 @@ export default function HeroSlider() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0" />
+      {/* Decorative circles */}
+      <div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] opacity-10">
+          <div className="absolute inset-0 rounded-full border border-primary animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="absolute inset-8 rounded-full border border-primary/60" />
+          <div className="absolute inset-16 rounded-full border border-primary/40" />
+          <div className="absolute inset-24 rounded-full border border-primary/20" />
+        </div>
+        <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] opacity-8">
+          <div className="absolute inset-0 rounded-full border border-primary/40" style={{ animationDuration: '12s' }} />
+          <div className="absolute inset-10 rounded-full border-dashed border-primary/30" style={{ animationDuration: '20s' }} />
+        </div>
+        <div className="absolute top-1/3 right-10 w-24 h-24 rounded-full bg-primary/5 blur-xl" />
+        <div className="absolute bottom-1/4 left-1/4 w-16 h-16 rounded-full bg-primary/5 blur-lg" />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">

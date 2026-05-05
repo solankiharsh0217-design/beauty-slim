@@ -36,8 +36,16 @@ const AmbientGlow = () => (
   </>
 )
 
+const BlobDecors = () => (
+  <>
+    <div className="blob-circle w-[500px] h-[500px] -top-40 -left-40 opacity-60" />
+    <div className="blob-circle w-[400px] h-[400px] bottom-20 -right-20 opacity-40" style={{ animationDelay: '-5s' }} />
+    <div className="blob-circle w-[300px] h-[300px] top-1/2 left-1/3 opacity-30" style={{ animationDelay: '-10s' }} />
+  </>
+)
+
 const WaveSection = ({ children, className = '' }) => (
-  <section className={`relative py-24 wave-bg ${className}`}>
+  <section className={`relative py-24 ${className}`}>
     {children}
   </section>
 )
@@ -46,6 +54,7 @@ export default function Home() {
   return (
     <div className="font-poppins relative">
       <AmbientGlow />
+      <BlobDecors />
 
       <HeroSlider />
 

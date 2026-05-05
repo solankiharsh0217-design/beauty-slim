@@ -55,15 +55,19 @@ const services = [
   },
 ]
 
+const AmbientGlow = () => (
+  <>
+    <div className="ambient-glow ambient-glow-1" />
+    <div className="ambient-glow ambient-glow-2" />
+  </>
+)
+
 export default function Servizi() {
   return (
     <div className="font-poppins relative">
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-primary/10 blur-[100px] -top-64 -left-64 animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute w-[400px] h-[400px] rounded-full bg-primary/8 blur-[80px] bottom-20 -right-40 animate-pulse" style={{ animationDuration: '10s' }} />
-      </div>
+      <AmbientGlow />
 
-      <section className="relative pt-40 pb-28 overflow-hidden">
+      <section className="relative pt-40 pb-24 overflow-hidden">
         <div className="absolute inset-0">
           <img src={IMAGES.facial} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#16120e]" />
@@ -75,22 +79,18 @@ export default function Servizi() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="h-px w-8 bg-primary" />
-              <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase">I Nostri Servizi</span>
-              <div className="h-px w-8 bg-primary" />
-            </div>
-            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-white mb-5 leading-tight">
+            <span className="text-primary font-medium tracking-[0.15em] text-xs uppercase mb-4 block">I Nostri Servizi</span>
+            <h1 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
               Trattamenti per la tua<br /><span className="text-primary italic">bellezza completa</span>
             </h1>
-            <p className="text-white/70 text-lg leading-relaxed max-w-xl mx-auto">
-              Offriamo una selezione di trattamenti per viso, corpo, laser ed estetica quotidiana, costruiti per accompagnarti in un percorso curato e coerente.
+            <p className="text-white/70 text-base max-w-xl mx-auto">
+              Offriamo una selezione di trattamenti per viso, corpo, laser ed estetica quotidiana.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-28 bg-[#16120e]">
+      <section className="relative py-24 bg-[#16120e]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-12"
@@ -99,11 +99,11 @@ export default function Servizi() {
             viewport={{ once: true }}
           >
             <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block">I Nostri Servizi</span>
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground leading-tight mb-4">
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-4">
               Tutti i nostri <span className="text-primary italic">trattamenti</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto text-base leading-relaxed">
-              Scopri la gamma completa dei nostri servizi per viso, corpo e relax.
+            <p className="text-muted-foreground max-w-xl mx-auto text-base">
+              Scopri la gamma completa dei nostri servizi.
             </p>
           </motion.div>
 

@@ -15,13 +15,17 @@ const features = [
   'Risultati progressivi e realistici',
 ]
 
+const AmbientGlow = () => (
+  <>
+    <div className="ambient-glow ambient-glow-1" />
+    <div className="ambient-glow ambient-glow-2" />
+  </>
+)
+
 export default function ChiSiamo() {
   return (
-    <div className="font-poppins">
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-primary/10 blur-[100px] -top-64 -left-64" />
-        <div className="absolute w-[400px] h-[400px] rounded-full bg-primary/8 blur-[80px] bottom-20 -right-40" />
-      </div>
+    <div className="font-poppins relative">
+      <AmbientGlow />
 
       <section className="relative pt-40 pb-24 text-center overflow-hidden bg-[#16120e]">
         <div className="absolute inset-0 opacity-30" style={{backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(205,164,94,0.25), transparent 60%)'}} />

@@ -58,13 +58,13 @@ export default function Tecnologie() {
                 transition={{ delay: index * 0.08 }}
                 viewport={{ once: true }}
               >
-                <div className="relative h-40 overflow-hidden soft-curve">
+                <div className="relative h-36 overflow-hidden soft-curve">
                   <img src={tech.image} alt={tech.title} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 </div>
                 <div className="p-4">
                   <h3 className="font-playfair text-base font-semibold text-foreground mb-1">{tech.title}</h3>
-                  <p className="text-muted-foreground text-xs">{tech.description}</p>
+                  <p className="text-muted-foreground text-xs leading-relaxed line-clamp-2">{tech.description}</p>
                 </div>
               </motion.div>
             ))}

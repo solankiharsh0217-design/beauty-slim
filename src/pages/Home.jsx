@@ -29,17 +29,27 @@ const testimonials = [
   { name: 'Laura B.', text: 'Ambiente raffinato e accogliente, risultati visibili.', rating: 5 },
 ]
 
+const AmbientGlow = () => (
+  <>
+    <div className="ambient-glow ambient-glow-1" />
+    <div className="ambient-glow ambient-glow-2" />
+  </>
+)
+
+const WaveSection = ({ children, className = '' }) => (
+  <section className={`relative py-24 wave-bg ${className}`}>
+    {children}
+  </section>
+)
+
 export default function Home() {
   return (
     <div className="font-poppins relative">
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-primary/10 blur-[100px] -top-64 -left-64" />
-        <div className="absolute w-[400px] h-[400px] rounded-full bg-primary/8 blur-[80px] bottom-20 -right-40" />
-      </div>
+      <AmbientGlow />
 
       <HeroSlider />
 
-      <section className="relative py-28 bg-gradient-to-b from-[#16120e] to-[#0f0c0a]">
+      <WaveSection>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-12"
@@ -66,8 +76,8 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
                 <div className="organic-card group h-full overflow-hidden">
-                  <div className="relative h-48 sm:h-52 overflow-hidden soft-curve">
-                    <img src={service.image} alt={service.title} className="w-full h-full object-cover soft-curve-img" />
+                  <div className="relative h-48 sm:h-52 overflow-hidden bg-black">
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                     <div className="absolute bottom-3 left-3 w-9 h-9 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
                       <service.icon size={16} className="text-primary" />
@@ -85,9 +95,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </WaveSection>
 
-      <section className="relative py-28 bg-[#0f0c0a]">
+      <section className="relative py-24 bg-[#0f0c0a]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
@@ -141,7 +151,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative py-28 bg-gradient-to-b from-[#0f0c0a] to-[#16120e]">
+      <WaveSection className="bg-[#0f0c0a]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-12"
@@ -179,11 +189,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </WaveSection>
 
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={IMAGES.body} alt="" className="w-full h-full object-cover opacity-25" />
+          <img src={IMAGES.body} alt="" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/80" />
         </div>
 

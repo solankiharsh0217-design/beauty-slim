@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Phone } from 'lucide-react'
-import WaveDivider from '../components/WaveDivider'
 
 const galleryImages = [
   { src: 'https://media.base44.com/images/public/69f8ce55cc8dfb7009af86fe/8ec85e685_hero-beauty-consultation.png', category: 'Consulenza' },
@@ -27,7 +26,7 @@ export default function Gallery() {
             <h1 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-3 leading-tight">
               L'esperienza<br /><span className="text-primary italic">in immagini</span>
             </h1>
-            <div className="wave-ornament mb-5" style={{ margin: '0 auto 1.25rem' }} />
+            
             <p className="text-muted-foreground text-base leading-relaxed max-w-xl mx-auto">
               Una selezione di immagini che racconta l'atmosfera del centro e i nostri servizi.
             </p>
@@ -62,8 +61,6 @@ export default function Gallery() {
         </div>
       </section>
 
-      <WaveDivider />
-
       {/* ── CTA ── */}
       <section className="relative py-28 bg-background overflow-hidden">
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
@@ -75,7 +72,7 @@ export default function Gallery() {
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-3 leading-tight">
               Vuoi vedere di <span className="text-primary italic">persona</span>?
             </h2>
-            <div className="wave-ornament mb-6" style={{ margin: '0.75rem auto 1.5rem' }} />
+            
             <p className="text-muted-foreground text-base leading-relaxed mb-8">
               Prenota una consulenza e visita il centro.
             </p>

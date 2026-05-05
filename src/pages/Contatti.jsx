@@ -35,7 +35,7 @@ export default function Contatti() {
             <h1 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-3 leading-tight">
               Inizia il tuo<br /><span className="text-primary italic">percorso oggi</span>
             </h1>
-            <div className="wave-ornament mb-5" style={{ margin: '0 auto 1.25rem' }} />
+            
             <p className="text-muted-foreground text-base leading-relaxed max-w-xl mx-auto">
               Siamo qui per ascoltare le tue esigenze. Compila il form o contattaci — risponderemo entro poche ore.
             </p>
@@ -69,8 +69,6 @@ export default function Contatti() {
         </div>
       </section>
 
-      <WaveDivider />
-
       {/* ── Form ── */}
       <section className="relative py-28 bg-background">
         <div className="max-w-2xl mx-auto px-6 relative z-10">
@@ -85,7 +83,7 @@ export default function Contatti() {
             <h2 className="font-playfair text-3xl md:text-4xl font-bold text-foreground mb-3 text-center">
               Prenota la tua <span className="text-primary italic">consulenza</span>
             </h2>
-            <div className="wave-ornament mb-8" style={{ margin: '0.75rem auto 2rem' }} />
+            
 
             {submitted ? (
               <div className="spa-card p-10 text-center">
@@ -155,7 +153,7 @@ export default function Contatti() {
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-3 leading-tight">
               Hai domande? <span className="text-primary italic">Chiamaci</span>
             </h2>
-            <div className="wave-ornament mb-7" style={{ margin: '0.75rem auto 1.75rem' }} />
+            
             <p className="text-muted-foreground text-base leading-relaxed mb-8">
               Siamo disponibili per chiarire ogni tuo dubbio.
             </p>

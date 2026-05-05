@@ -165,14 +165,6 @@ html { scroll-behavior: smooth; }
     justify-content: center;
   }
 
-  .wave-ornament {
-    width: 64px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(196,152,74,0.85), transparent);
-    border-radius: 4px;
-    margin: 0.75rem auto 0;
-  }
-
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;

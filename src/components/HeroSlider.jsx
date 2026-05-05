@@ -104,14 +104,7 @@ export default function HeroSlider() {
             </motion.h1>
           </AnimatePresence>
 
-          {/* Wave ornament */}
-          <motion.div
-            className="wave-ornament mb-6"
-            style={{ margin: '0 0 1.5rem 0' }}
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          />
+          
 
           {/* Subtitle */}
           <AnimatePresence mode="wait">

@@ -88,7 +88,7 @@ export default function Home() {
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground leading-tight mb-3">
               Trattamenti pensati <span className="text-primary italic">per te</span>
             </h2>
-            <div className="wave-ornament" />
+            
             <p className="text-muted-foreground max-w-xl mx-auto text-base mt-5">
               Ogni servizio nasce da un ascolto reale. Costruiamo percorsi su misura.
             </p>
@@ -237,7 +237,7 @@ export default function Home() {
                 Dove la cura diventa{' '}
                 <span className="text-primary italic">esperienza</span>
               </h2>
-              <div className="wave-ornament mb-6" style={{ margin: '0 0 1.5rem 0' }} />
+              
               <p className="text-muted-foreground text-base mb-7 leading-relaxed">
                 Beauty Slim nasce ad Alessandria con un team che unisce esperienza,
                 cura del dettaglio e attenzione alla persona.
@@ -287,7 +287,7 @@ export default function Home() {
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-3">
               Cosa dicono di <span className="text-primary italic">noi</span>
             </h2>
-            <div className="wave-ornament" />
+            
           </motion.div>
 
           <div className="spa-grid">

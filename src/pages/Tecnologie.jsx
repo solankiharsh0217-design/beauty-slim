@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Check, Phone, X, ArrowRight, Zap, Activity, Layers, Wind } from 'lucide-react'
-import WaveDivider from '../components/WaveDivider'
 
 const IMAGES = {
   body: 'https://media.base44.com/images/public/69f8ce55cc8dfb7009af86fe/db2dc7dc0_body-sculpting-treatment.png',
@@ -77,7 +76,7 @@ export default function Tecnologie() {
             <h1 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-3 leading-tight">
               Strumenti per la tua <span className="text-primary italic">bellezza</span>
             </h1>
-            <div className="wave-ornament mb-5" style={{ margin: '0 auto 1.25rem' }} />
+            
             <p className="text-muted-foreground text-base leading-relaxed max-w-xl mx-auto">
               Utilizziamo macchinari professionali di ultima generazione, selezionati per garantirti risultati visibili, sicuri e duraturi. Ogni tecnologia è affiancata da un percorso personalizzato studiato sulle tue esigenze.
             </p>
@@ -196,8 +195,6 @@ export default function Tecnologie() {
         )}
       </AnimatePresence>
 
-      <WaveDivider />
-
       {/* ── Benefits ── */}
       <section className="relative py-24 bg-background">
         <div className="max-w-2xl mx-auto px-6">
@@ -207,7 +204,7 @@ export default function Tecnologie() {
               <h2 className="font-playfair text-2xl md:text-3xl font-bold text-foreground mb-3">
                 Tecnologia al servizio della tua <span className="text-primary italic">bellezza</span>
               </h2>
-              <div className="wave-ornament mb-7" style={{ margin: '0.75rem auto 1.75rem' }} />
+              
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                 Non lavoriamo con macchinari generici. Ogni strumento che utilizziamo è stato scelto per la sua efficacia clinica, la sicurezza d'uso e la capacità di offrire risultati visibili e misurabili.
               </p>
@@ -233,7 +230,7 @@ export default function Tecnologie() {
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-3 leading-tight">
               Vuoi sapere quale tecnologia <span className="text-primary italic">fa per te?</span>
             </h2>
-            <div className="wave-ornament mb-7" style={{ margin: '0.75rem auto 1.75rem' }} />
+            
             <p className="text-muted-foreground text-base leading-relaxed mb-8">
               Prenota una consulenza gratuita. Ti spiegheremo qual è il percorso più adatto ai tuoi obiettivi, senza impegno.
             </p>

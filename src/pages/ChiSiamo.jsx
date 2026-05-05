@@ -39,7 +39,7 @@ export default function ChiSiamo() {
             <h1 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-3 leading-tight">
               Il tuo centro benessere<br /><span className="text-primary italic">ad Alessandria</span>
             </h1>
-            <div className="wave-ornament mb-5" style={{ margin: '0 auto 1.25rem' }} />
+            
             <p className="text-muted-foreground text-base leading-relaxed max-w-xl mx-auto">
               Beauty Slim è uno spazio dedicato alla bellezza e al benessere, dove stile, ascolto e precisione convivono.
             </p>
@@ -83,7 +83,7 @@ export default function ChiSiamo() {
               <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-3 leading-tight">
                 Dove la cura diventa <span className="text-primary italic">esperienza</span>
               </h2>
-              <div className="wave-ornament mb-6" style={{ margin: '0 0 1.5rem 0' }} />
+              
               <p className="text-muted-foreground text-base mb-7 leading-relaxed">
                 Beauty Slim nasce ad Alessandria con un team che unisce esperienza, cura del dettaglio
                 e attenzione concreta alla persona.
@@ -133,7 +133,7 @@ export default function ChiSiamo() {
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-3 leading-tight">
               Ti aspettiamo in <span className="text-primary italic">centro</span>
             </h2>
-            <div className="wave-ornament mb-7" style={{ margin: '0.75rem auto 1.75rem' }} />
+            
             <p className="text-white/65 text-base leading-relaxed mb-8">
               Vieni a trovarci in Via Trotti 69, Alessandria — sarà un piacere conoscerti.
             </p>

@@ -8,9 +8,9 @@ import { Plus, Pencil, Trash2, ToggleLeft, ToggleRight, Sparkles, Calendar, Chec
 const emptyForm = { title: '', description: '', badge_text: '', active: true, expires_at: '' }
 
 export default function Dashboard() {
-  const [isLoggedIn, setIsLoggedIn] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [promos, setPromos] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [form, setForm] = useState(emptyForm)
   const [editingId, setEditingId] = useState(null)
   const [showForm, setShowForm] = useState(false)
@@ -19,11 +19,10 @@ export default function Dashboard() {
   const [loginCreds, setLoginCreds] = useState({ username: '', password: '' })
 
   useEffect(() => {
-    setIsLoggedIn(adminAuth.isLoggedIn())
-    if (adminAuth.isLoggedIn()) {
+    const loggedIn = adminAuth.isLoggedIn()
+    setIsLoggedIn(loggedIn)
+    if (loggedIn) {
       loadPromos()
-    } else {
-      setLoading(false)
     }
   }, [])
 

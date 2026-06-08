@@ -134,6 +134,41 @@ export default function Contatti() {
         </div>
       </section>
 
+      <section className="relative py-24 bg-secondary">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <span className="text-primary font-medium tracking-[0.2em] text-xs uppercase mb-4 block text-center">
+              Dove Siamo
+            </span>
+            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-foreground mb-3 text-center">
+              Vieni a <span className="text-primary italic">trovarci</span>
+            </h2>
+            <p className="text-muted-foreground text-base text-center mb-10">
+              Via Trotti 69, 15121 Alessandria
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-3xl overflow-hidden border border-primary/20 shadow-2xl shadow-black/40"
+          >
+            <iframe
+              src="https://maps.google.com/maps?q=Via+Trotti+69,+15121+Alessandria,+Italy&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Beauty Slim - Via Trotti 69, Alessandria"
+              className="w-full"
+            />
+          </motion.div>
+        </div>
+      </section>
+
       <section className="relative py-24 bg-background overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">

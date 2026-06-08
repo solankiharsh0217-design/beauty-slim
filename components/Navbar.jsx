@@ -59,7 +59,7 @@ export default function Navbar() {
               <li key={link.path}>
                 <Link
                   href={link.path}
-                  className={`font-poppins text-sm font-medium transition-all duration-300 relative ${
+                  className={`group font-poppins text-sm font-medium transition-all duration-300 relative ${
                     pathname === link.path
                       ? 'text-primary'
                       : 'text-white/80 hover:text-white'
